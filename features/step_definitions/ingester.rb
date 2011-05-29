@@ -10,6 +10,9 @@ When /^I ingest the TEI$/ do
   ingester.ingest(@tei)
 end
 
+Then /^the ingester should start building the Fedora object$/
+end
+
 Then /^the ingester should know the TCP ID$/ do
   ingester.tcp_id.should == @tcp_id
 end
