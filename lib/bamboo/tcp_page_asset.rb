@@ -1,4 +1,4 @@
-class Monkjr::TcpPageAsset < ActiveFedora::Base
+class Bamboo::TcpPageAsset < ActiveFedora::Base
 
   has_metadata :name => 'properties', :type => ActiveFedora::MetadataDatastream do |p|
     p.field 'n', :string

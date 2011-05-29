@@ -1,0 +1,16 @@
+#1. Get the TCP ID of the file
+
+2. Find the corresponding MA file
+
+As an ingester
+I want to find the MA file
+So that I can ingest it in Fedora
+3. Find the corresponding image URL
+As an ingester
+I want to find the URL of the image
+So that I can ingest it in Fedora
+
+4. Create a Fedora object with the correct PID and datastreams
+As an ingester
+I was to create an object in Fedora with the correct PID and datastremas
+So I can use it in my application

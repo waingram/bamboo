@@ -1,4 +1,4 @@
-class Monkjr::TcpBookAsset < ActiveFedora::Base
+class Bamboo::TcpBookAsset < ActiveFedora::Base
 
   has_metadata :name => 'teiHeader', :type => ActiveFedora::NokogiriDatastream
 

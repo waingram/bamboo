@@ -1,6 +1,6 @@
 require 'om'
 
-class Monkjr::Ingester
+class Bamboo::Ingester
   attr_accessor :package_dir
 
   def initialize(package_dir)
@@ -28,7 +28,7 @@ class Monkjr::Ingester
       pid            = tcpid_to_pid(tcpid)
 
       replacing_object(pid) do
-        tcp_book_asset = Monkjr::TcpBookAsset.new(:pid => pid)
+        tcp_book_asset = Bamboo::TcpBookAsset.new(:pid => pid)
         #TEI header ds
         tei_header_ds                      = tcp_book_asset.datastreams['teiHeader']
         tei_header_ds.ng_xml               = tei_header_xml
@@ -70,7 +70,7 @@ class Monkjr::Ingester
   def create_page_image(book, pid, image_set_id, n="", facs="")
     puts ("Creating page #{facs}")
     replacing_object(pid) do
-      tcp_image_asset = Monkjr::TcpPageAsset.new(:pid => pid)
+      tcp_image_asset = Bamboo::TcpPageAsset.new(:pid => pid)
       #properties ds
       props_ds = tcp_image_asset.datastreams['properties']
       props_ds.n_values << n

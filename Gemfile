@@ -13,9 +13,7 @@ gem 'solrizer-fedora', '>=0.1.1'
 gem 'yard'
 
 
-source 'http://gemcutter.org'
-
-gem 'block_helpers'
+#source 'http://gemcutter.org'
 
 group :development, :test do
   gem 'ruby-debug'
