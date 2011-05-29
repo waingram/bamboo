@@ -5,7 +5,6 @@ Feature: repository manager finds MA file
 	Scenario: find MA file
 		Given I have a TEI XML file
 		When I ingest the TEI
-		The the ingester should start building the Fedora object
-		And the ingester should know the TCP ID
+		Then the ingester should know the TCP ID
 		And the ingester should know the MA file location
 		And the ingester should know the Gayle image URL
