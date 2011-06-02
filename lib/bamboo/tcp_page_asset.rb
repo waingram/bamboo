@@ -1,3 +1,5 @@
+require 'active_fedora'
+
 class Bamboo::TcpPageAsset < ActiveFedora::Base
 
   has_metadata :name => 'properties', :type => ActiveFedora::MetadataDatastream do |p|

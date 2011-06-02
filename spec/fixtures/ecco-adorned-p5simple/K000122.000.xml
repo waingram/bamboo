@@ -1,0 +1,1588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" n="K000122.000.xml">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>The bricklayer's poem to the Countess of Chesterfield, on Her Ladyship's saving the soldiers from being shot:</title>
+        <author>Jones, Henry, 1721-1770.</author>
+      </titleStmt>
+      <extent>6 600dpi bitonal TIFF page images and SGML/XML encoded text</extent>
+      <publicationStmt>
+        <publisher>University of Michigan Library</publisher>
+        <pubPlace>Ann Arbor, Michigan</pubPlace>
+        <date>2006</date>
+        <idno type="DLPS">004776768</idno>
+        <idno type="ESTC">N203</idno>
+        <idno type="DocNo">CW110974630</idno>
+        <idno type="TCP">K000122.000</idno>
+        <idno type="GaleDocNo">CW3310974630</idno>
+        <idno type="ContentSet">ECLL</idno>
+        <idno type="ImageSetID">0250900300</idno>
+        <availability>
+          <p>These pages may be freely searched and displayed. Permission must be received for subsequent distribution in print or electronically. Please go to http://www.lib.umich.edu/tcp/ecco for more information.</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <biblFull>
+          <titleStmt>
+            <title>The bricklayer's poem to the Countess of Chesterfield, on Her Ladyship's saving the soldiers from being shot:</title>
+            <author>Jones, Henry, 1721-1770.</author>
+          </titleStmt>
+          <extent>7,[1]p. ; 8⁰.</extent>
+          <publicationStmt>
+            <pubPlace>Dublin :</pubPlace>
+            <publisher>printed in the year,</publisher>
+            <date>1745.</date>
+          </publicationStmt>
+          <notesStmt>
+            <note>Bricklayer = Henry Jones.</note>
+            <note>Reproduction of original from the Huntington Library.</note>
+            <note>Foxon, J92</note>
+            <note>English Short Title Catalog, ESTCN203.</note>
+            <note>Electronic data. Farmington Hills, Mich. : Thomson Gale, 2003. Page image (PNG). Digitized image of the microfilm version produced in Woodbridge, CT by Research Publications, 1982-2002 (later known as Primary Source Microfilm, an imprint of the Gale Group).</note>
+          </notesStmt>
+        </biblFull>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p>Header created with script ecco-header.xsl on 2006-04-21.</p>
+      </projectDesc>
+      <editorialDecl n="4">
+        <p>This electronic text file was keyed from page images and partially proofread for accuracy. Character capture and encoding have been done following the guidelines of the ECCO Text Creation Partnership, which correspond roughly to the recommendations found in Level 4 of the TEI in Libraries Guidelines. Digital page images are linked to the text file.</p>
+      </editorialDecl>
+    </encodingDesc>
+  </teiHeader>
+  <text xml:lang="eng">
+    <front>
+      <div type="title_page">
+        <pb facs="025090030000010"></pb>
+        <p>
+          <w lemma="the" ana="#dt" reg="THE" xml:id="K000122_000-0030">THE</w>
+          <c> </c>
+          <w lemma="bricklayer" ana="#ng1" reg="Bricklayer's" xml:id="K000122_000-0040">Bricklayer's</w>
+          <c> </c>
+          <w lemma="poem" ana="#n1" reg="POEM" xml:id="K000122_000-0050">POEM</w>
+          <c> </c>
+          <w lemma="to" ana="#p-acp" reg="TO" xml:id="K000122_000-0060">TO</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="THE" xml:id="K000122_000-0070">THE</w>
+          <c> </c>
+          <w lemma="countess" ana="#n1" reg="Countess" xml:id="K000122_000-0080">Countess</w>
+          <c> </c>
+          <w lemma="of" ana="#pp-f" reg="of" xml:id="K000122_000-0090">of</w>
+          <c> </c>
+          <w lemma="Chesterfield" ana="#np1" reg="CHESTERFIELD" xml:id="K000122_000-0100">CHESTERFIELD</w>
+          <pc xml:id="K000122_000-0110">,</pc>
+          <c> </c>
+          <w lemma="on" ana="#p-acp" reg="On" xml:id="K000122_000-0120">On</w>
+          <c> </c>
+          <w lemma="her" ana="#po31" reg="Her" xml:id="K000122_000-0130">Her</w>
+          <c> </c>
+          <w lemma="ladyship" ana="#ng1" reg="LADYSHIP'S" xml:id="K000122_000-0140">LADYSHIP'S</w>
+          <c> </c>
+          <w lemma="save" ana="#vvg" reg="saving" xml:id="K000122_000-0150">saving</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-0160">the</w>
+          <c> </c>
+          <w lemma="soldier" ana="#n2" reg="SOLDIERS" xml:id="K000122_000-0170">SOLDIERS</w>
+          <c> </c>
+          <w lemma="from" ana="#p-acp" reg="from" xml:id="K000122_000-0180">from</w>
+          <c> </c>
+          <w lemma="be" ana="#vbg" reg="being" xml:id="K000122_000-0190">being</w>
+          <c> </c>
+          <w lemma="shoot" ana="#vvn" reg="shot" xml:id="K000122_000-0200">shot</w>
+          <pc xml:id="K000122_000-0210" unit="sentence">.</pc>
+        </p>
+        <p>
+          <w lemma="Dublin" ana="#np1" reg="DUBLIN" xml:id="K000122_000-0240">DUBLIN</w>
+          <pc xml:id="K000122_000-0250">:</pc>
+          <hi>
+            <c> </c>
+            <w lemma="print" ana="#vvn" reg="Printed" xml:id="K000122_000-0260">Printed</w>
+            <c> </c>
+            <w lemma="in" ana="#p-acp" reg="in" xml:id="K000122_000-0270">in</w>
+            <c> </c>
+            <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-0280">the</w>
+            <c> </c>
+            <w lemma="year" ana="#n1" reg="Year" xml:id="K000122_000-0290">Year</w>
+            <pc xml:id="K000122_000-0300">,</pc>
+            <c> </c>
+            <w lemma="m." ana="#n1" reg="M." xml:id="K000122_000-0310">M.</w>
+            <c> </c>
+            <w lemma="Dcc" ana="#np1" reg="DCC" xml:id="K000122_000-0320">DCC</w>
+            <pc xml:id="K000122_000-0330" unit="sentence">.</pc>
+            <c> </c>
+            <w lemma="xlv" ana="#crd" reg="XLV" xml:id="K000122_000-0340">XLV</w>
+            <pc xml:id="K000122_000-0350" unit="sentence">.</pc>
+            <c> </c>
+          </hi>
+        </p>
+      </div>
+    </front>
+    <body>
+      <div type="poem">
+        <pb facs="025090030000020" n="3"></pb>
+        <head>
+          <w lemma="the" ana="#dt" reg="THE" xml:id="K000122_000-0400">THE</w>
+          <c> </c>
+          <w lemma="bricklayer" ana="#ng1" reg="BRICKLAYER'S" xml:id="K000122_000-0410">BRICKLAYER'S</w>
+          <c> </c>
+          <w lemma="poem" ana="#n1" reg="POEM" xml:id="K000122_000-0420">POEM</w>
+          <pc xml:id="K000122_000-0430">,</pc>
+          <c> </c>
+          <w lemma="to" ana="#p-acp" reg="TO" xml:id="K000122_000-0440">TO</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="THE" xml:id="K000122_000-0450">THE</w>
+          <c> </c>
+          <w lemma="countess" ana="#n1" reg="Countess" xml:id="K000122_000-0460">Countess</w>
+          <c> </c>
+          <w lemma="of" ana="#pp-f" reg="of" xml:id="K000122_000-0470">of</w>
+          <c> </c>
+          <w lemma="Chesterfield" ana="#np1" reg="CHESTERFIELD" xml:id="K000122_000-0480">CHESTERFIELD</w>
+          <pc xml:id="K000122_000-0490">,</pc>
+          <c> </c>
+          <w lemma="etc." ana="#av" reg="etc." xml:id="K000122_000-0500">&amp;c</w>
+          <pc xml:id="K000122_000-0510" unit="sentence">.</pc>
+        </head>
+        <l>
+          <w lemma="what" ana="#q-crq" reg="WHAT" xml:id="K000122_000-0550">WHAT</w>
+          <c> </c>
+          <w lemma="mean" ana="#vvz" reg="means" xml:id="K000122_000-0560">means</w>
+          <c> </c>
+          <w lemma="this" ana="#d" reg="this" xml:id="K000122_000-0570">this</w>
+          <c> </c>
+          <w lemma="dismal" ana="#j" reg="dismal" xml:id="K000122_000-0580">dismal</w>
+          <c> </c>
+          <w lemma="sound" ana="#vvb" reg="Found" xml:id="K000122_000-0590">Sound</w>
+          <pc xml:id="K000122_000-0600">,</pc>
+          <c> </c>
+          <w lemma="that" ana="#cst" reg="that" xml:id="K000122_000-0610">that</w>
+          <c> </c>
+          <w lemma="March" ana="#np1" reg="March" xml:id="K000122_000-0620">March</w>
+          <c> </c>
+          <w lemma="so" ana="#av" reg="so" xml:id="K000122_000-0630">so</w>
+          <c> </c>
+          <w lemma="slow" ana="#j" reg="slow" xml:id="K000122_000-0640">slow</w>
+          <pc xml:id="K000122_000-0650">,</pc>
+        </l>
+        <l>
+          <w lemma="this" ana="#d" reg="This" xml:id="K000122_000-0680">This</w>
+          <c> </c>
+          <w lemma="solemn" ana="#j" reg="solemn" xml:id="K000122_000-0690">solemn</w>
+          <c> </c>
+          <w lemma="sadness" ana="#n1" reg="Sadness" xml:id="K000122_000-0700">Sadness</w>
+          <pc xml:id="K000122_000-0710">,</pc>
+          <c> </c>
+          <w lemma="and" ana="#cc" reg="and" xml:id="K000122_000-0720">and</w>
+          <c> </c>
+          <w lemma="this" ana="#d" reg="this" xml:id="K000122_000-0730">this</w>
+          <c> </c>
+          <w lemma="pomp" ana="#n1" reg="Pomp" xml:id="K000122_000-0740">Pomp</w>
+          <c> </c>
+          <w lemma="of" ana="#pp-f" reg="of" xml:id="K000122_000-0750">of</w>
+          <c> </c>
+          <w lemma="woe" ana="#n1" reg="Woe" xml:id="K000122_000-0760">Woe</w>
+          <pc xml:id="K000122_000-0770" unit="sentence">?</pc>
+        </l>
+        <l>
+          <w lemma="why" ana="#q-crq" reg="Why" xml:id="K000122_000-0800">Why</w>
+          <c> </c>
+          <w lemma="hang" ana="#vvz" reg="hangs" xml:id="K000122_000-0810">hangs</w>
+          <c> </c>
+          <w lemma="that" ana="#d" reg="that" xml:id="K000122_000-0820">that</w>
+          <c> </c>
+          <w lemma="horror" ana="#n1" reg="Horror" xml:id="K000122_000-0830">Horror</w>
+          <c> </c>
+          <w lemma="on" ana="#p-acp" reg="on" xml:id="K000122_000-0840">on</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-0850">the</w>
+          <c> </c>
+          <w lemma="soldier" ana="#ng1" reg="Soldier's" xml:id="K000122_000-0860">Soldier's</w>
+          <c> </c>
+          <w lemma="mien" ana="#j" reg="Mien" xml:id="K000122_000-0870">Mien</w>
+          <pc xml:id="K000122_000-0880" unit="sentence">?</pc>
+        </l>
+        <l>
+          <w lemma="why" ana="#q-crq" reg="Why" xml:id="K000122_000-0910">Why</w>
+          <c> </c>
+          <w lemma="droop" ana="#vvb" reg="droop" xml:id="K000122_000-0920">droop</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-0930">the</w>
+          <c> </c>
+          <w lemma="multitude" ana="#n1" reg="Multitude" xml:id="K000122_000-0940">Multitude</w>
+          <pc xml:id="K000122_000-0950" unit="sentence">?</pc>
+          <c> </c>
+          <w lemma="what" ana="#q-crq" reg="What" xml:id="K000122_000-0960">What</w>
+          <c> </c>
+          <w lemma="mean" ana="#vvz" reg="means" xml:id="K000122_000-0970">means</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-0980">the</w>
+          <c> </c>
+          <w lemma="scene" ana="#n1" reg="Scene" xml:id="K000122_000-0990">Scene</w>
+          <pc xml:id="K000122_000-1000" unit="sentence">?</pc>
+        </l>
+        <l>
+          <w lemma="behold" ana="#vvb" reg="Behold" xml:id="K000122_000-1030">Behold</w>
+          <pc xml:id="K000122_000-1040">!</pc>
+          <c> </c>
+          <w lemma="two" ana="#crd" reg="two" xml:id="K000122_000-1050">two</w>
+          <c> </c>
+          <w lemma="victim" ana="#n2" reg="Victims" xml:id="K000122_000-1060">Victims</w>
+          <pc xml:id="K000122_000-1070">,</pc>
+          <c> </c>
+          <w lemma="pale" ana="#j" reg="pale" xml:id="K000122_000-1080">pale</w>
+          <c> </c>
+          <w lemma="and" ana="#cc" reg="and" xml:id="K000122_000-1090">and</w>
+          <c> </c>
+          <w lemma="tremble" ana="#j-vvg" reg="trembling" xml:id="K000122_000-1100">trembling</w>
+          <pc xml:id="K000122_000-1110">,</pc>
+          <c> </c>
+          <w lemma="lead" ana="#vvd" reg="led" xml:id="K000122_000-1120">led</w>
+          <pc xml:id="K000122_000-1130">,</pc>
+        </l>
+        <l>
+          <w lemma="already" ana="#av" reg="Already" xml:id="K000122_000-1160">Already</w>
+          <c> </c>
+          <w lemma="number" ana="#vvn" reg="numbered" xml:id="K000122_000-1170">number'd</w>
+          <c> </c>
+          <w lemma="with" ana="#p-acp" reg="with" xml:id="K000122_000-1180">with</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-1190">the</w>
+          <c> </c>
+          <w lemma="moulder" ana="#vvg" reg="mouldering" xml:id="K000122_000-1200">mould'ring</w>
+          <c> </c>
+          <w lemma="dead" ana="#j" reg="dead" xml:id="K000122_000-1210">dead</w>
+          <pc xml:id="K000122_000-1220">;</pc>
+        </l>
+        <l>
+          <pb facs="025090030000030" n="4"></pb>
+          <w lemma="what" ana="#q-crq" reg="What" xml:id="K000122_000-1250">What</w>
+          <c> </c>
+          <w lemma="ghastly" ana="#j" reg="ghastly" xml:id="K000122_000-1260">ghastly</w>
+          <c> </c>
+          <w lemma="terror" ana="#n2" reg="Terrors" xml:id="K000122_000-1270">Terrors</w>
+          <c> </c>
+          <w lemma="on" ana="#p-acp" reg="on" xml:id="K000122_000-1280">on</w>
+          <c> </c>
+          <w lemma="each" ana="#d" reg="each" xml:id="K000122_000-1290">each</w>
+          <c> </c>
+          <w lemma="brow" ana="#n1" reg="Brow" xml:id="K000122_000-1300">Brow</w>
+          <c> </c>
+          <w lemma="we" ana="#pns12" reg="we" xml:id="K000122_000-1310">we</w>
+          <c> </c>
+          <w lemma="trace" ana="#vvb" reg="trace" xml:id="K000122_000-1320">trace</w>
+          <pc xml:id="K000122_000-1330" unit="sentence">!</pc>
+        </l>
+        <l>
+          <w lemma="see" ana="#vvb" reg="See" xml:id="K000122_000-1360">See</w>
+          <c> </c>
+          <w lemma="death" ana="#n1" reg="Death" xml:id="K000122_000-1370">Death</w>
+          <c> </c>
+          <w lemma="imprint" ana="#vvn" reg="imprinted" xml:id="K000122_000-1380">imprinted</w>
+          <c> </c>
+          <w lemma="on" ana="#p-acp" reg="on" xml:id="K000122_000-1390">on</w>
+          <c> </c>
+          <w lemma="each" ana="#d" reg="each" xml:id="K000122_000-1400">each</w>
+          <c> </c>
+          <w lemma="die" ana="#j-vvg" reg="dying" xml:id="K000122_000-1410">dying</w>
+          <c> </c>
+          <w lemma="face" ana="#n1" reg="Face" xml:id="K000122_000-1420">Face</w>
+          <pc xml:id="K000122_000-1430" unit="sentence">!</pc>
+        </l>
+        <l>
+          <w lemma="Frail" ana="#np1" reg="Frail" xml:id="K000122_000-1460">Frail</w>
+          <c> </c>
+          <w lemma="nature" ana="#n1" reg="Nature" xml:id="K000122_000-1470">Nature</w>
+          <c> </c>
+          <w lemma="bend" ana="#vvz" reg="bends" xml:id="K000122_000-1480">bends</w>
+          <c> </c>
+          <w lemma="beneath" ana="#p-acp" reg="beneath" xml:id="K000122_000-1490">beneath</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-1500">the</w>
+          <c> </c>
+          <w lemma="ponderous" ana="#j" reg="ponderous" xml:id="K000122_000-1510">pond'rous</w>
+          <c> </c>
+          <w lemma="woe" ana="#n1" reg="Woe" xml:id="K000122_000-1520">Woe</w>
+          <pc xml:id="K000122_000-1530">,</pc>
+        </l>
+        <l>
+          <w lemma="and" ana="#cc" reg="And" xml:id="K000122_000-1560">And</w>
+          <c> </c>
+          <w lemma="prone" ana="#j" reg="prove" xml:id="K000122_000-1570">prone</w>
+          <c> </c>
+          <w lemma="to" ana="#p-acp" reg="to" xml:id="K000122_000-1580">to</w>
+          <c> </c>
+          <w lemma="death" ana="#n1" reg="Death" xml:id="K000122_000-1590">Death</w>
+          <c> </c>
+          <w lemma="will" ana="#vmd" reg="would" xml:id="K000122_000-1600">would</w>
+          <c> </c>
+          <w lemma="fain" ana="#av" reg="fain" xml:id="K000122_000-1610">fain</w>
+          <c> </c>
+          <w lemma="prevent" ana="#vvi" reg="prevent" xml:id="K000122_000-1620">prevent</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-1630">the</w>
+          <c> </c>
+          <w lemma="blow" ana="#vvb" reg="Blow" xml:id="K000122_000-1640">Blow</w>
+          <pc xml:id="K000122_000-1650">:</pc>
+        </l>
+        <l>
+          <w lemma="yet" ana="#av" reg="Yet" xml:id="K000122_000-1680">Yet</w>
+          <c> </c>
+          <w lemma="love" ana="#n1" reg="Love" xml:id="K000122_000-1690">Love</w>
+          <c> </c>
+          <w lemma="of" ana="#pp-f" reg="of" xml:id="K000122_000-1700">of</w>
+          <c> </c>
+          <w lemma="life" ana="#n1" reg="Life" xml:id="K000122_000-1710">Life</w>
+          <c> </c>
+          <w lemma="assert" ana="#n2" reg="asserts" xml:id="K000122_000-1720">asserts</w>
+          <c> </c>
+          <w lemma="its" ana="#po31" reg="its" xml:id="K000122_000-1730">its</w>
+          <c> </c>
+          <w lemma="eager" ana="#j" reg="eager" xml:id="K000122_000-1740">eager</w>
+          <c> </c>
+          <w lemma="claim" ana="#n1" reg="Claim" xml:id="K000122_000-1750">Claim</w>
+          <pc xml:id="K000122_000-1760">,</pc>
+        </l>
+        <l>
+          <w lemma="but" ana="#p-acp" reg="But" xml:id="K000122_000-1790">But</w>
+          <c> </c>
+          <w lemma="hope" ana="#n1" reg="Hope" xml:id="K000122_000-1800">Hope</w>
+          <pc xml:id="K000122_000-1810">,</pc>
+          <c> </c>
+          <w lemma="alas" ana="#uh" reg="alas" xml:id="K000122_000-1820">alas</w>
+          <pc xml:id="K000122_000-1830">!</pc>
+          <c> </c>
+          <w lemma="afford" ana="#vvz" reg="affords" xml:id="K000122_000-1840">affords</w>
+          <c> </c>
+          <w lemma="no" ana="#dx" reg="no" xml:id="K000122_000-1850">no</w>
+          <c> </c>
+          <w lemma="flatter" ana="#vvg" reg="flattering" xml:id="K000122_000-1860">flatt'ring</w>
+          <c> </c>
+          <w lemma="gleam" ana="#n1" reg="Gleam" xml:id="K000122_000-1870">Gleam</w>
+          <pc xml:id="K000122_000-1880" unit="sentence">.</pc>
+        </l>
+        <l>
+          <w lemma="lo" ana="#uh" reg="Lo" xml:id="K000122_000-1910">Lo</w>
+          <pc xml:id="K000122_000-1920">!</pc>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-1930">the</w>
+          <c> </c>
+          <w lemma="pale" ana="#j" reg="pale" xml:id="K000122_000-1940">pale</w>
+          <c> </c>
+          <w lemma="king" ana="#n1" reg="King" xml:id="K000122_000-1950">King</w>
+          <c> </c>
+          <w lemma="in" ana="#p-acp" reg="in" xml:id="K000122_000-1960">in</w>
+          <c> </c>
+          <w lemma="horrid" ana="#j" reg="horrid" xml:id="K000122_000-1970">horrid</w>
+          <c> </c>
+          <w lemma="pomp" ana="#n1" reg="Pomp" xml:id="K000122_000-1980">Pomp</w>
+          <c> </c>
+          <w lemma="appear" ana="#vvz" reg="appears" xml:id="K000122_000-1990">appears</w>
+          <pc xml:id="K000122_000-2000" unit="sentence">!</pc>
+        </l>
+        <l>
+          <w lemma="what" ana="#q-crq" reg="What" xml:id="K000122_000-2030">What</w>
+          <c> </c>
+          <w lemma="cruel" ana="#j" reg="cruel" xml:id="K000122_000-2040">cruel</w>
+          <c> </c>
+          <w lemma="eye" ana="#n1" reg="Eye" xml:id="K000122_000-2050">Eye</w>
+          <c> </c>
+          <w lemma="can" ana="#vmd" reg="could" xml:id="K000122_000-2060">could</w>
+          <c> </c>
+          <w lemma="then" ana="#av" reg="then" xml:id="K000122_000-2070">then</w>
+          <c> </c>
+          <w lemma="refrain" ana="#vvi" reg="refrain" xml:id="K000122_000-2080">refrain</w>
+          <c> </c>
+          <w lemma="from" ana="#p-acp" reg="from" xml:id="K000122_000-2090">from</w>
+          <c> </c>
+          <w lemma="tear" ana="#n2" reg="Tears" xml:id="K000122_000-2100">Tears</w>
+          <pc xml:id="K000122_000-2110" unit="sentence">?</pc>
+        </l>
+        <l>
+          <w lemma="what" ana="#q-crq" reg="What" xml:id="K000122_000-2140">What</w>
+          <c> </c>
+          <w lemma="heart" ana="#n1" reg="Heart" xml:id="K000122_000-2150">Heart</w>
+          <c> </c>
+          <w lemma="relentless" ana="#j" reg="relentless" xml:id="K000122_000-2160">relentless</w>
+          <pc xml:id="K000122_000-2170">,</pc>
+          <c> </c>
+          <w lemma="then" ana="#av" reg="then" xml:id="K000122_000-2180">then</w>
+          <pc xml:id="K000122_000-2190">,</pc>
+          <c> </c>
+          <w lemma="forbear" ana="#vvb" reg="forbear" xml:id="K000122_000-2200">forbear</w>
+          <c> </c>
+          <w lemma="to" ana="#pc-acp" reg="to" xml:id="K000122_000-2210">to</w>
+          <c> </c>
+          <w lemma="melt" ana="#vvi" reg="melt" xml:id="K000122_000-2220">melt</w>
+          <pc xml:id="K000122_000-2230" unit="sentence">?</pc>
+        </l>
+        <l>
+          <w lemma="who" ana="#q-crq" reg="Who" xml:id="K000122_000-2260">Who</w>
+          <c> </c>
+          <w lemma="see" ana="#vvd" reg="saw" xml:id="K000122_000-2270">saw</w>
+          <c> </c>
+          <w lemma="their" ana="#po32" reg="their" xml:id="K000122_000-2280">their</w>
+          <c> </c>
+          <w lemma="sorrow" ana="#n2" reg="Sorrows" xml:id="K000122_000-2290">Sorrows</w>
+          <pc xml:id="K000122_000-2300">,</pc>
+          <c> </c>
+          <w lemma="but" ana="#cc-acp" reg="but" xml:id="K000122_000-2310">but</w>
+          <c> </c>
+          <w lemma="like" ana="#av-j" reg="like" xml:id="K000122_000-2320">like</w>
+          <c> </c>
+          <w lemma="sorrow" ana="#n2" reg="Sorrows" xml:id="K000122_000-2330">Sorrows</w>
+          <c> </c>
+          <w lemma="feel" ana="#vvn" reg="felt" xml:id="K000122_000-2340">felt</w>
+          <pc xml:id="K000122_000-2350" unit="sentence">?</pc>
+        </l>
+        <l>
+          <w lemma="how" ana="#c-crq" reg="How" xml:id="K000122_000-2380">How</w>
+          <c> </c>
+          <w lemma="sad" ana="#j" reg="sad" xml:id="K000122_000-2390">sad</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-2400">the</w>
+          <c> </c>
+          <w lemma="conflict" ana="#n1" reg="Conflict" xml:id="K000122_000-2410">Conflict</w>
+          <pc xml:id="K000122_000-2420">!</pc>
+          <c> </c>
+          <w lemma="how" ana="#c-crq" reg="how" xml:id="K000122_000-2430">how</w>
+          <c> </c>
+          <w lemma="severe" ana="#j" reg="severe" xml:id="K000122_000-2440">severe</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-2450">the</w>
+          <c> </c>
+          <w lemma="strife" ana="#n1" reg="Strife" xml:id="K000122_000-2460">Strife</w>
+        </l>
+        <l>
+          <w lemma="of" ana="#pp-f" reg="Of" xml:id="K000122_000-2490">Of</w>
+          <c> </c>
+          <w lemma="wretch" ana="#n2" reg="Wretches" xml:id="K000122_000-2500">Wretches</w>
+          <pc xml:id="K000122_000-2510">,</pc>
+          <c> </c>
+          <w lemma="cling" ana="#vvg" reg="clinging" xml:id="K000122_000-2520">clinging</w>
+          <c> </c>
+          <w lemma="to" ana="#p-acp" reg="to" xml:id="K000122_000-2530">to</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-2540">the</w>
+          <c> </c>
+          <w lemma="verge" ana="#n1" reg="Verge" xml:id="K000122_000-2550">Verge</w>
+          <c> </c>
+          <w lemma="of" ana="#pp-f" reg="of" xml:id="K000122_000-2560">of</w>
+          <c> </c>
+          <w lemma="life" ana="#n1" reg="Life" xml:id="K000122_000-2570">Life</w>
+          <pc xml:id="K000122_000-2580" unit="sentence">!</pc>
+        </l>
+        <l>
+          <w lemma="when" ana="#c-crq" reg="When" xml:id="K000122_000-2610">When</w>
+          <c> </c>
+          <w lemma="angry" ana="#j" reg="angry" xml:id="K000122_000-2620">angry</w>
+          <c> </c>
+          <w lemma="justice" ana="#n1" reg="Justice" xml:id="K000122_000-2630">Justice</w>
+          <c> </c>
+          <w lemma="claim" ana="#vvd" reg="claimed" xml:id="K000122_000-2640">claim'd</w>
+          <c> </c>
+          <w lemma="she" ana="#pno31" reg="her" xml:id="K000122_000-2650">her</w>
+          <c> </c>
+          <w lemma="destine" ana="#vvn" reg="destined" xml:id="K000122_000-2660">destin'd</w>
+          <c> </c>
+          <w lemma="prey" ana="#n1" reg="Prey" xml:id="K000122_000-2670">Prey</w>
+          <pc xml:id="K000122_000-2680">;</pc>
+        </l>
+        <l>
+          <w lemma="and" ana="#cc" reg="And" xml:id="K000122_000-2710">And</w>
+          <c> </c>
+          <w lemma="frown" ana="#vvd" reg="frowned" xml:id="K000122_000-2720">frown'd</w>
+          <pc xml:id="K000122_000-2730">,</pc>
+          <c> </c>
+          <w lemma="vindictive" ana="#j" reg="vindictive" xml:id="K000122_000-2740">vindictive</w>
+          <pc xml:id="K000122_000-2750">,</pc>
+          <c> </c>
+          <w lemma="on" ana="#p-acp" reg="on" xml:id="K000122_000-2760">on</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-2770">the</w>
+          <c> </c>
+          <w lemma="kind" ana="#j" reg="kind" xml:id="K000122_000-2780">kind</w>
+          <c> </c>
+          <w lemma="delay" ana="#n1" reg="Delay" xml:id="K000122_000-2790">Delay</w>
+          <pc xml:id="K000122_000-2800">:</pc>
+        </l>
+        <l>
+          <pc xml:id="K000122_000-2830">(</pc>
+          <w lemma="thy" ana="#po21" reg="Thy" xml:id="K000122_000-2840">Thy</w>
+          <c> </c>
+          <w lemma="save" ana="#j-vvg" reg="saving" xml:id="K000122_000-2850">saving</w>
+          <c> </c>
+          <w lemma="mercy" ana="#n1" reg="Mercy" xml:id="K000122_000-2860">Mercy</w>
+          <pc xml:id="K000122_000-2870">,</pc>
+          <c> </c>
+          <w lemma="in" ana="#p-acp" reg="in" xml:id="K000122_000-2880">in</w>
+          <c> </c>
+          <w lemma="that" ana="#d" reg="that" xml:id="K000122_000-2890">that</w>
+          <c> </c>
+          <w lemma="moment" ana="#n1" reg="Moment" xml:id="K000122_000-2900">Moment</w>
+          <c> </c>
+          <w lemma="fly" ana="#vvd" reg="flew" xml:id="K000122_000-2910">flew</w>
+          <pc xml:id="K000122_000-2920">,</pc>
+        </l>
+        <l>
+          <w lemma="the" ana="#dt" reg="The" xml:id="K000122_000-2950">The</w>
+          <c> </c>
+          <w lemma="darling" ana="#j-jn" reg="darling" xml:id="K000122_000-2960">darling</w>
+          <c> </c>
+          <w lemma="attribute" ana="#n1" reg="Attribute" xml:id="K000122_000-2970">Attribute</w>
+          <c> </c>
+          <w lemma="of" ana="#pp-f" reg="of" xml:id="K000122_000-2980">of</w>
+          <c> </c>
+          <w lemma="heaven" ana="#n1" reg="Heaven" xml:id="K000122_000-2990">Heav'n</w>
+          <c> </c>
+          <w lemma="and" ana="#cc" reg="and" xml:id="K000122_000-3000">and</w>
+          <c> </c>
+          <w lemma="you" ana="#pn22" reg="You" xml:id="K000122_000-3010">You</w>
+          <pc xml:id="K000122_000-3020">)</pc>
+          <pc xml:id="K000122_000-3030">:</pc>
+        </l>
+        <l>
+          <w lemma="to" ana="#p-acp" reg="To" xml:id="K000122_000-3060">To</w>
+          <c> </c>
+          <w lemma="soft" ana="#j" reg="soft" xml:id="K000122_000-3070">soft</w>
+          <c> </c>
+          <w lemma="compassion" ana="#n1" reg="Compassion" xml:id="K000122_000-3080">Compassion</w>
+          <c> </c>
+          <w lemma="win" ana="#vvn" reg="wone" xml:id="K000122_000-3090">won</w>
+          <c> </c>
+          <w lemma="thy" ana="#po21" reg="thy" xml:id="K000122_000-3100">thy</w>
+          <c> </c>
+          <w lemma="will" ana="#j-vvg" reg="willing" xml:id="K000122_000-3110">willing</w>
+          <c> </c>
+          <w lemma="lord" ana="#n1" reg="Lord" xml:id="K000122_000-3120">Lord</w>
+          <pc xml:id="K000122_000-3130">,</pc>
+        </l>
+        <l>
+          <w lemma="his" ana="#po31" reg="His" xml:id="K000122_000-3160">His</w>
+          <c> </c>
+          <w lemma="justice" ana="#n1" reg="Justice" xml:id="K000122_000-3170">Justice</w>
+          <c> </c>
+          <w lemma="tempere" ana="#vvg" reg="tempering" xml:id="K000122_000-3180">temp'ring</w>
+          <c> </c>
+          <w lemma="sheathe" ana="#vvn" reg="sheathed" xml:id="K000122_000-3190">sheath'd</w>
+          <c> </c>
+          <w lemma="that" ana="#cst" reg="that" xml:id="K000122_000-3200">th</w>
+          <c> </c>
+          <pc xml:id="K000122_000-3210">'</pc>
+          <w lemma="uplift" ana="#j-vvn" reg="uplifted" xml:id="K000122_000-3220">uplifted</w>
+          <c> </c>
+          <w lemma="sword" ana="#n1" reg="Sword" xml:id="K000122_000-3230">Sword</w>
+          <pc xml:id="K000122_000-3240" unit="sentence">.</pc>
+        </l>
+        <l>
+          <pb facs="025090030000040" n="5"></pb>
+          <w lemma="and" ana="#cc" reg="And" xml:id="K000122_000-3270">And</w>
+          <c> </c>
+          <w lemma="in" ana="#p-acp" reg="in" xml:id="K000122_000-3280">in</w>
+          <c> </c>
+          <w lemma="that" ana="#d" reg="that" xml:id="K000122_000-3290">that</w>
+          <c> </c>
+          <w lemma="fearful" ana="#j" reg="fearful" xml:id="K000122_000-3300">fearful</w>
+          <pc xml:id="K000122_000-3310">,</pc>
+          <c> </c>
+          <w lemma="that" ana="#cst" reg="that" xml:id="K000122_000-3320">that</w>
+          <c> </c>
+          <w lemma="tremendous" ana="#j" reg="tremendous" xml:id="K000122_000-3330">tremendous</w>
+          <c> </c>
+          <w lemma="hour" ana="#n1" reg="Hour" xml:id="K000122_000-3340">Hour</w>
+          <pc xml:id="K000122_000-3350">,</pc>
+        </l>
+        <l>
+          <w lemma="snatch" ana="#vvd" reg="Snatched" xml:id="K000122_000-3380">Snatch'd</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-3390">the</w>
+          <c> </c>
+          <w lemma="pale" ana="#j" reg="pale" xml:id="K000122_000-3400">pale</w>
+          <c> </c>
+          <w lemma="victim" ana="#n2" reg="Victims" xml:id="K000122_000-3410">Victims</w>
+          <c> </c>
+          <w lemma="from" ana="#p-acp" reg="from" xml:id="K000122_000-3420">from</w>
+          <c> </c>
+          <w lemma="that" ana="#cst" reg="that" xml:id="K000122_000-3430">th</w>
+          <c> </c>
+          <pc xml:id="K000122_000-3440">'</pc>
+          <w lemma="offend" ana="#j-vvn" reg="offended" xml:id="K000122_000-3450">offended</w>
+          <c> </c>
+          <w lemma="power" ana="#n1" reg="Power" xml:id="K000122_000-3460">Pow'r</w>
+          <pc xml:id="K000122_000-3470" unit="sentence">.</pc>
+        </l>
+        <l>
+          <w lemma="as" ana="#p-acp" reg="As" xml:id="K000122_000-3500">As</w>
+          <c> </c>
+          <w lemma="when" ana="#c-crq" reg="when" xml:id="K000122_000-3510">when</w>
+          <c> </c>
+          <w lemma="by" ana="#p-acp" reg="by" xml:id="K000122_000-3520">by</w>
+          <c> </c>
+          <w lemma="adverse" ana="#j" reg="adverse" xml:id="K000122_000-3530">adverse</w>
+          <c> </c>
+          <w lemma="star" ana="#n2" reg="Stars" xml:id="K000122_000-3540">Stars</w>
+          <c> </c>
+          <w lemma="or" ana="#cc" reg="or" xml:id="K000122_000-3550">or</w>
+          <c> </c>
+          <w lemma="chance" ana="#n1" reg="Chance" xml:id="K000122_000-3560">Chance</w>
+          <c> </c>
+          <w lemma="mislead" ana="#vvn" reg="misled" xml:id="K000122_000-3570">misled</w>
+          <pc xml:id="K000122_000-3580">,</pc>
+        </l>
+        <l>
+          <w lemma="entice" ana="#vvn" reg="Enticed" xml:id="K000122_000-3610">Entic'd</w>
+          <c> </c>
+          <w lemma="by" ana="#p-acp" reg="by" xml:id="K000122_000-3620">by</w>
+          <c> </c>
+          <w lemma="lucre" ana="#n1" reg="Lucre" xml:id="K000122_000-3630">Lucre</w>
+          <pc xml:id="K000122_000-3640">,</pc>
+          <c> </c>
+          <w lemma="or" ana="#cc" reg="or" xml:id="K000122_000-3650">or</w>
+          <c> </c>
+          <w lemma="pursue" ana="#vvd" reg="pursued" xml:id="K000122_000-3660">pursu'd</w>
+          <c> </c>
+          <w lemma="by" ana="#p-acp" reg="by" xml:id="K000122_000-3670">by</w>
+          <c> </c>
+          <w lemma="dread" ana="#n1" reg="Dread" xml:id="K000122_000-3680">Dread</w>
+          <pc xml:id="K000122_000-3690">,</pc>
+        </l>
+        <l>
+          <w lemma="a" ana="#dt" reg="A" xml:id="K000122_000-3720">A</w>
+          <c> </c>
+          <w lemma="wretch" ana="#n1" reg="Wretch" xml:id="K000122_000-3730">Wretch</w>
+          <c> </c>
+          <w lemma="from" ana="#p-acp" reg="from" xml:id="K000122_000-3740">from</w>
+          <c> </c>
+          <w lemma="some" ana="#d" reg="some" xml:id="K000122_000-3750">some</w>
+          <c> </c>
+          <w lemma="high" ana="#j" reg="high" xml:id="K000122_000-3760">high</w>
+          <c> </c>
+          <w lemma="rock" ana="#ng1" reg="Rock's" xml:id="K000122_000-3770">Rock's</w>
+          <c> </c>
+          <w lemma="stupendous" ana="#j" reg="stupendous" xml:id="K000122_000-3780">stupendous</w>
+          <c> </c>
+          <w lemma="brow" ana="#n1" reg="Brow" xml:id="K000122_000-3790">Brow</w>
+          <pc xml:id="K000122_000-3800">,</pc>
+        </l>
+        <l>
+          <w lemma="hang" ana="#vvz" reg="Hangs" xml:id="K000122_000-3830">Hangs</w>
+          <c> </c>
+          <w lemma="over" ana="#p-acp" reg="over" xml:id="K000122_000-3840">o'er</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-3850">the</w>
+          <c> </c>
+          <w lemma="wave" ana="#n2" reg="Waves" xml:id="K000122_000-3860">Waves</w>
+          <pc xml:id="K000122_000-3870">,</pc>
+          <c> </c>
+          <w lemma="and" ana="#cc" reg="and" xml:id="K000122_000-3880">and</w>
+          <c> </c>
+          <w lemma="dreadful" ana="#j" reg="dreadful" xml:id="K000122_000-3890">dreadful</w>
+          <c> </c>
+          <w lemma="depth" ana="#n2" reg="Depths" xml:id="K000122_000-3900">Depths</w>
+          <c> </c>
+          <w lemma="below" ana="#a-acp" reg="below" xml:id="K000122_000-3910">below</w>
+          <pc xml:id="K000122_000-3920" unit="sentence">.</pc>
+        </l>
+        <l>
+          <w lemma="the" ana="#dt" reg="The" xml:id="K000122_000-3950">The</w>
+          <c> </c>
+          <w lemma="slender" ana="#j" reg="slender" xml:id="K000122_000-3960">slender</w>
+          <c> </c>
+          <w lemma="bough" ana="#n1" reg="Bough" xml:id="K000122_000-3970">Bough</w>
+          <c> </c>
+          <w lemma="he" ana="#pns31" reg="he" xml:id="K000122_000-3980">he</w>
+          <c> </c>
+          <w lemma="grasp" ana="#vvz" reg="grasps" xml:id="K000122_000-3990">grasps</w>
+          <pc xml:id="K000122_000-4000">,</pc>
+          <c> </c>
+          <w lemma="his" ana="#po31" reg="his" xml:id="K000122_000-4010">his</w>
+          <c> </c>
+          <w lemma="only" ana="#j" reg="only" xml:id="K000122_000-4020">only</w>
+          <c> </c>
+          <w lemma="stay" ana="#vvb" reg="Stay" xml:id="K000122_000-4030">Stay</w>
+          <pc xml:id="K000122_000-4040">,</pc>
+        </l>
+        <l>
+          <w lemma="yield" ana="#vvz" reg="Yields" xml:id="K000122_000-4070">Yields</w>
+          <c> </c>
+          <w lemma="to" ana="#p-acp" reg="to" xml:id="K000122_000-4080">to</w>
+          <c> </c>
+          <w lemma="his" ana="#po31" reg="his" xml:id="K000122_000-4090">his</w>
+          <c> </c>
+          <w lemma="weight" ana="#n1" reg="Weight" xml:id="K000122_000-4100">Weight</w>
+          <pc xml:id="K000122_000-4110">,</pc>
+          <c> </c>
+          <w lemma="and" ana="#cc" reg="and" xml:id="K000122_000-4120">and</w>
+          <c> </c>
+          <w lemma="more" ana="#av-dc" reg="more" xml:id="K000122_000-4130">more</w>
+          <c> </c>
+          <w lemma="and" ana="#cc" reg="and" xml:id="K000122_000-4140">and</w>
+          <c> </c>
+          <w lemma="more" ana="#dc" reg="more" xml:id="K000122_000-4150">more</w>
+          <c> </c>
+          <w lemma="give" ana="#vvz" reg="gives" xml:id="K000122_000-4160">gives</w>
+          <c> </c>
+          <w lemma="way" ana="#n1" reg="way" xml:id="K000122_000-4170">way</w>
+          <pc xml:id="K000122_000-4180">;</pc>
+        </l>
+        <l>
+          <w lemma="of" ana="#pp-f" reg="Of" xml:id="K000122_000-4210">Of</w>
+          <c> </c>
+          <w lemma="hope" ana="#n1" reg="Hope" xml:id="K000122_000-4220">Hope</w>
+          <c> </c>
+          <w lemma="abandon" ana="#vvn" reg="abandoned" xml:id="K000122_000-4230">abandon'd</w>
+          <pc xml:id="K000122_000-4240">,</pc>
+          <c> </c>
+          <w lemma="as" ana="#c-acp" reg="as" xml:id="K000122_000-4250">as</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-4260">the</w>
+          <c> </c>
+          <w lemma="branch" ana="#n1" reg="Branch" xml:id="K000122_000-4270">Branch</w>
+          <c> </c>
+          <w lemma="he" ana="#pns31" reg="he" xml:id="K000122_000-4280">he</w>
+          <c> </c>
+          <w lemma="tear" ana="#vvz" reg="tears" xml:id="K000122_000-4290">tears</w>
+          <pc xml:id="K000122_000-4300">,</pc>
+        </l>
+        <l>
+          <w lemma="he" ana="#pns31" reg="He" xml:id="K000122_000-4330">He</w>
+          <c> </c>
+          <w lemma="view" ana="#vvz" reg="views" xml:id="K000122_000-4340">views</w>
+          <c> </c>
+          <w lemma="that" ana="#cst" reg="that" xml:id="K000122_000-4350">th</w>
+          <c> </c>
+          <pc xml:id="K000122_000-4360">'</pc>
+          <w lemma="abyss" ana="#n1" reg="Abyss" xml:id="K000122_000-4370">Abyss</w>
+          <pc xml:id="K000122_000-4380">,</pc>
+          <c> </c>
+          <w lemma="and" ana="#cc" reg="and" xml:id="K000122_000-4390">and</w>
+          <pc xml:id="K000122_000-4400">,</pc>
+          <c> </c>
+          <w lemma="as" ana="#c-acp" reg="as" xml:id="K000122_000-4410">as</w>
+          <c> </c>
+          <w lemma="he" ana="#pns31" reg="he" xml:id="K000122_000-4420">he</w>
+          <c> </c>
+          <w lemma="view" ana="#vvz" reg="views" xml:id="K000122_000-4430">views</w>
+          <pc xml:id="K000122_000-4440">,</pc>
+          <c> </c>
+          <w lemma="despair" ana="#n2" reg="despairs" xml:id="K000122_000-4450">despairs</w>
+          <pc xml:id="K000122_000-4460">,</pc>
+        </l>
+        <l>
+          <c> </c>
+          <pc xml:id="K000122_000-4490">'</pc>
+          <w lemma="till" ana="#p-acp" reg="Till" xml:id="K000122_000-4500">Till</w>
+          <c> </c>
+          <w lemma="some" ana="#d" reg="some" xml:id="K000122_000-4510">some</w>
+          <c> </c>
+          <w lemma="unhope" ana="#vvd" reg="unhoped" xml:id="K000122_000-4520">unhop'd</w>
+          <c> </c>
+          <w lemma="for" ana="#p-acp" reg="for" xml:id="K000122_000-4530">for</w>
+          <c> </c>
+          <w lemma="hand" ana="#n1" reg="Hand" xml:id="K000122_000-4540">Hand</w>
+          <c> </c>
+          <w lemma="prevent" ana="#vvz" reg="prevents" xml:id="K000122_000-4550">prevents</w>
+          <c> </c>
+          <w lemma="his" ana="#po31" reg="his" xml:id="K000122_000-4560">his</w>
+          <c> </c>
+          <w lemma="doom" ana="#n1" reg="Doom" xml:id="K000122_000-4570">Doom</w>
+          <pc xml:id="K000122_000-4580">,</pc>
+        </l>
+        <l>
+          <w lemma="lift" ana="#vvz" reg="Lifts" xml:id="K000122_000-4610">Lifts</w>
+          <c> </c>
+          <w lemma="he" ana="#pno31" reg="him" xml:id="K000122_000-4620">him</w>
+          <c> </c>
+          <w lemma="to" ana="#p-acp" reg="to" xml:id="K000122_000-4630">to</w>
+          <c> </c>
+          <w lemma="life" ana="#n1" reg="Life" xml:id="K000122_000-4640">Life</w>
+          <pc xml:id="K000122_000-4650">,</pc>
+          <c> </c>
+          <w lemma="and" ana="#cc" reg="and" xml:id="K000122_000-4660">and</w>
+          <c> </c>
+          <w lemma="lengthen" ana="#j-vvn" reg="lengthened" xml:id="K000122_000-4670">lengthen'd</w>
+          <c> </c>
+          <w lemma="year" ana="#n2" reg="Years" xml:id="K000122_000-4680">Years</w>
+          <c> </c>
+          <w lemma="to" ana="#pc-acp" reg="to" xml:id="K000122_000-4690">to</w>
+          <c> </c>
+          <w lemma="come" ana="#vvi" reg="come" xml:id="K000122_000-4700">come</w>
+          <pc xml:id="K000122_000-4710">:</pc>
+        </l>
+        <l>
+          <w lemma="redeem" ana="#vvn" reg="Redeemed" xml:id="K000122_000-4740">Redeem'd</w>
+          <c> </c>
+          <w lemma="from" ana="#p-acp" reg="from" xml:id="K000122_000-4750">from</w>
+          <c> </c>
+          <w lemma="fate" ana="#n1" reg="Fate" xml:id="K000122_000-4760">Fate</w>
+          <pc xml:id="K000122_000-4770">,</pc>
+          <c> </c>
+          <w lemma="nor" ana="#ccx" reg="nor" xml:id="K000122_000-4780">nor</w>
+          <c> </c>
+          <w lemma="yet" ana="#av" reg="yet" xml:id="K000122_000-4790">yet</w>
+          <c> </c>
+          <w lemma="restore" ana="#vvn" reg="restored" xml:id="K000122_000-4800">restor'd</w>
+          <c> </c>
+          <w lemma="to" ana="#p-acp" reg="to" xml:id="K000122_000-4810">to</w>
+          <c> </c>
+          <w lemma="life" ana="#n1" reg="Life" xml:id="K000122_000-4820">Life</w>
+          <pc xml:id="K000122_000-4830">,</pc>
+        </l>
+        <l>
+          <w lemma="they" ana="#pns32" reg="They" xml:id="K000122_000-4860">They</w>
+          <c> </c>
+          <w lemma="wonder" ana="#j-vvg" reg="wondering" xml:id="K000122_000-4870">wond'ring</w>
+          <c> </c>
+          <w lemma="pause" ana="#n1" reg="pause" xml:id="K000122_000-4880">pause</w>
+          <pc xml:id="K000122_000-4890">,</pc>
+          <c> </c>
+          <w lemma="and" ana="#cc" reg="and" xml:id="K000122_000-4900">and</w>
+          <c> </c>
+          <w lemma="feel" ana="#vvb" reg="feel" xml:id="K000122_000-4910">feel</w>
+          <c> </c>
+          <w lemma="a" ana="#dt" reg="a" xml:id="K000122_000-4920">a</w>
+          <c> </c>
+          <w lemma="doubtful" ana="#j" reg="doubtful" xml:id="K000122_000-4930">doubtful</w>
+          <c> </c>
+          <w lemma="strife" ana="#n1" reg="Strife" xml:id="K000122_000-4940">Strife</w>
+          <pc xml:id="K000122_000-4950">;</pc>
+        </l>
+        <l>
+          <w lemma="if" ana="#cs" reg="If" xml:id="K000122_000-4980">If</w>
+          <c> </c>
+          <w lemma="still" ana="#av" reg="still" xml:id="K000122_000-4990">still</w>
+          <c> </c>
+          <w lemma="on" ana="#p-acp" reg="on" xml:id="K000122_000-5000">on</w>
+          <c> </c>
+          <w lemma="earth" ana="#n1" reg="Earth" xml:id="K000122_000-5010">Earth</w>
+          <c> </c>
+          <w lemma="they" ana="#pns32" reg="they" xml:id="K000122_000-5020">they</w>
+          <c> </c>
+          <w lemma="breathe" ana="#vvb" reg="breathe" xml:id="K000122_000-5030">breathe</w>
+          <c> </c>
+          <w lemma="with" ana="#p-acp" reg="with" xml:id="K000122_000-5040">with</w>
+          <c> </c>
+          <w lemma="human" ana="#j" reg="human" xml:id="K000122_000-5050">human</w>
+          <c> </c>
+          <w lemma="race" ana="#n1" reg="Raze" xml:id="K000122_000-5060">Race</w>
+          <pc xml:id="K000122_000-5070">,</pc>
+        </l>
+        <l>
+          <w lemma="or" ana="#cc" reg="Or" xml:id="K000122_000-5100">Or</w>
+          <c> </c>
+          <w lemma="mix" ana="#vvb" reg="mix" xml:id="K000122_000-5110">mix</w>
+          <c> </c>
+          <w lemma="with" ana="#p-acp" reg="with" xml:id="K000122_000-5120">with</w>
+          <c> </c>
+          <w lemma="shade" ana="#n2" reg="Shades" xml:id="K000122_000-5130">Shades</w>
+          <c> </c>
+          <w lemma="in" ana="#p-acp" reg="in" xml:id="K000122_000-5140">in</w>
+          <c> </c>
+          <w lemma="death" ana="#ng1" reg="Death's" xml:id="K000122_000-5150">Death's</w>
+          <c> </c>
+          <w lemma="obscure" ana="#j" reg="obscure" xml:id="K000122_000-5160">obscure</w>
+          <c> </c>
+          <w lemma="embrace" ana="#n1" reg="Embrace" xml:id="K000122_000-5170">Embrace</w>
+          <pc xml:id="K000122_000-5180">;</pc>
+        </l>
+        <l>
+          <c> </c>
+          <pc xml:id="K000122_000-5210">'</pc>
+          <w lemma="till" ana="#p-acp" reg="Till" xml:id="K000122_000-5220">Till</w>
+          <c> </c>
+          <w lemma="dawning" ana="#n1" reg="dawning" xml:id="K000122_000-5230">dawning</w>
+          <c> </c>
+          <w lemma="hope" ana="#n1" reg="Hope" xml:id="K000122_000-5240">Hope</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-5250">the</w>
+          <c> </c>
+          <w lemma="dubious" ana="#j" reg="dubious" xml:id="K000122_000-5260">dubious</w>
+          <c> </c>
+          <w lemma="horror" ana="#n1" reg="Horror" xml:id="K000122_000-5270">Horror</w>
+          <c> </c>
+          <w lemma="clear" ana="#n2" reg="clears" xml:id="K000122_000-5280">clears</w>
+          <pc xml:id="K000122_000-5290">,</pc>
+        </l>
+        <l>
+          <w lemma="confirm" ana="#vvz" reg="Confirms" xml:id="K000122_000-5320">Confirms</w>
+          <c> </c>
+          <w lemma="their" ana="#po32" reg="their" xml:id="K000122_000-5330">their</w>
+          <c> </c>
+          <w lemma="safety" ana="#n1" reg="Safety" xml:id="K000122_000-5340">Safety</w>
+          <pc xml:id="K000122_000-5350">,</pc>
+          <c> </c>
+          <w lemma="and" ana="#cc" reg="and" xml:id="K000122_000-5360">and</w>
+          <c> </c>
+          <w lemma="dispel" ana="#vvz" reg="dispels" xml:id="K000122_000-5370">dispels</w>
+          <c> </c>
+          <w lemma="their" ana="#po32" reg="their" xml:id="K000122_000-5380">their</w>
+          <c> </c>
+          <w lemma="fear" ana="#n2" reg="Fears" xml:id="K000122_000-5390">Fears</w>
+          <pc xml:id="K000122_000-5400">:</pc>
+        </l>
+        <l>
+          <pb facs="025090030000050" n="6"></pb>
+          <w lemma="loud" ana="#j" reg="Loud" xml:id="K000122_000-5430">Loud</w>
+          <c> </c>
+          <w lemma="shout" ana="#n2" reg="Shouts" xml:id="K000122_000-5440">Shouts</w>
+          <c> </c>
+          <w lemma="of" ana="#pp-f" reg="of" xml:id="K000122_000-5450">of</w>
+          <c> </c>
+          <w lemma="triumph" ana="#n1" reg="Triumph" xml:id="K000122_000-5460">Triumph</w>
+          <c> </c>
+          <w lemma="waft" ana="#vvn" reg="wafted" xml:id="K000122_000-5470">waft</w>
+          <c> </c>
+          <w lemma="thy" ana="#po21" reg="Thy" xml:id="K000122_000-5480">Thy</w>
+          <c> </c>
+          <w lemma="name" ana="#n1" reg="Name" xml:id="K000122_000-5490">Name</w>
+          <c> </c>
+          <w lemma="on" ana="#p-acp" reg="on" xml:id="K000122_000-5500">on</w>
+          <c> </c>
+          <w lemma="high" ana="#j" reg="high" xml:id="K000122_000-5510">high</w>
+          <pc xml:id="K000122_000-5520">,</pc>
+        </l>
+        <l>
+          <w lemma="and" ana="#cc" reg="And" xml:id="K000122_000-5550">And</w>
+          <c> </c>
+          <w lemma="stanhope" ana="#npg1" reg="STANHOPE'S" xml:id="K000122_000-5560">STANHOPE'S</w>
+          <c> </c>
+          <w lemma="goodness" ana="#n1" reg="Goodness" xml:id="K000122_000-5570">Goodness</w>
+          <c> </c>
+          <w lemma="fill" ana="#vvz" reg="fills" xml:id="K000122_000-5580">fills</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-5590">the</w>
+          <c> </c>
+          <w lemma="vault" ana="#j-vvn" reg="vaulted" xml:id="K000122_000-5600">vaulted</w>
+          <c> </c>
+          <w lemma="sky" ana="#n1" reg="Sky" xml:id="K000122_000-5610">Sky</w>
+          <pc xml:id="K000122_000-5620" unit="sentence">.</pc>
+        </l>
+        <l>
+          <w lemma="o" ana="#uh" reg="O" xml:id="K000122_000-5650">Oh</w>
+          <pc xml:id="K000122_000-5660">!</pc>
+          <c> </c>
+          <w lemma="have" ana="#vhd2" reg="hadst" xml:id="K000122_000-5670">hadst</w>
+          <c> </c>
+          <w lemma="thou" ana="#pns21" reg="Thou" xml:id="K000122_000-5680">Thou</w>
+          <c> </c>
+          <w lemma="power" ana="#n1" reg="Power" xml:id="K000122_000-5690">Pow'r</w>
+          <c> </c>
+          <w lemma="afflict" ana="#j-vvn" reg="afflicted" xml:id="K000122_000-5700">afflicted</w>
+          <c> </c>
+          <w lemma="realm" ana="#n2" reg="Realms" xml:id="K000122_000-5710">Realms</w>
+          <c> </c>
+          <w lemma="to" ana="#pc-acp" reg="to" xml:id="K000122_000-5720">to</w>
+          <c> </c>
+          <w lemma="spare" ana="#vvi" reg="spare" xml:id="K000122_000-5730">spare</w>
+          <pc xml:id="K000122_000-5740">,</pc>
+        </l>
+        <l>
+          <w lemma="and" ana="#cc" reg="And" xml:id="K000122_000-5770">And</w>
+          <c> </c>
+          <w lemma="rescue" ana="#n1" reg="rescue" xml:id="K000122_000-5780">rescue</w>
+          <hi>
+            <c> </c>
+            <w lemma="Europe" ana="#np1" reg="Europe" xml:id="K000122_000-5790">Europe</w>
+          </hi>
+          <c> </c>
+          <w lemma="from" ana="#p-acp" reg="from" xml:id="K000122_000-5800">from</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-5810">the</w>
+          <c> </c>
+          <w lemma="waste" ana="#vvb" reg="Waste" xml:id="K000122_000-5820">Waste</w>
+          <c> </c>
+          <w lemma="of" ana="#pp-f" reg="of" xml:id="K000122_000-5830">of</w>
+          <c> </c>
+          <w lemma="war" ana="#n1" reg="War" xml:id="K000122_000-5840">War</w>
+          <pc xml:id="K000122_000-5850">,</pc>
+        </l>
+        <l>
+          <w lemma="Fell" ana="#np1" reg="Fell" xml:id="K000122_000-5880">Fell</w>
+          <c> </c>
+          <w lemma="rage" ana="#n1" reg="Rage" xml:id="K000122_000-5890">Rage</w>
+          <c> </c>
+          <w lemma="and" ana="#cc" reg="and" xml:id="K000122_000-5900">and</w>
+          <c> </c>
+          <w lemma="discord" ana="#n1" reg="Discord" xml:id="K000122_000-5910">Discord</w>
+          <c> </c>
+          <w lemma="at" ana="#p-acp" reg="at" xml:id="K000122_000-5920">at</w>
+          <c> </c>
+          <w lemma="thy" ana="#po21" reg="thy" xml:id="K000122_000-5930">thy</w>
+          <c> </c>
+          <w lemma="nod" ana="#vvb" reg="Nod" xml:id="K000122_000-5940">Nod</w>
+          <c> </c>
+          <w lemma="shall" ana="#vmd" reg="should" xml:id="K000122_000-5950">should</w>
+          <c> </c>
+          <w lemma="cease" ana="#vvi" reg="cease" xml:id="K000122_000-5960">cease</w>
+          <pc xml:id="K000122_000-5970">,</pc>
+        </l>
+        <l>
+          <w lemma="and" ana="#cc" reg="And" xml:id="K000122_000-6000">And</w>
+          <c> </c>
+          <w lemma="all" ana="#d" reg="all" xml:id="K000122_000-6010">all</w>
+          <c> </c>
+          <w lemma="mankind" ana="#n1" reg="Mankind" xml:id="K000122_000-6020">Mankind</w>
+          <c> </c>
+          <w lemma="enjoy" ana="#vvi" reg="enjoy" xml:id="K000122_000-6030">enjoy</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-6040">the</w>
+          <c> </c>
+          <w lemma="sweet" ana="#n2-j" reg="Sweets" xml:id="K000122_000-6050">Sweets</w>
+          <c> </c>
+          <w lemma="of" ana="#pp-f" reg="of" xml:id="K000122_000-6060">of</w>
+          <c> </c>
+          <w lemma="peace" ana="#n1" reg="Peace" xml:id="K000122_000-6070">Peace</w>
+          <pc xml:id="K000122_000-6080" unit="sentence">.</pc>
+        </l>
+        <l>
+          <w lemma="then" ana="#av" reg="Then" xml:id="K000122_000-6110">Then</w>
+          <c> </c>
+          <w lemma="human" ana="#j" reg="human" xml:id="K000122_000-6120">human</w>
+          <c> </c>
+          <w lemma="blood" ana="#n1" reg="Blood" xml:id="K000122_000-6130">Blood</w>
+          <c> </c>
+          <w lemma="shall" ana="#vmd" reg="should" xml:id="K000122_000-6140">should</w>
+          <c> </c>
+          <w lemma="deluge" ana="#n1" reg="deluge" xml:id="K000122_000-6150">deluge</w>
+          <c> </c>
+          <w lemma="earth" ana="#n1" reg="Earth" xml:id="K000122_000-6160">Earth</w>
+          <c> </c>
+          <w lemma="no" ana="#dx" reg="no" xml:id="K000122_000-6170">no</w>
+          <c> </c>
+          <w lemma="more" ana="#av-dc" reg="more" xml:id="K000122_000-6180">more</w>
+          <pc xml:id="K000122_000-6190">,</pc>
+        </l>
+        <l>
+          <w lemma="but" ana="#p-acp" reg="But" xml:id="K000122_000-6220">But</w>
+          <c> </c>
+          <w lemma="league" ana="#n2" reg="Leagues" xml:id="K000122_000-6230">Leagues</w>
+          <c> </c>
+          <w lemma="of" ana="#pp-f" reg="of" xml:id="K000122_000-6240">of</w>
+          <c> </c>
+          <w lemma="commerce" ana="#n1" reg="Commerce" xml:id="K000122_000-6250">Commerce</w>
+          <c> </c>
+          <w lemma="stretch" ana="#n1" reg="stretch" xml:id="K000122_000-6260">stretch</w>
+          <c> </c>
+          <w lemma="from" ana="#p-acp" reg="from" xml:id="K000122_000-6270">from</w>
+          <c> </c>
+          <w lemma="shore" ana="#n1" reg="Shore" xml:id="K000122_000-6280">Shore</w>
+          <c> </c>
+          <w lemma="to" ana="#p-acp" reg="to" xml:id="K000122_000-6290">to</w>
+          <c> </c>
+          <w lemma="shore" ana="#n1" reg="Shore" xml:id="K000122_000-6300">Shore</w>
+          <pc xml:id="K000122_000-6310" unit="sentence">.</pc>
+        </l>
+        <l>
+          <w lemma="you" ana="#pn22" reg="You" xml:id="K000122_000-6340">You</w>
+          <c> </c>
+          <w lemma="like" ana="#vvb" reg="like" xml:id="K000122_000-6350">like</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-6360">the</w>
+          <c> </c>
+          <w lemma="dove" ana="#n1" reg="Dove" xml:id="K000122_000-6370">Dove</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-6380">the</w>
+          <c> </c>
+          <w lemma="friendly" ana="#j" reg="friendly" xml:id="K000122_000-6390">friendly</w>
+          <c> </c>
+          <w lemma="branch" ana="#n1" reg="Branch" xml:id="K000122_000-6400">Branch</w>
+          <c> </c>
+          <w lemma="will" ana="#vmd" reg="would" xml:id="K000122_000-6410">would</w>
+          <c> </c>
+          <w lemma="bring" ana="#vvi" reg="bring" xml:id="K000122_000-6420">bring</w>
+          <pc xml:id="K000122_000-6430">,</pc>
+        </l>
+        <l>
+          <w lemma="and" ana="#cc" reg="And" xml:id="K000122_000-6460">And</w>
+          <c> </c>
+          <w lemma="bloom" ana="#j-vvg" reg="blooming" xml:id="K000122_000-6470">blooming</w>
+          <c> </c>
+          <w lemma="Olives" ana="#np1" reg="Olives" xml:id="K000122_000-6480">Olives</w>
+          <c> </c>
+          <w lemma="in" ana="#p-acp" reg="in" xml:id="K000122_000-6490">in</w>
+          <c> </c>
+          <w lemma="each" ana="#d" reg="each" xml:id="K000122_000-6500">each</w>
+          <c> </c>
+          <w lemma="climate" ana="#n1" reg="climate" xml:id="K000122_000-6510">climate</w>
+          <c> </c>
+          <w lemma="spring" ana="#n1" reg="spring" xml:id="K000122_000-6520">spring</w>
+          <pc xml:id="K000122_000-6530">;</pc>
+        </l>
+        <l>
+          <unclear>
+            <w lemma="●" ana="#sy" reg="●" xml:id="K000122_000-6560">●</w>
+          </unclear>
+          <c> </c>
+          <w lemma="golden" ana="#j" reg="golden" xml:id="K000122_000-6570">golden</w>
+          <c> </c>
+          <w lemma="age" ana="#n1" reg="Age" xml:id="K000122_000-6580">Age</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-6590">the</w>
+          <c> </c>
+          <w lemma="guilty" ana="#j" reg="guilty" xml:id="K000122_000-6600">guilty</w>
+          <c> </c>
+          <w lemma="globe" ana="#n1" reg="Globe" xml:id="K000122_000-6610">Globe</w>
+          <c> </c>
+          <w lemma="shall" ana="#vmd" reg="should" xml:id="K000122_000-6620">shou'd</w>
+          <c> </c>
+          <w lemma="see" ana="#vvi" reg="see" xml:id="K000122_000-6630">see</w>
+          <pc xml:id="K000122_000-6640">,</pc>
+        </l>
+        <l>
+          <w lemma="and" ana="#cc" reg="And" xml:id="K000122_000-6670">And</w>
+          <hi>
+            <c> </c>
+            <w lemma="Scotia" ana="#np1" reg="Scotia" xml:id="K000122_000-6680">Scotia</w>
+          </hi>
+          <c> </c>
+          <w lemma="faithful" ana="#j" reg="faithful" xml:id="K000122_000-6690">faithful</w>
+          <c> </c>
+          <w lemma="as" ana="#c-acp" reg="as" xml:id="K000122_000-6700">as</w>
+          <hi>
+            <c> </c>
+            <w lemma="Hibernia" ana="#np1" reg="Hibernia" xml:id="K000122_000-6710">Hibernia</w>
+          </hi>
+          <c> </c>
+          <w lemma="be" ana="#vbb" reg="be" xml:id="K000122_000-6720">be</w>
+          <pc xml:id="K000122_000-6730" unit="sentence">.</pc>
+        </l>
+        <l>
+          <w lemma="no" ana="#uh-x" reg="No" xml:id="K000122_000-6760">No</w>
+          <c> </c>
+          <w lemma="feud" ana="#n2" reg="Feuds" xml:id="K000122_000-6770">Feuds</w>
+          <c> </c>
+          <w lemma="intestine" ana="#j" reg="intestine" xml:id="K000122_000-6780">intestine</w>
+          <c> </c>
+          <w lemma="in" ana="#p-acp" reg="in" xml:id="K000122_000-6790">in</w>
+          <hi>
+            <c> </c>
+            <w lemma="her" ana="#po31" reg="her" xml:id="K000122_000-6800">her</w>
+          </hi>
+          <c> </c>
+          <w lemma="bosom" ana="#n1" reg="Bosom" xml:id="K000122_000-6810">Bosom</w>
+          <c> </c>
+          <w lemma="jar" ana="#n1" reg="jar" xml:id="K000122_000-6820">jar</w>
+          <pc xml:id="K000122_000-6830">,</pc>
+        </l>
+        <l>
+          <w lemma="no" ana="#dx" reg="No" xml:id="K000122_000-6860">No</w>
+          <c> </c>
+          <w lemma="breath" ana="#n1" reg="Breath" xml:id="K000122_000-6870">Breath</w>
+          <c> </c>
+          <w lemma="rebellious" ana="#j" reg="rebellious" xml:id="K000122_000-6880">rebellious</w>
+          <c> </c>
+          <w lemma="wake" ana="#vvz" reg="wakes" xml:id="K000122_000-6890">wakes</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-6900">the</w>
+          <c> </c>
+          <w lemma="trump" ana="#n1" reg="Trump" xml:id="K000122_000-6910">Trump</w>
+          <c> </c>
+          <w lemma="of" ana="#pp-f" reg="of" xml:id="K000122_000-6920">of</w>
+          <c> </c>
+          <w lemma="war" ana="#n1" reg="War" xml:id="K000122_000-6930">War</w>
+          <pc xml:id="K000122_000-6940" unit="sentence">.</pc>
+        </l>
+        <l>
+          <w lemma="her" ana="#po31" reg="Her" xml:id="K000122_000-6970">Her</w>
+          <c> </c>
+          <w lemma="martial" ana="#j" reg="martial" xml:id="K000122_000-6980">martial</w>
+          <c> </c>
+          <w lemma="tribe" ana="#n1" reg="Tribe" xml:id="K000122_000-6990">Tribe</w>
+          <c> </c>
+          <w lemma="a" ana="#dt" reg="a" xml:id="K000122_000-7000">a</w>
+          <c> </c>
+          <w lemma="loyal" ana="#j" reg="loyal" xml:id="K000122_000-7010">loyal</w>
+          <c> </c>
+          <w lemma="fervour" ana="#n1" reg="Fervour" xml:id="K000122_000-7020">Fervour</w>
+          <c> </c>
+          <w lemma="feel" ana="#vvz" reg="feels" xml:id="K000122_000-7030">feels</w>
+          <pc xml:id="K000122_000-7040">,</pc>
+        </l>
+        <l>
+          <w lemma="and" ana="#cc" reg="And" xml:id="K000122_000-7070">And</w>
+          <c> </c>
+          <w lemma="virtue" ana="#npg1" reg="Virtue's" xml:id="K000122_000-7080">Virtue's</w>
+          <c> </c>
+          <w lemma="strength" ana="#n1" reg="Strength" xml:id="K000122_000-7090">Strength</w>
+          <c> </c>
+          <w lemma="each" ana="#d" reg="each" xml:id="K000122_000-7100">each</w>
+          <c> </c>
+          <w lemma="manly" ana="#j" reg="manly" xml:id="K000122_000-7110">manly</w>
+          <c> </c>
+          <w lemma="bosom" ana="#n1" reg="Bosom" xml:id="K000122_000-7120">Bosom</w>
+          <c> </c>
+          <w lemma="steel" ana="#vvz" reg="steels" xml:id="K000122_000-7130">steels</w>
+          <pc xml:id="K000122_000-7140" unit="sentence">.</pc>
+        </l>
+        <l>
+          <pb facs="025090030000060" n="7"></pb>
+          <w lemma="for" ana="#p-acp" reg="For" xml:id="K000122_000-7170">For</w>
+          <c> </c>
+          <w lemma="truth" ana="#n1" reg="Truth" xml:id="K000122_000-7180">Truth</w>
+          <c> </c>
+          <w lemma="and" ana="#cc" reg="and" xml:id="K000122_000-7190">and</w>
+          <c> </c>
+          <w lemma="freedom" ana="#n1" reg="Freedom" xml:id="K000122_000-7200">Freedom</w>
+          <c> </c>
+          <w lemma="firm" ana="#av-j" reg="firmly" xml:id="K000122_000-7210">firmly</w>
+          <c> </c>
+          <w lemma="they" ana="#pns32" reg="they" xml:id="K000122_000-7220">they</w>
+          <c> </c>
+          <w lemma="unite" ana="#vvb" reg="unite" xml:id="K000122_000-7230">unite</w>
+          <pc xml:id="K000122_000-7240">,</pc>
+        </l>
+        <l>
+          <w lemma="and" ana="#cc" reg="And" xml:id="K000122_000-7270">And</w>
+          <c> </c>
+          <w lemma="stand" ana="#vvb" reg="stand" xml:id="K000122_000-7280">stand</w>
+          <c> </c>
+          <w lemma="resolve" ana="#vvn" reg="resolved" xml:id="K000122_000-7290">resolv'd</w>
+          <c> </c>
+          <w lemma="to" ana="#pc-acp" reg="to" xml:id="K000122_000-7300">to</w>
+          <c> </c>
+          <w lemma="tempt" ana="#vvi" reg="tempt" xml:id="K000122_000-7310">tempt</w>
+          <c> </c>
+          <w lemma="the" ana="#dt" reg="the" xml:id="K000122_000-7320">the</w>
+          <c> </c>
+          <w lemma="hardy" ana="#j" reg="hardy" xml:id="K000122_000-7330">hardy</w>
+          <c> </c>
+          <w lemma="fight" ana="#vvb" reg="Fight" xml:id="K000122_000-7340">Fight</w>
+          <pc xml:id="K000122_000-7350" unit="sentence">.</pc>
+        </l>
+        <l>
+          <w lemma="thy" ana="#po21" reg="Thy" xml:id="K000122_000-7380">Thy</w>
+          <c> </c>
+          <w lemma="stanhope" ana="#ng1" reg="STANHOPE'S" xml:id="K000122_000-7390">STANHOPE'S</w>
+          <c> </c>
+          <w lemma="presence" ana="#n1" reg="Presence" xml:id="K000122_000-7400">Presence</w>
+          <c> </c>
+          <w lemma="shall" ana="#vmb" reg="shall" xml:id="K000122_000-7410">shall</w>
+          <c> </c>
+          <w lemma="each" ana="#d" reg="each" xml:id="K000122_000-7420">each</w>
+          <c> </c>
+          <w lemma="breast" ana="#n1" reg="Breast" xml:id="K000122_000-7430">Breast</w>
+          <c> </c>
+          <w lemma="inspire" ana="#vvi" reg="inspire" xml:id="K000122_000-7440">inspire</w>
+          <pc xml:id="K000122_000-7450">,</pc>
+        </l>
+        <l>
+          <w lemma="and" ana="#cc" reg="And" xml:id="K000122_000-7480">And</w>
+          <c> </c>
+          <w lemma="george" ana="#npg1" reg="GEORGE's" xml:id="K000122_000-7490">GEORGE's</w>
+          <c> </c>
+          <w lemma="glory" ana="#n1" reg="Glory" xml:id="K000122_000-7500">Glory</w>
+          <c> </c>
+          <w lemma="set" ana="#vvd" reg="set" xml:id="K000122_000-7510">set</w>
+          <c> </c>
+          <w lemma="their" ana="#po32" reg="their" xml:id="K000122_000-7520">their</w>
+          <c> </c>
+          <w lemma="soul" ana="#n2" reg="Souls" xml:id="K000122_000-7530">Souls</w>
+          <c> </c>
+          <w lemma="on" ana="#p-acp" reg="on" xml:id="K000122_000-7540">on</w>
+          <c> </c>
+          <w lemma="fire" ana="#n1" reg="Fire" xml:id="K000122_000-7550">Fire</w>
+        </l>
+        <trailer>
+          <w lemma="the" ana="#dt" reg="The" xml:id="K000122_000-7580">The</w>
+          <c> </c>
+          <w lemma="end" ana="#n1" reg="END" xml:id="K000122_000-7590">END</w>
+          <pc xml:id="K000122_000-7600" unit="sentence">.</pc>
+        </trailer>
+      </div>
+    </body>
+    <interpGrp type="POS">
+      <interp xml:id="a-acp">acp word as adverb</interp>
+      <interp xml:id="av">adverb</interp>
+      <interp xml:id="av-an">noun-adverb as adverb</interp>
+      <interp xml:id="av-c">comparative adverb</interp>
+      <interp xml:id="av-d">determiner/adverb as adverb</interp>
+      <interp xml:id="av-dc">comparative determiner/adverb as adverb</interp>
+      <interp xml:id="av-ds">superlative determiner as adverb</interp>
+      <interp xml:id="av-dx">negative determiner as adverb</interp>
+      <interp xml:id="av-j">adjective as adverb</interp>
+      <interp xml:id="av-j-u">adjective as adverb (un)</interp>
+      <interp xml:id="av-jc">comparative adjective as adverb</interp>
+      <interp xml:id="av-jn">adj/noun as adverb</interp>
+      <interp xml:id="av-jn-u">un-adj/noun as adverb (un-)</interp>
+      <interp xml:id="av-jp">proper adjective as adverb</interp>
+      <interp xml:id="av-jp-u">proper adjective as adverb (un-)</interp>
+      <interp xml:id="av-js">superlative adjective as adverb</interp>
+      <interp xml:id="av-n">noun as adverb</interp>
+      <interp xml:id="av-s">superlative adverb</interp>
+      <interp xml:id="av-u">adverb (un-)</interp>
+      <interp xml:id="av-vvg">present participle as adverb</interp>
+      <interp xml:id="av-vvg-u">present participle as adverb (un-)</interp>
+      <interp xml:id="av-vvn">past participle as adverb</interp>
+      <interp xml:id="av-vvn-u">past participle as adverb (un-)</interp>
+      <interp xml:id="av-x">negative adverb</interp>
+      <interp xml:id="avc-jn">comparative adj/noun as adverb</interp>
+      <interp xml:id="avs-jn">superlative adj/noun as adverb</interp>
+      <interp xml:id="c-acp">acp word as conjunction</interp>
+      <interp xml:id="c-crq">wh-word as conjunction</interp>
+      <interp xml:id="cc">coordinating conjunction</interp>
+      <interp xml:id="cc-acp">acp word as coordinating conjunction</interp>
+      <interp xml:id="ccx">negative conjunction</interp>
+      <interp xml:id="crd">numeral</interp>
+      <interp xml:id="cs">subordinating conjunction</interp>
+      <interp xml:id="cst">'that' as conjunction</interp>
+      <interp xml:id="d">determiner</interp>
+      <interp xml:id="dc">comparative determiner</interp>
+      <interp xml:id="dg">determiner in possessive use</interp>
+      <interp xml:id="dgx">negative determiner in possessive use</interp>
+      <interp xml:id="ds">superlative determiner</interp>
+      <interp xml:id="dt">article</interp>
+      <interp xml:id="dx">negative determiner as adverb</interp>
+      <interp xml:id="fw-en">English word</interp>
+      <interp xml:id="fw-es">spanish word</interp>
+      <interp xml:id="fw-fr">French word</interp>
+      <interp xml:id="fw-ge">German word</interp>
+      <interp xml:id="fw-gr">Greek word</interp>
+      <interp xml:id="fw-it">Italian word</interp>
+      <interp xml:id="fw-la">Latin word</interp>
+      <interp xml:id="fw-mi">word in unspecified other language</interp>
+      <interp xml:id="j">adjective</interp>
+      <interp xml:id="j-acp">acp word as adjective</interp>
+      <interp xml:id="j-av">adverb as adjective</interp>
+      <interp xml:id="j-jn">adjective-noun</interp>
+      <interp xml:id="j-jn-u">adjective-noun (un-)</interp>
+      <interp xml:id="j-u">adjective (un-)</interp>
+      <interp xml:id="j-vvg">present participle as adjective</interp>
+      <interp xml:id="j-vvg-u">present participle as adjective (un-)</interp>
+      <interp xml:id="j-vvn">past participle as adjective</interp>
+      <interp xml:id="j-vvn-u">past participle as adjective (un-)</interp>
+      <interp xml:id="jc">comparative adjective</interp>
+      <interp xml:id="jc-jn">comparative adj/noun</interp>
+      <interp xml:id="jc-u">comparative adjective (un-)</interp>
+      <interp xml:id="jc-vvg">present participles as comparative adjective</interp>
+      <interp xml:id="jc-vvn">past participle as comparative adjective</interp>
+      <interp xml:id="jp">proper adjective</interp>
+      <interp xml:id="jp-u">proper adjective (un-)</interp>
+      <interp xml:id="js">superlative adjective</interp>
+      <interp xml:id="js-jn">superlative adj/noun</interp>
+      <interp xml:id="js-jn-u">superlative adj/noun (un-)</interp>
+      <interp xml:id="js-n">noun as superlative adjective</interp>
+      <interp xml:id="js-u">superlative adjective (un-)</interp>
+      <interp xml:id="js-vvg">present participle as superlative adjective</interp>
+      <interp xml:id="js-vvn">past participle as superlative adjective</interp>
+      <interp xml:id="js-vvn-u">past participle as superlative adjective (un-)</interp>
+      <interp xml:id="js_av">adverb as superlative adjective</interp>
+      <interp xml:id="n-crq">grammatical word used as noun</interp>
+      <interp xml:id="n-jn">adj/noun as noun</interp>
+      <interp xml:id="n-jn-u">adj/noun as noun(un)</interp>
+      <interp xml:id="n-vdg">present participle as noun, 'do'</interp>
+      <interp xml:id="n-vhg">present participle as noun, 'have'</interp>
+      <interp xml:id="n-vvg">present participle as noun</interp>
+      <interp xml:id="n-vvg-u">present participle as noun (un-)</interp>
+      <interp xml:id="n-vvn">past participle as noun</interp>
+      <interp xml:id="n1">singular, noun</interp>
+      <interp xml:id="n1-an">noun-adverb as singular noun</interp>
+      <interp xml:id="n1-j">adjective as singular noun</interp>
+      <interp xml:id="n1-u">singular, noun (un-)</interp>
+      <interp xml:id="n1-uh">interjection used as noun</interp>
+      <interp xml:id="n2">plural noun</interp>
+      <interp xml:id="n2-acp">acp word as plural noun</interp>
+      <interp xml:id="n2-an">noun-adverb as plural noun</interp>
+      <interp xml:id="n2-av">adverb as plural noun</interp>
+      <interp xml:id="n2-cc">coordinating conjunction used as noun</interp>
+      <interp xml:id="n2-crq">wh-word used as noun</interp>
+      <interp xml:id="n2-cs">'if' as a noun</interp>
+      <interp xml:id="n2-dx">determiner/adverb negative as plural noun</interp>
+      <interp xml:id="n2-j">adjective as plural noun</interp>
+      <interp xml:id="n2-jn">adj/noun as plural noun</interp>
+      <interp xml:id="n2-sy">character used as plural noun</interp>
+      <interp xml:id="n2-u">plural noun (un-)</interp>
+      <interp xml:id="n2-uh">interjection used as noun</interp>
+      <interp xml:id="n2-vdg">present participle as plural noun, 'do'</interp>
+      <interp xml:id="n2-vhg">present participle as plural noun, 'have'</interp>
+      <interp xml:id="n2-vm">modal verb used as noun</interp>
+      <interp xml:id="n2-vvg">present participle as plural noun</interp>
+      <interp xml:id="n2-vvg-u">present participle as plural noun (un-)</interp>
+      <interp xml:id="n2-vvn">past participle as plural noun</interp>
+      <interp xml:id="ng1">singular possessive, noun</interp>
+      <interp xml:id="ng1-an">noun-adverb in singular possessive use</interp>
+      <interp xml:id="ng1-j">adjective as possessive noun</interp>
+      <interp xml:id="ng1-jn">adj/noun as possessive noun</interp>
+      <interp xml:id="ng1-vvn">past participle as possessive noun</interp>
+      <interp xml:id="ng2">plural possessive, noun</interp>
+      <interp xml:id="ng2-j">adjective as plural possessive noun</interp>
+      <interp xml:id="ng2-jc">comparative adjective as possessive plural noun</interp>
+      <interp xml:id="ng2-jn">adj/noun as plural possessive noun</interp>
+      <interp xml:id="njp">proper adjective as noun</interp>
+      <interp xml:id="njp2">proper adjective as plural noun</interp>
+      <interp xml:id="njpg1">proper adjective as possessive noun</interp>
+      <interp xml:id="njpg2">proper adjective as plural possessive noun</interp>
+      <interp xml:id="np1">singular, proper noun</interp>
+      <interp xml:id="np1-j">adjective used as name</interp>
+      <interp xml:id="np1-jn">singular, proper noun</interp>
+      <interp xml:id="np1-n">singular noun as proper noun</interp>
+      <interp xml:id="np2">plural, proper noun</interp>
+      <interp xml:id="np2-j">adjective used as plural name</interp>
+      <interp xml:id="np2-n">plural noun as proper noun</interp>
+      <interp xml:id="npg1">singular possessive, proper noun</interp>
+      <interp xml:id="npg1-j">adjective as proper noun</interp>
+      <interp xml:id="npg1-n">singular possessive noun as proper noun</interp>
+      <interp xml:id="npg2">plural possessive, proper noun</interp>
+      <interp xml:id="ord">ordinal number</interp>
+      <interp xml:id="p-acp">acp word as preposition</interp>
+      <interp xml:id="pc-acp">acp word as particle</interp>
+      <interp xml:id="pi">singular, indefinite pronoun</interp>
+      <interp xml:id="pi2">plural, indefinite pronoun</interp>
+      <interp xml:id="pi2x">plural, indefinite pronoun</interp>
+      <interp xml:id="pig">singular possessive, indefinite pronoun</interp>
+      <interp xml:id="pigx">possessive case, indefinite pronoun</interp>
+      <interp xml:id="pix">indefinite pronoun</interp>
+      <interp xml:id="pix2">indefinite pronoun</interp>
+      <interp xml:id="pn22">second person, personal pronoun</interp>
+      <interp xml:id="pn31">third person singular, personal pronoun</interp>
+      <interp xml:id="png11">first person singular possessive, personal pronoun</interp>
+      <interp xml:id="png12">first person plural possessive, personal pronoun</interp>
+      <interp xml:id="png21">second person singular possessive, personal pronoun</interp>
+      <interp xml:id="png22">second person, possessive, personal pronoun</interp>
+      <interp xml:id="png31">third person singular possessive, personal pronoun</interp>
+      <interp xml:id="png32">third person plural possessive, personal pronoun</interp>
+      <interp xml:id="pno11">first person singular objective, personal pronoun</interp>
+      <interp xml:id="pno12">first person plural objective, personal pronoun</interp>
+      <interp xml:id="pno21">second person singular objective, personal pronoun</interp>
+      <interp xml:id="pno31">third person singular objective, personal pronoun</interp>
+      <interp xml:id="pno32">third person plural objective, personal pronoun</interp>
+      <interp xml:id="pns11">first person singular subjective, personal pronoun</interp>
+      <interp xml:id="pns12">first person plural subjective, personal pronoun</interp>
+      <interp xml:id="pns21">second person singular subjective, personal pronoun</interp>
+      <interp xml:id="pns31">third person singular subjective, personal pronoun</interp>
+      <interp xml:id="pns32">third person plural objective, personal pronoun</interp>
+      <interp xml:id="po11">first person singular, possessive pronoun</interp>
+      <interp xml:id="po12">first person plural, possessive pronoun</interp>
+      <interp xml:id="po21">second person singular, possessive pronoun</interp>
+      <interp xml:id="po22">second person possessive pronoun</interp>
+      <interp xml:id="po31">third person singular, possessive pronoun</interp>
+      <interp xml:id="po32">third person plural, possessive pronoun</interp>
+      <interp xml:id="pp-f">preposition 'of'</interp>
+      <interp xml:id="px11">first person singular reflexive pronoun</interp>
+      <interp xml:id="px12">first person plural reflexive pronoun</interp>
+      <interp xml:id="px21">second person singular reflexive pronoun</interp>
+      <interp xml:id="px22">second person plural reflexive pronoun</interp>
+      <interp xml:id="px31">third person singular reflexive pronoun</interp>
+      <interp xml:id="px32">third person plural reflexive pronoun</interp>
+      <interp xml:id="pxg21">second person singular possessive, reflexive pronoun</interp>
+      <interp xml:id="q-crq">interrogative use, wh-word</interp>
+      <interp xml:id="qg-crq">interrogative use, wh-word, possessive</interp>
+      <interp xml:id="qo-crq">interrogative use, wh-word, object</interp>
+      <interp xml:id="r-crq">relative use, wh-word</interp>
+      <interp xml:id="rg-crq">relative use, wh-word, possessive</interp>
+      <interp xml:id="ro-crq">relative use, wh-word, object</interp>
+      <interp xml:id="sy">alphabetical or other symbol</interp>
+      <interp xml:id="uh">interjection</interp>
+      <interp xml:id="uh-av">adverb as interjection</interp>
+      <interp xml:id="uh-crq">wh-word as interjection</interp>
+      <interp xml:id="uh-dx">negative interjection</interp>
+      <interp xml:id="uh-j">adjective as interjection</interp>
+      <interp xml:id="uh-jn">adjective/noun as interjection</interp>
+      <interp xml:id="uh-n">noun as interjection</interp>
+      <interp xml:id="uh-np">proper noun as interjection</interp>
+      <interp xml:id="uh-v">verb as interjection</interp>
+      <interp xml:id="uh-x">negative interjection</interp>
+      <interp xml:id="vb2-imp">second person plural present imperative, 'be'</interp>
+      <interp xml:id="vb2r">2nd singular present of 'be'</interp>
+      <interp xml:id="vb2rx">2nd singular present, 'be'</interp>
+      <interp xml:id="vb2s">2nd singular present of 'be'</interp>
+      <interp xml:id="vbb">present tense, 'be'</interp>
+      <interp xml:id="vbbx">present tense negative, 'be'</interp>
+      <interp xml:id="vbd2r">2nd singular past of 'be'</interp>
+      <interp xml:id="vbd2s">2nd singular past of 'be'</interp>
+      <interp xml:id="vbd2x">second person singular past, 'be'</interp>
+      <interp xml:id="vbdp">plural past tense, 'be'</interp>
+      <interp xml:id="vbdr">past tense, 'be'</interp>
+      <interp xml:id="vbdrx">past tense negative, 'be'</interp>
+      <interp xml:id="vbds">past tense, 'be'</interp>
+      <interp xml:id="vbdsx">past tense negative, 'be'</interp>
+      <interp xml:id="vbg">present participle, 'be'</interp>
+      <interp xml:id="vbi">infinitive, 'be'</interp>
+      <interp xml:id="vbm">first person singular, 'be'</interp>
+      <interp xml:id="vbmx">first person singular negative, 'be'</interp>
+      <interp xml:id="vbn">past participle, 'be'</interp>
+      <interp xml:id="vbp">plural present, 'be'</interp>
+      <interp xml:id="vbr">present tense , 'be', 'are'</interp>
+      <interp xml:id="vbrx">present tense negative, 'be', are</interp>
+      <interp xml:id="vbz">third person singular present, 'be'</interp>
+      <interp xml:id="vbzx">third person singular present negative, 'be'</interp>
+      <interp xml:id="vd2">second person singular present of 'do'</interp>
+      <interp xml:id="vd2-imp">second person plural present imperative, 'do'</interp>
+      <interp xml:id="vd2x">second person singular present negative, 'do'</interp>
+      <interp xml:id="vdb">present tense, 'do'</interp>
+      <interp xml:id="vdbx">present tense negative, 'do'</interp>
+      <interp xml:id="vdd">past tense, 'do'</interp>
+      <interp xml:id="vdd2">second person singular past of 'do'</interp>
+      <interp xml:id="vdd2x">second person singular past negative, verb</interp>
+      <interp xml:id="vddp">plural past tense, 'do'</interp>
+      <interp xml:id="vddx">past tense negative, 'do'</interp>
+      <interp xml:id="vdg">present participle, 'do'</interp>
+      <interp xml:id="vdi">infinitive, 'do'</interp>
+      <interp xml:id="vdn">past participle, 'do'</interp>
+      <interp xml:id="vdp">plural present, 'do'</interp>
+      <interp xml:id="vdz">third person singular present, 'do'</interp>
+      <interp xml:id="vdzx">third person singular present negative, 'do'</interp>
+      <interp xml:id="vh2">second person singular present of 'have'</interp>
+      <interp xml:id="vh2-imp">second person plural present imperative, 'have'</interp>
+      <interp xml:id="vh2x">second person singular present negative, 'have'</interp>
+      <interp xml:id="vhb">present tense, 'have'</interp>
+      <interp xml:id="vhbx">present tense negative, 'have'</interp>
+      <interp xml:id="vhd">past tense, 'have'</interp>
+      <interp xml:id="vhd2">second person singular past of 'have'</interp>
+      <interp xml:id="vhdp">plural past tense, 'have'</interp>
+      <interp xml:id="vhdx">past tense negative, 'have'</interp>
+      <interp xml:id="vhg">present participle, 'have'</interp>
+      <interp xml:id="vhi">infinitive, 'have'</interp>
+      <interp xml:id="vhn">past participle, 'have'</interp>
+      <interp xml:id="vhp">plural present, 'have'</interp>
+      <interp xml:id="vhz">third person singular present, 'have'</interp>
+      <interp xml:id="vhzx">third person singular present negative, 'have'</interp>
+      <interp xml:id="vm2">second person singular present of modal verb</interp>
+      <interp xml:id="vm2x">second person singular present negative, modal verg</interp>
+      <interp xml:id="vmb">present tense, modal verb</interp>
+      <interp xml:id="vmb1">first person singular present, modal verb</interp>
+      <interp xml:id="vmbx">present tense negative, modal verb</interp>
+      <interp xml:id="vmd">past tense, modal verb</interp>
+      <interp xml:id="vmd2">second person singular past of modal verb</interp>
+      <interp xml:id="vmd2x">second person singular present, modal verb</interp>
+      <interp xml:id="vmdp">plural past tense, modal verb</interp>
+      <interp xml:id="vmdx">past negative, modal verb</interp>
+      <interp xml:id="vmi">infinitive, modal verb</interp>
+      <interp xml:id="vmn">past participle, modal verb</interp>
+      <interp xml:id="vmp">plural present tense, modal verg</interp>
+      <interp xml:id="vv2">second person singular present of verb</interp>
+      <interp xml:id="vv2-imp">second person present imperative, verb</interp>
+      <interp xml:id="vv2-u">2nd singular present of verb (un-)</interp>
+      <interp xml:id="vv2x">second person singular present negative, verb</interp>
+      <interp xml:id="vvb">present tense, verg</interp>
+      <interp xml:id="vvb-u">present tense, verb (un-)</interp>
+      <interp xml:id="vvbx">present tense negative, verb</interp>
+      <interp xml:id="vvd">past tense, verb</interp>
+      <interp xml:id="vvd-u">past tense, verb (un-)</interp>
+      <interp xml:id="vvd2">second person singular past of verb</interp>
+      <interp xml:id="vvd2-u">2nd singular past of verb (un-)</interp>
+      <interp xml:id="vvd2x">second person singular past negative, verb</interp>
+      <interp xml:id="vvdp">past plural, verb</interp>
+      <interp xml:id="vvdx">past tense negative, verb</interp>
+      <interp xml:id="vvg">present participle, verb</interp>
+      <interp xml:id="vvg-np">a name turned into a present participle</interp>
+      <interp xml:id="vvg-u">present participle, verb (un-)</interp>
+      <interp xml:id="vvi">infinitive, verb</interp>
+      <interp xml:id="vvi-u">infinitive, verb (un-)</interp>
+      <interp xml:id="vvn">past participle, verb</interp>
+      <interp xml:id="vvn-u">past participle, verb (un-)</interp>
+      <interp xml:id="vvp">plural present, verb</interp>
+      <interp xml:id="vvp-u">plural present, verb(un-)</interp>
+      <interp xml:id="vvz">third person singular preseent, verb</interp>
+      <interp xml:id="vvz-np">a name turned into a verb</interp>
+      <interp xml:id="vvz-u">3rd singular present, verb</interp>
+      <interp xml:id="vvzx">third person singular present negative, verb</interp>
+      <interp xml:id="wd">word wrongly split or joined in text</interp>
+      <interp xml:id="xx">negative</interp>
+      <interp xml:id="zf">english word wrongly used by foreign speaker</interp>
+      <interp xml:id="zz">unknown or unparsable token</interp>
+    </interpGrp>
+  </text>
+</TEI>
+

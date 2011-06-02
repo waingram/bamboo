@@ -1,3 +1,5 @@
+require 'active_fedora'
+
 class Bamboo::TcpBookAsset < ActiveFedora::Base
 
   has_metadata :name => 'teiHeader', :type => ActiveFedora::NokogiriDatastream

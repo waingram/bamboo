@@ -19,6 +19,6 @@ group :development, :test do
   gem 'ruby-debug'
   gem 'ruby-debug-base'
   gem 'ruby-debug-ide'
-  gem 'rspec', '>2.0.0'
-  gem 'cucumber', '>=0.8.5'
+  gem 'rspec', :require=>'spec'
+  gem 'cucumber'
 end

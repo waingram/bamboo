@@ -1,23 +1,11 @@
-Given /^I have a TEI XML file$/ do 
-  @tei = "/path/to/tei"
-  @tcp_id = "xxxx"
-  @ma_path = "/path/to/ma"
-  @image_url = "http://url/for/image"
+Given /^I have a TCP package to ingest$/ do 
 end
 
-When /^I ingest the TEI$/ do
-  ingester = Bamboo::Ingester.new
-  ingester.ingest(@tei)
+When /^I ingest the TEI file "(.*)"$/ do |tei_file|
+  ingester = Bamboo::Ingester.new(File.join PROJECT_ROOT, "spec", "fixtures", "ecco-unadorned")
+  @pid = ingester.ingest(tei_file)
 end
 
-Then /^the ingester should know the TCP ID$/ do
-  ingester.tcp_id.should == @tcp_id
-end
-
-Then /^the ingester should know the MA file location$/ do
-  ingester.path_to_ma.should == @ma_path
-end
-
-Then /^the ingester should know the Gayle image URL$/ do
-  ingester.url_for_image.should == @image_url
+Then /^I should get back a Fedora object PID "(.*)"$/ do |pid|
+  @pid.should == pid
 end

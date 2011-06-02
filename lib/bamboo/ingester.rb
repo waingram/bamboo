@@ -1,31 +1,46 @@
 require 'om'
 
 class Bamboo::Ingester
-  attr_accessor :package_dir
+  attr_accessor :unadorned_path
+  attr_accessor :adorned_path
 
-  def initialize(package_dir)
-    self.package_dir = package_dir
+  def initialize(unadorned_path, adorned_path)
+    @unadorned_path = unadorned_path
+    @adorned_path = adorned_path
   end
-
-  def ingest
-    puts "Ingesting from #{self.package_dir}"
-
-    Dir.entries(package_dir).each do |f|
-      next if File.directory?(f)
-
-      book = create_book(f)
-
+  
+  def load_tei(tei_filename)
+    @tei_xml        = Nokogiri::XML::Document.parse(File.read(File.join(@unadorned_path, tei_filename)))
+    @pid            = tcpid_to_pid
+  end
+  
+  def image_urls
+    pbs   = @tei_xml.css("pb")
+    urls = Array.new
+    
+    pbs.each do |pb|
+      n = pb['n']
+      facs = pb['facs']
+      image_url = gale_url(image_set_id, facs)
+      puts image_url
+      urls << image_url
     end
+    urls
+  end
+    
+
+  def ingest(tei_file)
+    puts "Ingesting #{tei_file}..."
+    create_book(tei_file)
+    #Pages
+    #pages = create_page_images(book, tei)
+    
+    #book.pid
+    
   end
 
-  def create_book(file)
-    puts "Processing #{file}..."
+  def create_book(tei_file)
     begin
-      tei_xml        = package_file_xml(file)
-      tei_header_xml = get_tei_header_xml(tei_xml)
-      title          = get_title(tei_xml)
-      tcpid          = get_tcpid(tei_xml)
-      pid            = tcpid_to_pid(tcpid)
 
       replacing_object(pid) do
         tcp_book_asset = Bamboo::TcpBookAsset.new(:pid => pid)
@@ -41,8 +56,6 @@ class Bamboo::Ingester
         tcp_book_asset.label = title
 
         tcp_book_asset.save
-        #Pages
-        create_page_images(tcp_book_asset, tei_xml)
         
         tcp_book_asset
       end
@@ -52,10 +65,10 @@ class Bamboo::Ingester
 
   end
 
-  def create_page_images(book_obj, tei_xml)
+  def create_page_images(book_obj)
     #doc        = Nokogiri::XML(File.open(tei_xml))
-    image_set_id = get_image_set_id(tei_xml)
-    page_nodes   = tei_xml.css("pb")
+    tei_xml        = package_file_xml(tei_file)
+    
     page_nodes.each do |pn|
       n        = pn['n']
       facs     = pn['facs']
@@ -99,7 +112,7 @@ class Bamboo::Ingester
       page_num = facs[image_set_id.size..-1]
     else
       # otherwise page number needs to be set to four digits, padded with zeros
-      page_num = "%04d" % facs
+      page_num = "%04d" + facs
     end
 
     coda = "0&contentSet=ECLL"
@@ -108,39 +121,24 @@ class Bamboo::Ingester
 
   end
 
-  def package_file(*args)
-    File.join(package_dir, *args)
+  def tei_header_xml
+    @tei_xml.css("TEI > teiHeader")
   end
 
-  def package_file_contents(*args)
-    File.read(package_file(*args))
+  def title
+    tei_header_xml.css("teiHeader > fileDesc > titleStmt > title").text
   end
 
-  def package_file_xml(*args)
-    Nokogiri::XML::Document.parse(package_file_contents(*args))
+  def tcpid
+    tei_header_xml.css("teiHeader > fileDesc > publicationStmt > idno[type='TCP']").text
   end
 
-  def get_tcpid(tei_xml)
-    #tcpid = tei_xml.xpath("//tei:idno[@type='TCP']/text" 'tei' => 'http://www.tei-c.org/ns/1.0')
-    tcpid = tei_xml.css("TEI > teiHeader > fileDesc > publicationStmt > idno[type='TCP']").text
-    raise "Can't get tcpid." if tcpid.blank?
-    tcpid
-  end
-
-  def get_tei_header_xml(tei_xml)
-    tei_xml.css("TEI > teiHeader")
-  end
-
-  def get_title(tei_xml)
-    tei_xml.css("TEI > teiHeader > fileDesc > titleStmt > title").text
-  end
-
-  def tcpid_to_pid(tcpid)
+  def tcpid_to_pid
     "bamboo:#{tcpid}"
   end
 
-  def get_image_set_id(tei_xml)
-    tei_xml.css("TEI > teiHeader > fileDesc > publicationStmt > idno[type='ImageSetID']").text
+  def image_set_id
+    tei_header_xml.css("teiHeader > fileDesc > publicationStmt > idno[type='ImageSetID']").text
   end
 
   def replacing_object(pid)
