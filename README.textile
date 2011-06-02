@@ -1,0 +1,16 @@
+h1. TCP ingester for project Bamboo
+
+This code takes TCP texts and ingests them into a Fedora repository. 
+
+It creates multiple Fedora objects, one for the book itself and one for each page. 
+
+The book object will have these datastreams:
+* Un-Adorned TEI XML
+* Adorned TEI XML
+* MARC XML 
+* Properties 
+
+Page objects will have:
+* URL to the page image
+
+More to come...
