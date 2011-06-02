@@ -9,13 +9,7 @@
     </requirement>
     <requirement>
       <requirement>
-        <dependency name="block_helpers" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
-      </requirement>
-      <source from="Gemfile" />
-    </requirement>
-    <requirement>
-      <requirement>
-        <dependency name="cucumber" version="0.8.5" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+        <dependency name="cucumber" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
@@ -57,7 +51,7 @@
     </requirement>
     <requirement>
       <requirement>
-        <dependency name="rspec" version="2.0.0" bound="GREATER" git="false" path="false" doRequire="true" />
+        <dependency name="rspec" version="0" bound="GREATER_OR_EQUAL" lib="spec" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
@@ -154,6 +148,8 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] nokogiri (v1.4.3.1, /home/medusa/.rvm/gems/ree-1.8.7-2011.03@bamboo/gems/nokogiri-1.4.3.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] ruby-debug-base (v0.10.4, /home/medusa/.rvm/gems/ree-1.8.7-2011.03@bamboo/gems/ruby-debug-base-0.10.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rake (v0.8.7, /home/medusa/.rvm/gems/ree-1.8.7-2011.03@global/gems/rake-0.8.7)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rake (v0.9.1, /home/medusa/.rvm/gems/ree-1.8.7-2011.03@bamboo/gems/rake-0.9.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] om (v1.2.5, /home/medusa/.rvm/gems/ree-1.8.7-2011.03@bamboo/gems/om-1.2.5)" level="application" />
   </component>
 </module>
 

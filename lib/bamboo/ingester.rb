@@ -21,8 +21,8 @@ class Bamboo::Ingester
     pbs.each do |pb|
       n = pb['n']
       facs = pb['facs']
-      image_url = gale_url(image_set_id, facs)
-      puts image_url
+      image_url = gale_url(facs, image_set_id)
+
       urls << image_url
     end
     urls
@@ -109,15 +109,16 @@ class Bamboo::Ingester
     # instead of the page image sequence number, it is the entire image_set_id + page_num
     # here we account for this case
     if facs.start_with? image_set_id
-      page_num = facs[image_set_id.size..-1]
+      num_str = facs
     else
       # otherwise page number needs to be set to four digits, padded with zeros
-      page_num = "%04d" + facs
+      page_num = "%04d" % facs
+      num_str = image_set_id + page_num + "0"
     end
 
-    coda = "0&contentSet=ECLL"
+    coda = "&contentSet=#{content_set}"
 
-    intro + image_set_id + page_num + coda
+    intro + num_str + coda
 
   end
 
@@ -133,12 +134,16 @@ class Bamboo::Ingester
     tei_header_xml.css("teiHeader > fileDesc > publicationStmt > idno[type='TCP']").text
   end
 
-  def tcpid_to_pid
-    "bamboo:#{tcpid}"
-  end
-
   def image_set_id
     tei_header_xml.css("teiHeader > fileDesc > publicationStmt > idno[type='ImageSetID']").text
+  end
+
+  def content_set
+    tei_header_xml.css("teiHeader > fileDesc > publicationStmt > idno[type='ContentSet']").text
+  end
+
+  def tcpid_to_pid
+    "bamboo:#{tcpid}"
   end
 
   def replacing_object(pid)
