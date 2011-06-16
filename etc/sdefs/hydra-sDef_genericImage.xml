@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject VERSION="1.1" PID="hydra-sDef:genericImage"
+  xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+<foxml:objectProperties>
+<foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="SDef for Hydra image content"/>
+<foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2009-09-21T15:45:07.833Z"/>
+<foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2009-09-21T15:45:07.833Z"/>
+</foxml:objectProperties>
+<foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="RELS-EXT1.0" LABEL="RDF Statements about this object" CREATED="2009-09-21T15:45:07.957Z" MIMETYPE="application/rdf+xml" FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0" SIZE="392">
+<foxml:xmlContent>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:fedora-model="info:fedora/fedora-system:def/model#">
+               <rdf:Description rdf:about="info:fedora/hydra-sDef:genericImage">
+                  <fedora-model:hasModel rdf:resource="info:fedora/fedora-system:ServiceDefinition-3.0"></fedora-model:hasModel>
+               </rdf:Description>
+            </rdf:RDF>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="METHODMAP" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="METHODMAP1.0" LABEL="Abstract Method Map" CREATED="2009-09-21T15:45:07.957Z" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:FedoraSDefMethodMap-1.0" SIZE="385">
+<foxml:xmlContent>
+<fmm:MethodMap xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap" name="N/A">
+               <fmm:method operationName="getThumbnail"></fmm:method>
+               <fmm:method operationName="getScreen"></fmm:method>
+               <fmm:method operationName="getMax"></fmm:method>
+               <fmm:method operationName="getMaster"></fmm:method>
+            </fmm:MethodMap>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+<foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+<foxml:datastreamVersion ID="DC1.0" LABEL="Dublin Core Record for this object" CREATED="2009-09-21T15:45:07.833Z" MIMETYPE="text/xml" FORMAT_URI="http://www.openarchives.org/OAI/2.0/oai_dc/" SIZE="404">
+<foxml:xmlContent>
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+  <dc:title>SDef for Hydra image content</dc:title>
+  <dc:identifier>hydra-sDef:genericImage</dc:identifier>
+</oai_dc:dc>
+</foxml:xmlContent>
+</foxml:datastreamVersion>
+</foxml:datastream>
+</foxml:digitalObject>
+

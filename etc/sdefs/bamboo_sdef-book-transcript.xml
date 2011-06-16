@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject PID="bamboo:sdef-book-transcript" VERSION="1.1" xmlns:foxml="info:fedora/fedora-system:def/foxml#">
+  <foxml:objectProperties>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Bamboo Book Transcript SDEF"/>
+  </foxml:objectProperties>
+
+
+ <!-- Dublin Core Datastream -->
+  <foxml:datastream CONTROL_GROUP="X" ID="DC" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion ID="DC1.0" LABEL="Dublin Core Metadata for Service" MIMETYPE="text/xml">
+      <foxml:xmlContent>
+        <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+          <dc:title>Book Transcript SDEF</dc:title>
+          <dc:identifier>bamboo:sdef-book-transcript</dc:identifier>
+        </oai_dc:dc>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+
+ <!-- RELS-EXT Datastream -->
+ <foxml:datastream ID="RELS-EXT"
+      CONTROL_GROUP="X" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion ID="RELS-EXT1.0"
+        MIMETYPE="application/rdf+xml"
+        FORMAT_URI="info:fedora/fedora-system:FedoraRELSExt-1.0"
+        LABEL="RDF Statements about this object">
+      <foxml:xmlContent>
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+            xmlns:fedora-model="info:fedora/fedora-system:def/model#">
+          <rdf:Description rdf:about="info:fedora/bamboo:sdef-book-transcript">
+            <fedora-model:hasModel
+                rdf:resource="info:fedora/fedora-system:ServiceDefinition-3.0"/>
+          </rdf:Description>
+        </rdf:RDF>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+
+ <!-- Method Map Datastream -->
+  <foxml:datastream CONTROL_GROUP="X" ID="METHODMAP" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion ID="METHODMAP1.0"
+    	FORMAT_URI="info:fedora/fedora-system:FedoraSDefMethodMap-1.0"
+    	LABEL="Abstract Method Map" MIMETYPE="text/xml">
+
+      <foxml:xmlContent>
+        <fmm:MethodMap name="MethodMap - Book Transcript Behavior Definition" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:Method label="get teiHeader" operationName="getHeader"/>
+          <fmm:Method label="Get TOC as div structure" operationName="getTOC"/>
+          <fmm:Method label="get front matter" operationName="getFront"/>
+          <fmm:Method label="get xml fragment with id attribute" operationName="getChunk">
+            <fmm:UserInputParm defaultValue="" label="xml element id attribute value" parmName="xmlid" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="get head element for &lt;div> given &lt;div> id attribute" operationName="getHeading">
+            <fmm:UserInputParm defaultValue="" label="div element id attribute value" parmName="xmlid" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="get xml between ordinal and following &lt;pb> inclusive" operationName="getPageByNumber">
+            <fmm:UserInputParm defaultValue="" label="page ordinal" parmName="pagenumber" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="get xml after &lt;pb> with id attribute" operationName="getPageById">
+            <fmm:UserInputParm defaultValue="" label="&lt;pb> id" parmName="pageid" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="Reindex the TEI datastream" operationName="refresh"/>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+</foxml:digitalObject>
