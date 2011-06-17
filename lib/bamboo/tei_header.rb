@@ -8,7 +8,7 @@ class Bamboo::TeiHeader < ActiveFedora::NokogiriDatastream
     t.root(:path=>"teiHeader", :xmlns=>"")
     t.fileDesc {
       t.titleStmt {
-        t.title(:index_as=>[:searchable, :displayable, :facetable, :sortable])
+        t.title
       }
     }
     t.book_title(:proxy=>[:fileDesc, :titleStmt, :title])

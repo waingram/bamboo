@@ -1,6 +1,6 @@
-# defines the expected OM terminology for page content metadata
+# defines the expected OM terminology for  content metadata
 
-class Bamboo::PageContentMetadata < ActiveFedora::NokogiriDatastream 
+class Bamboo::ContentMetadata < ActiveFedora::NokogiriDatastream 
    
   # OM (Opinionated Metadata) terminology mapping for content metadata
     set_terminology do |t|
