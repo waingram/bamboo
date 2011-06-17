@@ -6,7 +6,7 @@ require 'net/http'
 module Bamboo
 
   describe Ingester do
-    context "finding files" do
+    context "making Fedora objects" do
 
       before(:each) do
         ActiveFedora.init unless Thread.current[:repo]
@@ -24,6 +24,14 @@ module Bamboo
           @book.delete
         rescue
         end
+        begin
+          @page_xml.delete
+        rescue
+        end
+          begin
+            @page_xml.delete
+          rescue
+          end
       end
 
       it "should gather valid gale image URLs" do
@@ -51,9 +59,28 @@ module Bamboo
         @ingester.load_tei(tei_filename)
         @book = @ingester.create_book
         @book.should_not == nil
-        tei_header = @book.datastreams['descMetadata']
+        tei_header = @book.datastreams['teiHeader']
         tei_header.attributes[:dsLabel].should == "TEI Header"
       end
+      
+      it "should create a tei xml object" do
+        tei_filename = "K000122.000.xml"
+        @ingester.load_tei(tei_filename)
+        @tei_xml = @ingester.create_tei_xml
+        @tei_xml.should_not == nil
+        tei = @tei_xml.datastreams['DS1']
+        tei.attributes[:dsLabel].should == "TEI XML"
+        puts tei.attributes
+      end
+
+        it "should create a morph adorned xml object" do
+          tei_filename = "K000122.000.xml"
+          @ingester.load_tei(tei_filename)
+          @morph_adorned_xml = @ingester.create_morph_adorned_xml
+          @morph_adorned_xml.should_not == nil
+          morph_adorned = @morph_adorned_xml.datastreams['DS1']
+          morph_adorned.attributes[:dsLabel].should == "Morph-Adorned XML"
+        end
 
     end
   end

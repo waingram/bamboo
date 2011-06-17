@@ -2,8 +2,7 @@ require 'active_fedora'
 require 'hydra'
 require 'bamboo'
 
-class Bamboo::PageImage < ActiveFedora::Base
+class Bamboo::MorphAdornedXml < ActiveFedora::Base
   has_metadata :name => 'rightsMetadata', :type => Hydra::RightsMetadata
-  has_metadata :name => 'descMetadata', :type => Bamboo::PageMetadata
   has_metadata :name => 'contentMetadata', :type => Bamboo::ContentMetadata
 end

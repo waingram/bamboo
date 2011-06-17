@@ -10,7 +10,8 @@ class Bamboo::Ingester
   end
   
   def load_tei(tei_filename)
-    @tei_xml        = Nokogiri::XML::Document.parse(File.read(File.join(@unadorned_path, tei_filename)))
+    @tei_filename   = tei_filename
+    @tei_xml        = Nokogiri::XML::Document.parse(File.read(File.join(@unadorned_path, @tei_filename)))
     @pid            = tcpid_to_pid
   end
   
@@ -44,7 +45,7 @@ class Bamboo::Ingester
       replacing_object(@pid) do
         book = Bamboo::Book.new(:pid => @pid)
         #TEI header ds
-        tei_header_ds                      = book.datastreams['descMetadata']
+        tei_header_ds                      = book.datastreams['teiHeader']
         tei_header_ds.ng_xml               = Nokogiri::XML::Document.new
         tei_header_ds.ng_xml               << tei_header_xml
         tei_header_ds.attributes[:dsLabel] = "TEI Header"
@@ -54,10 +55,48 @@ class Bamboo::Ingester
         return book
       end
     rescue Exception => e
-      puts "[ERROR] #{e.message}"
+      puts "[ERROR] create_book: #{e.message}"
+      puts e.backtrace
     end
 
   end
+
+  def create_tei_xml
+    pid = @pid + ".tei"
+    begin
+      replacing_object(pid) do
+        tei_xml = Bamboo::TeiXml.new(:pid=>pid)
+        #TEI ds
+        tei_path = File.join(@unadorned_path, @tei_filename)
+        tei_ds = ActiveFedora::Datastream.new(:dsLabel => "TEI XML", :controlGroup => "M", :blob =>File.open(tei_path) )
+        tei_xml.add_datastream(tei_ds)
+        tei_xml.save
+        return tei_xml
+      end
+    rescue Exception => e
+      puts "[ERROR] create_tei_xml: #{e.message}"
+      puts e.backtrace
+    end
+  end
+
+    def create_morph_adorned_xml
+      pid = @pid + ".morphadorned"
+      begin
+        replacing_object(pid) do
+          morph_adorned_xml = Bamboo::MorphAdornedXml.new(:pid=>pid)
+          #TEI ds
+          morph_adorned_path = File.join(@adorned_path, @tei_filename)
+          morph_adorned_ds = ActiveFedora::Datastream.new(:dsLabel => "Morph-Adorned XML", :controlGroup => "M", :blob =>File.open(morph_adorned_path) )
+          morph_adorned_xml.add_datastream(morph_adorned_ds)
+          morph_adorned_xml.save
+          return morph_adorned_xml
+        end
+      rescue Exception => e
+        puts "[ERROR] create_morph_adorned_xml: #{e.message}"
+        puts e.backtrace
+      end
+    end
+   
 
   def create_page_images(book_obj)
     #doc        = Nokogiri::XML(File.open(tei_xml))
