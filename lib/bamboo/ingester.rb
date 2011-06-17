@@ -39,25 +39,19 @@ class Bamboo::Ingester
     
   end
 
-  def create_book(tei_file)
+  def create_book
     begin
-
-      replacing_object(pid) do
-        tcp_book_asset = Bamboo::TcpBookAsset.new(:pid => pid)
+      replacing_object(@pid) do
+        book = Bamboo::Book.new(:pid => @pid)
         #TEI header ds
-        tei_header_ds                      = tcp_book_asset.datastreams['teiHeader']
-        tei_header_ds.ng_xml               = tei_header_xml
+        tei_header_ds                      = book.datastreams['descMetadata']
+        tei_header_ds.ng_xml               = Nokogiri::XML::Document.new
+        tei_header_ds.ng_xml               << tei_header_xml
         tei_header_ds.attributes[:dsLabel] = "TEI Header"
-        #TEI XML
-        tei_ds = ActiveFedora::Datastream.new(:dsId => "TEI", :dsLabel => "TEI XML", :controlGroup => "M", :blob => File.open(package_file(file)))
-        tcp_book_asset.add_datastream(tei_ds)
-        #Properties ds
-        tcp_book_asset.datastreams['properties'].title_values << title
-        tcp_book_asset.label = title
-
-        tcp_book_asset.save
+        book.label = title
         
-        tcp_book_asset
+        book.save
+        return book
       end
     rescue Exception => e
       puts "[ERROR] #{e.message}"
