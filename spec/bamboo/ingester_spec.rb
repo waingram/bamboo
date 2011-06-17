@@ -9,15 +9,19 @@ module Bamboo
     context "finding files" do
 
       before(:each) do
+        ActiveFedora.init unless Thread.current[:repo]
+        
         @unadorned_path = File.join PROJECT_ROOT,"spec","fixtures","ecco-unadorned"
         @adorned_path    = File.join PROJECT_ROOT, "spec", "fixtures", "ecco-adorned-p5simple"
         #unadorned_path = "/home/medusa/Downloads/TCPSource/1420ECCOtexts/1420ECCOtexts"
-
+        
+        puts "Instantiating new ingester"
         @ingester = Bamboo::Ingester.new(@unadorned_path, @adorned_path)
       end
 
       after(:each) do
         begin
+          @book.delete
         rescue
         end
       end
@@ -45,8 +49,10 @@ module Bamboo
       it "should create a bamboo book" do
         tei_filename = "K000122.000.xml"
         @ingester.load_tei(tei_filename)
-        book = @ingester.create_book
-        book.should_not.be_nil
+        @book = @ingester.create_book
+        @book.should_not == nil
+        tei_header = @book.datastreams['descMetadata']
+        tei_header.attributes[:dsLabel].should == "TEI Header"
       end
 
     end
