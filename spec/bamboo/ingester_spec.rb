@@ -61,6 +61,9 @@ module Bamboo
         @book.should_not == nil
         tei_header = @book.datastreams['teiHeader']
         tei_header.attributes[:dsLabel].should == "TEI Header"
+        tei_header.ng_xml.root.children.empty?.should_not == true
+        dc = @book.datastreams['descMetadata']
+        dc.ng_xml.root.children.empty?.should_not == true
       end
       
       it "should create a tei xml object" do
@@ -70,7 +73,7 @@ module Bamboo
         @tei_xml.should_not == nil
         tei = @tei_xml.datastreams['DS1']
         tei.attributes[:dsLabel].should == "TEI XML"
-        puts tei.attributes
+        tei.blob.should_not == nil
       end
 
         it "should create a morph adorned xml object" do
@@ -80,6 +83,7 @@ module Bamboo
           @morph_adorned_xml.should_not == nil
           morph_adorned = @morph_adorned_xml.datastreams['DS1']
           morph_adorned.attributes[:dsLabel].should == "Morph-Adorned XML"
+          morph_adorned.blob.should_not == nil
         end
 
     end
