@@ -1,4 +1,4 @@
-require 'om'
+
 
 class Bamboo::Ingester
   attr_accessor :unadorned_path
