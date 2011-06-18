@@ -21,17 +21,17 @@ module Bamboo
 
       after(:each) do
         begin
-          @book.delete
+          #@book.delete
         rescue
         end
         begin
-          @page_xml.delete
+          @tei_obj.delete
         rescue
         end
-          begin
-            @page_xml.delete
-          rescue
-          end
+        begin
+          @morph_adorned_obj.delete
+        rescue
+        end
       end
 
       it "should gather valid gale image URLs" do
@@ -61,25 +61,29 @@ module Bamboo
         @book.should_not == nil
         tei_header = @book.datastreams['teiHeader']
         tei_header.attributes[:dsLabel].should == "TEI Header"
+        tei_header.ng_xml.root.children.empty?.should_not == true
+        dc = @book.datastreams['descMetadata']
+        dc.ng_xml.root.children.empty?.should_not == true
       end
       
       it "should create a tei xml object" do
         tei_filename = "K000122.000.xml"
         @ingester.load_tei(tei_filename)
-        @tei_xml = @ingester.create_tei_xml
-        @tei_xml.should_not == nil
-        tei = @tei_xml.datastreams['DS1']
+        @tei_obj = @ingester.create_tei_object
+        @tei_obj.should_not == nil
+        tei = @tei_obj.datastreams['TEI']
         tei.attributes[:dsLabel].should == "TEI XML"
-        puts tei.attributes
+        tei.blob.should_not == nil
       end
 
         it "should create a morph adorned xml object" do
           tei_filename = "K000122.000.xml"
           @ingester.load_tei(tei_filename)
-          @morph_adorned_xml = @ingester.create_morph_adorned_xml
-          @morph_adorned_xml.should_not == nil
-          morph_adorned = @morph_adorned_xml.datastreams['DS1']
+          @morph_adorned_obj = @ingester.create_morph_adorned_object
+          @morph_adorned_obj.should_not == nil
+          morph_adorned = @morph_adorned_obj.datastreams['DS1']
           morph_adorned.attributes[:dsLabel].should == "Morph-Adorned XML"
+          morph_adorned.blob.should_not == nil
         end
 
     end

@@ -50,6 +50,23 @@ class Bamboo::Ingester
         tei_header_ds.ng_xml               << tei_header_xml
         tei_header_ds.attributes[:dsLabel] = "TEI Header"
         book.label = title
+        book.save
+        #DC
+        dc_ds = book.datastreams['descMetadata']
+        params = {
+          [:title] => tei_header_ds.term_values(:title_proper).first,
+          [:creator] => tei_header_ds.term_values(:creator).first,
+          [:date] => tei_header_ds.term_values(:fileDesc, :publicationStmt, :date).first,
+          [:publisher] => tei_header_ds.term_values(:fileDesc, :publicationStmt, :publisher).first,
+          [:issued] => tei_header_ds.term_values(:fileDesc, :publicationStmt, :date).first,
+          [:identifier] => "http//ramman.grainger.uiuc.edu/fedora/objects/bamboo:#{@pid}",
+          [:source] => "http://www.lib.umich.edu/tcp/ecco",
+          [:uri] => @tei_filename
+        }
+        
+        dc_ds.update_values(params)
+        dc_ds.save
+        puts dc_ds.term_values(:title)
         
         book.save
         return book
@@ -61,17 +78,17 @@ class Bamboo::Ingester
 
   end
 
-  def create_tei_xml
+  def create_tei_object
     pid = @pid + ".tei"
     begin
       replacing_object(pid) do
-        tei_xml = Bamboo::TeiXml.new(:pid=>pid)
+        tei_obj = Bamboo::TeiXml.new(:pid=>pid)
         #TEI ds
         tei_path = File.join(@unadorned_path, @tei_filename)
-        tei_ds = ActiveFedora::Datastream.new(:dsLabel => "TEI XML", :controlGroup => "M", :blob =>File.open(tei_path) )
-        tei_xml.add_datastream(tei_ds)
-        tei_xml.save
-        return tei_xml
+        tei_ds = ActiveFedora::Datastream.new(:dsID => "TEI", :dsLabel => "TEI XML", :controlGroup => "M", :blob =>File.open(tei_path) )
+        tei_obj.add_datastream(tei_ds)
+        tei_obj.save
+        return tei_obj
       end
     rescue Exception => e
       puts "[ERROR] create_tei_xml: #{e.message}"
@@ -79,17 +96,17 @@ class Bamboo::Ingester
     end
   end
 
-    def create_morph_adorned_xml
+    def create_morph_adorned_object
       pid = @pid + ".morphadorned"
       begin
         replacing_object(pid) do
-          morph_adorned_xml = Bamboo::MorphAdornedXml.new(:pid=>pid)
+          morph_adorned_obj = Bamboo::MorphAdornedXml.new(:pid=>pid)
           #TEI ds
           morph_adorned_path = File.join(@adorned_path, @tei_filename)
           morph_adorned_ds = ActiveFedora::Datastream.new(:dsLabel => "Morph-Adorned XML", :controlGroup => "M", :blob =>File.open(morph_adorned_path) )
-          morph_adorned_xml.add_datastream(morph_adorned_ds)
-          morph_adorned_xml.save
-          return morph_adorned_xml
+          morph_adorned_obj.add_datastream(morph_adorned_ds)
+          morph_adorned_obj.save
+          return morph_adorned_obj
         end
       rescue Exception => e
         puts "[ERROR] create_morph_adorned_xml: #{e.message}"
