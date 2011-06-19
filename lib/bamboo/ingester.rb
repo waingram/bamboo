@@ -10,9 +10,15 @@ class Bamboo::Ingester
   end
   
   def load_tei(tei_filename)
-    @tei_filename   = tei_filename
-    @tei_xml        = Nokogiri::XML::Document.parse(File.read(File.join(@unadorned_path, @tei_filename)))
-    @pid            = tcpid_to_pid
+    begin
+      raise ArgumentError, "[ERROR] load_tei: #{File.join(@adorned_path, tei_filename)} does not exist" unless File.exists? File.join(@adorned_path, tei_filename)
+      raise InvalidFormat, "[ERROR] load_tei: #{File.join(@adorned_path, tei_filename)} is not XML" unless File.extname(File.join(@adorned_path, tei_filename)) == '.xml'
+      @tei_filename   = tei_filename
+      @tei_xml        = Nokogiri::XML::Document.parse(File.read(File.join(@unadorned_path, @tei_filename)))
+      @pid            = tcpid_to_pid
+    rescue
+      raise
+    end
   end
   
   def image_urls
@@ -30,8 +36,18 @@ class Bamboo::Ingester
   end
     
 
-  def ingest(tei_file)
-    
+  def ingest(tei_filename)
+    begin
+      load_tei(tei_filename)
+      book = create_book
+      tei = create_tei_object
+      morph_adorned = create_morph_adorned_object
+      pages = create_page_image_objects
+      @pid
+    rescue Exception => e
+      puts e.message
+      puts e.backtrace
+    end
   end
 
   def create_book
@@ -65,8 +81,8 @@ class Bamboo::Ingester
         return book
       end
     rescue Exception => e
-      puts "[ERROR] create_book: #{e.message}"
-      puts e.backtrace
+      raise "[ERROR] create_book: #{e.message}"
+      #puts e.backtrace
     end
 
   end
@@ -84,8 +100,8 @@ class Bamboo::Ingester
         return tei_obj
       end
     rescue Exception => e
-      puts "[ERROR] create_tei_xml: #{e.message}"
-      puts e.backtrace
+      raise "[ERROR] create_tei_xml: #{e.message}"
+      #puts e.backtrace
     end
   end
 
@@ -102,33 +118,33 @@ class Bamboo::Ingester
           return morph_adorned_obj
         end
       rescue Exception => e
-        puts "[ERROR] create_morph_adorned_xml: #{e.message}"
-        puts e.backtrace
+        raise "[ERROR] create_morph_adorned_xml: #{e.message}"
+        #puts e.backtrace
       end
     end
    
 
   def create_page_image_objects
     begin
-    pages = Array.new
-    image_urls.each do |i|
-      puts ("Creating page #{i[:page]}")
-      pid = "#{@pid}#{i[:page]}"
-      replacing_object(pid) do
-        page_obj = Bamboo::PageImage.new(:pid=>pid)
-        img_ds = ActiveFedora::Datastream.new(:dsLabel=>"Page image #{i[:page]}", :controlGroup=>'E', :dsLocation=>i[:url])
-        page_obj.add_datastream(img_ds)
-        #RELS
-        page_obj.add_relationship(:is_part_of, ActiveFedora::Base.load_instance(@pid))
-        page_obj.save
-        pages << page_obj
+      pages = Array.new
+      image_urls.each do |i|
+        puts "[INFO] Creating page #{i[:page]}"
+        pid = "#{@pid}#{i[:page]}"
+        replacing_object(pid) do
+          page_obj = Bamboo::PageImage.new(:pid=>pid)
+          img_ds = ActiveFedora::Datastream.new(:dsLabel=>"Page image #{i[:page]}", :controlGroup=>'E', :dsLocation=>i[:url])
+          page_obj.add_datastream(img_ds)
+          #RELS
+          page_obj.add_relationship(:is_part_of, ActiveFedora::Base.load_instance(@pid))
+          page_obj.save
+          pages << page_obj
+        end
       end
+      pages
+    rescue Exception => e
+      raise "[ERROR] create_page_image_objects: #{e.message}"
+      #puts e.backtrace
     end
-    pages
-  rescue Exception => e
-    puts "[ERROR] create_page_image_objects: #{e.message}"
-    puts e.backtrace
-  end
   end
 
   def gale_url(facs, image_set_id)
@@ -180,10 +196,10 @@ class Bamboo::Ingester
   def replacing_object(pid)
     begin
       object = ActiveFedora::Base.load_instance(pid)
-      puts "Replacing object: #{pid}"
+      puts "[INFO] Replacing object: #{pid}"
       object.delete unless object.nil?
     rescue ActiveFedora::ObjectNotFoundError
-      puts "Creating new object: #{pid}"
+      puts "[INFO] Creating new object: #{pid}"
     end
     yield
   end
