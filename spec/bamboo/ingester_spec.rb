@@ -15,10 +15,9 @@ module Bamboo
         @adorned_path    = File.join PROJECT_ROOT, "spec", "fixtures", "ecco-adorned-p5simple"
         #unadorned_path = "/home/medusa/Downloads/TCPSource/1420ECCOtexts/1420ECCOtexts"
         
-        puts "Instantiating new ingester"
+        puts "[INFO] Instantiating new ingester"
         @ingester = Bamboo::Ingester.new(@unadorned_path, @adorned_path)
-        tei_filename = "K000122.000.xml"
-        @ingester.load_tei(tei_filename)
+        @tei_filename = "K000122.000.xml"
       end
 
       after(:each) do
@@ -43,10 +42,11 @@ module Bamboo
       end
 
       it "should gather valid gale image URLs" do
+        @ingester.load_tei(@tei_filename)
           # test image URLs randomly 
           h = @ingester.image_urls[rand(@ingester.image_urls.size)]
           url = URI.parse(h[:url])
-          puts "Testing URL: #{url}"
+          puts "[INFO] Testing URL: #{url}"
           
           # test this is a valid URL, and the content is TIFF
           Net::HTTP.start(url.host, url.port) do |http|
@@ -57,6 +57,7 @@ module Bamboo
       end
       
       it "should create a bamboo book" do
+        @ingester.load_tei(@tei_filename)
         @book = @ingester.create_book
         @book.should_not == nil
         tei_header = @book.datastreams['teiHeader']
@@ -67,6 +68,7 @@ module Bamboo
       end
       
       it "should create a tei xml object" do
+        @ingester.load_tei(@tei_filename)
         @tei_obj = @ingester.create_tei_object
         @tei_obj.should_not == nil
         tei = @tei_obj.datastreams['TEI']
@@ -75,6 +77,7 @@ module Bamboo
       end
 
       it "should create a morph adorned xml object" do
+        @ingester.load_tei(@tei_filename)
         @morph_adorned_obj = @ingester.create_morph_adorned_object
         @morph_adorned_obj.should_not == nil
         morph_adorned = @morph_adorned_obj.datastreams['DS1']
@@ -83,11 +86,17 @@ module Bamboo
       end
 
       it "should create page image objects" do
+        @ingester.load_tei(@tei_filename)
         @book = @ingester.create_book
         @page_images = @ingester.create_page_image_objects
         @page_images.should_not == nil            
       end
 
+      it "should raise an error on incorrect input" do
+        lambda {@ingester.load_tei("xxx")}.should raise_error
+        lambda {@ingester.load_tei("K000122.000.bad")}.should raise_error
+      end
+      
     end
   end
 end
