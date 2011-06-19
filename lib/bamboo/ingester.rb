@@ -31,12 +31,6 @@ class Bamboo::Ingester
     
 
   def ingest(tei_file)
-    puts "Ingesting #{tei_file}..."
-    create_book(tei_file)
-    #Pages
-    #pages = create_page_images(book, tei)
-    
-    #book.pid
     
   end
 
@@ -66,7 +60,6 @@ class Bamboo::Ingester
         
         dc_ds.update_values(params)
         dc_ds.save
-        puts dc_ds.term_values(:title)
         
         book.save
         return book
@@ -115,41 +108,27 @@ class Bamboo::Ingester
     end
    
 
-  def create_page_images(book_obj)
-    #doc        = Nokogiri::XML(File.open(tei_xml))
-    tei_xml        = package_file_xml(tei_file)
-    
-    page_nodes.each do |pn|
-      n        = pn['n']
-      facs     = pn['facs']
-      page_pid = "#{book_obj.pid}.#{facs}"
-
-      page = create_page_image(book_obj, page_pid, image_set_id, n, facs)
-      book_obj.add_relationship(:has_part, page)
+  def create_page_image_objects
+    begin
+    pages = Array.new
+    image_urls.each do |i|
+      puts ("Creating page #{i[:page]}")
+      pid = "#{@pid}#{i[:page]}"
+      replacing_object(pid) do
+        page_obj = Bamboo::PageImage.new(:pid=>pid)
+        img_ds = ActiveFedora::Datastream.new(:dsLabel=>"Page image #{i[:page]}", :controlGroup=>'E', :dsLocation=>i[:url])
+        page_obj.add_datastream(img_ds)
+        #RELS
+        page_obj.add_relationship(:is_part_of, ActiveFedora::Base.load_instance(@pid))
+        page_obj.save
+        pages << page_obj
+      end
     end
-    book_obj.save
+    pages
+  rescue Exception => e
+    puts "[ERROR] create_page_image_objects: #{e.message}"
+    puts e.backtrace
   end
-
-  def create_page_image(book, pid, image_set_id, n="", facs="")
-    puts ("Creating page #{facs}")
-    replacing_object(pid) do
-      tcp_image_asset = Bamboo::TcpPageAsset.new(:pid => pid)
-      #properties ds
-      props_ds = tcp_image_asset.datastreams['properties']
-      props_ds.n_values << n
-      props_ds.facs_values << facs
-      #content
-      image_url = gale_url(facs, image_set_id)
-      image_ds  = ActiveFedora::Datastream.new(:dsLabel => "Page image #{facs}", :controlGroup => "E", :dsLocation => image_url)
-      tcp_image_asset.add_datastream(image_ds)
-
-      #RELS_EXT
-      tcp_image_asset.add_relationship(:is_part_of, book)
-      
-      tcp_image_asset.save
-      tcp_image_asset
-
-    end
   end
 
   def gale_url(facs, image_set_id)
@@ -168,7 +147,9 @@ class Bamboo::Ingester
 
     coda = "&contentSet=#{content_set}"
 
-    intro + num_str + coda
+    url = intro + num_str + coda
+    page = num_str[-5..-2].to_i
+    {:page=>page, :url=>url}
 
   end
 
