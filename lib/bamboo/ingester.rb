@@ -94,8 +94,10 @@ class Bamboo::Ingester
         tei_obj = Bamboo::TeiXml.new(:pid=>pid)
         #TEI ds
         tei_path = File.join(@unadorned_path, @tei_filename)
-        tei_ds = ActiveFedora::Datastream.new(:dsID => "TEI", :dsLabel => "TEI XML", :controlGroup => "M", :blob =>File.open(tei_path) )
+        tei_ds = ActiveFedora::Datastream.new(:dsLabel => "TEI XML", :controlGroup => "M", :blob =>File.open(tei_path) )
         tei_obj.add_datastream(tei_ds)
+        #RELS
+        tei_obj.add_relationship(:is_part_of, ActiveFedora::Base.load_instance(@pid))
         tei_obj.save
         return tei_obj
       end
@@ -114,6 +116,8 @@ class Bamboo::Ingester
           morph_adorned_path = File.join(@adorned_path, @tei_filename)
           morph_adorned_ds = ActiveFedora::Datastream.new(:dsLabel => "Morph-Adorned XML", :controlGroup => "M", :blob =>File.open(morph_adorned_path) )
           morph_adorned_obj.add_datastream(morph_adorned_ds)
+          #RELS
+          morph_adorned_obj.add_relationship(:is_part_of, ActiveFedora::Base.load_instance(@pid))
           morph_adorned_obj.save
           return morph_adorned_obj
         end

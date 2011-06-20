@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<foxml:digitalObject PID="oreo:smech-addimage-origami" VERSION="1.1" xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+<foxml:digitalObject PID="bamboo-sDep:addimage-origami" VERSION="1.1" xmlns:foxml="info:fedora/fedora-system:def/foxml#"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
   <foxml:objectProperties>
     <foxml:property NAME="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" VALUE="FedoraBMechObject"/>
@@ -23,7 +23,7 @@
       <foxml:xmlContent>
         <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
           <dc:title>Addressable Image BMECH for Origami Image Server</dc:title>
-          <dc:identifier>oreo:smech-addimage-origami</dc:identifier>
+          <dc:identifier>bamboo-sDep:addimage-origami</dc:identifier>
         </oai_dc:dc>
       </foxml:xmlContent>
     </foxml:datastreamVersion>
@@ -360,9 +360,9 @@
       <foxml:contentDigest DIGEST="none" TYPE="DISABLED"/>
       <foxml:xmlContent>
         <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-          <rdf:Description rdf:about="info:fedora/oreo:smech-addimage-origami">
-            <fedora-model:hasBDef rdf:resource="info:fedora/oreo:sdef-addimage"/>
-            <fedora-model:isContractor rdf:resource="info:fedora/oreo:imagecModel"/>
+          <rdf:Description rdf:about="info:fedora/bamboo-sDep:addimage-origami">
+            <fedora-model:hasBDef rdf:resource="info:fedora/bamboo-sDef:addimage"/>
+            <fedora-model:isContractor rdf:resource="info:fedora/bamboo-cModel:page"/>
           </rdf:Description>
         </rdf:RDF>
       </foxml:xmlContent>

@@ -8,7 +8,7 @@ module Bamboo
   describe Ingester do
     context "making Fedora objects" do
 
-      before(:each) do
+      before(:all) do
         ActiveFedora.init unless Thread.current[:repo]
         
         @unadorned_path = File.join PROJECT_ROOT,"spec","fixtures","ecco-unadorned"
@@ -18,31 +18,31 @@ module Bamboo
         puts "[INFO] Instantiating new ingester"
         @ingester = Bamboo::Ingester.new(@unadorned_path, @adorned_path)
         @tei_filename = "K000122.000.xml"
+        @ingester.load_tei(@tei_filename)
       end
 
-      after(:each) do
-        begin
-          @book.delete
-        rescue
-        end
-        begin
-          @tei_obj.delete
-        rescue
-        end
-        begin
-          @morph_adorned_obj.delete
-        rescue
-        end
-        @page_images.each do |i|
-          begin
-            i.delete
-          rescue
-          end
-        end unless @page_images.nil?
+      after(:all) do
+        # begin
+        #   @book.delete
+        # rescue
+        # end
+        # begin
+        #   @tei_obj.delete
+        # rescue
+        # end
+        # begin
+        #   @morph_adorned_obj.delete
+        # rescue
+        # end
+        # @page_images.each do |i|
+        #   begin
+        #     i.delete
+        #   rescue
+        #   end
+        # end unless @page_images.nil?
       end
 
       it "should gather valid gale image URLs" do
-        @ingester.load_tei(@tei_filename)
           # test image URLs randomly 
           h = @ingester.image_urls[rand(@ingester.image_urls.size)]
           url = URI.parse(h[:url])
@@ -57,9 +57,9 @@ module Bamboo
       end
       
       it "should create a bamboo book" do
-        @ingester.load_tei(@tei_filename)
         @book = @ingester.create_book
         @book.should_not == nil
+        puts @book.class.respond_to? :pid_namespace
         tei_header = @book.datastreams['teiHeader']
         tei_header.attributes[:dsLabel].should == "TEI Header"
         tei_header.ng_xml.root.children.empty?.should_not == true
@@ -68,16 +68,14 @@ module Bamboo
       end
       
       it "should create a tei xml object" do
-        @ingester.load_tei(@tei_filename)
         @tei_obj = @ingester.create_tei_object
         @tei_obj.should_not == nil
-        tei = @tei_obj.datastreams['TEI']
+        tei = @tei_obj.datastreams['DS1']
         tei.attributes[:dsLabel].should == "TEI XML"
         tei.blob.should_not == nil
       end
 
       it "should create a morph adorned xml object" do
-        @ingester.load_tei(@tei_filename)
         @morph_adorned_obj = @ingester.create_morph_adorned_object
         @morph_adorned_obj.should_not == nil
         morph_adorned = @morph_adorned_obj.datastreams['DS1']
@@ -86,8 +84,6 @@ module Bamboo
       end
 
       it "should create page image objects" do
-        @ingester.load_tei(@tei_filename)
-        @book = @ingester.create_book
         @page_images = @ingester.create_page_image_objects
         @page_images.should_not == nil            
       end

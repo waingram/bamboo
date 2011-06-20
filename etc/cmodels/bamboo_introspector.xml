@@ -1,83 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<foxml:digitalObject VERSION="1.1" PID="inu:inu-cmodel-collection"
-xmlns:foxml="info:fedora/fedora-system:def/foxml#"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
-<foxml:objectProperties>
-<foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
-<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="8"/>
-<foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
-</foxml:objectProperties>
-<foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
-<foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
-<foxml:xmlContent>
-<audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
-<audit:record ID="AUDREC1">
-<audit:process type="Fedora API-M"/>
-<audit:action>ingest</audit:action>
-<audit:componentID></audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-10-22T18:25:22.576Z</audit:date>
-<audit:justification>Ingested from local file /usr/local/fedora_support/collections/inu_sparqlCollectionCModels.xml</audit:justification>
-</audit:record>
-<audit:record ID="AUDREC2">
-<audit:process type="Fedora API-M"/>
-<audit:action>modifyDatastreamByReference</audit:action>
-<audit:componentID>SPARQL</audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-01T20:37:31.460Z</audit:date>
-<audit:justification></audit:justification>
-</audit:record>
-<audit:record ID="AUDREC3">
-<audit:process type="Fedora API-M"/>
-<audit:action>modifyDatastreamByReference</audit:action>
-<audit:componentID>SPARQL</audit:componentID>
-<audit:responsibility>fedoraAdmin</audit:responsibility>
-<audit:date>2010-11-01T20:50:03.566Z</audit:date>
-<audit:justification></audit:justification>
-</audit:record>
-</audit:auditTrail>
-</foxml:xmlContent>
-</foxml:datastreamVersion>
-</foxml:datastream>
-<foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="DC.0" LABEL="Default Dublin Core Record" MIMETYPE="text/xml">
-<foxml:xmlContent>
-<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-  <dc:title>Dynamic Portal on Loaded Services and CModels</dc:title>
-  <dc:description>Dynamic Portal on Loaded Services and CModels</dc:description>
-  <dc:type>Collection</dc:type>
-  <dc:identifier>inu:inu-cmodel-collection</dc:identifier>
-</oai_dc:dc>
-</foxml:xmlContent>
-</foxml:datastreamVersion>
-</foxml:datastream>
-<foxml:datastream ID="SPARQL" STATE="A" CONTROL_GROUP="E" VERSIONABLE="true">
-<foxml:datastreamVersion ID="SPARQL.0" LABEL="ITQL Query for Sparql Inventory of the Collection" MIMETYPE="text/xml">
-<foxml:contentLocation TYPE="URL" REF="http://http://ramman.grainger.uiuc.edu:8080/fedora/risearch?type=tuples&amp;lang=itql&amp;format=Sparql&amp;limit=200&amp;query=select%20%24cmodel%20%24cmodelTitle%20from%20%3C%23ri%3E%20where%20%24object%20%3Cinfo%3Afedora%2Ffedora-system%3Adef%2Fmodel%23hasModel%3E%20%24cmodel%20and%20%24cmodel%20%3Cdc%3Atitle%3E%20%24cmodelTitle%0A"/>
-</foxml:datastreamVersion>
-<foxml:datastreamVersion ID="SPARQL.1" LABEL="ITQL Query for Sparql Inventory of the Collection" MIMETYPE="text/xml">
-<foxml:contentLocation TYPE="URL" REF="http://http://ramman.grainger.uiuc.edu:8080/fedora/risearch?type=tuples&amp;lang=itql&amp;format=Sparql&amp;limit=200&amp;query=select%20%24model%20%24modelTitle%20from%20%3C%23ri%3E%20where%20%24model%20%3Cfedora-model%3AhasModel%3E%20%3Cinfo%3Afedora%2Ffedora-system%3AContentModel-3.0%3E%20and%20%24model%20%3Cdc%3Atitle%3E%20%24modelTitle"/>
-</foxml:datastreamVersion>
-<foxml:datastreamVersion ID="SPARQL.2" LABEL="ITQL Query for Sparql Inventory of the Collection" MIMETYPE="text/xml">
-<foxml:contentLocation TYPE="URL" REF="http://http://ramman.grainger.uiuc.edu:8080/fedora/risearch?type=tuples&amp;lang=itql&amp;format=Sparql&amp;limit=200&amp;query=select%20%24cmodel%20%24cmodelTitle%20from%20%3C%23ri%3E%20where%20%24cmodel%20%3Cfedora-model%3AhasModel%3E%20%3Cinfo%3Afedora%2Ffedora-system%3AContentModel-3.0%3E%20and%20%24cmodel%20%3Cdc%3Atitle%3E%20%24cmodelTitle"/>
-</foxml:datastreamVersion>
-</foxml:datastream>
-<foxml:datastream ID="HTML_XSL" STATE="A" CONTROL_GROUP="E" VERSIONABLE="true">
-<foxml:datastreamVersion ID="HTML_XSL.0" LABEL="HTML XSL for Collection" MIMETYPE="text/xml">
-<foxml:contentLocation TYPE="URL" REF="http://http://ramman.grainger.uiuc.edu:8080/xsl/general/servicesPortal.xsl"/>
-</foxml:datastreamVersion>
-</foxml:datastream>
-<foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
-<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" MIMETYPE="text/xml">
-<foxml:xmlContent>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
-               <rdf:Description rdf:about="info:fedora/inu:inu-cmodel-collection">
-                  <hasModel xmlns="info:fedora/fedora-system:def/model#" rdf:resource="info:fedora/inu:sparqlCollectionCModel"></hasModel>
-               </rdf:Description>
-            </rdf:RDF>
-</foxml:xmlContent>
-</foxml:datastreamVersion>
-</foxml:datastream>
+<foxml:digitalObject xmlns:foxml="info:fedora/fedora-system:def/foxml#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" VERSION="1.1" PID="inu:inu-cmodel-collection" xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+	<foxml:objectProperties>
+		<foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+		<foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="8"/>
+		<foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+	</foxml:objectProperties>
+	<foxml:datastream ID="AUDIT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="false">
+		<foxml:datastreamVersion ID="AUDIT.0" LABEL="Audit Trail for this object" MIMETYPE="text/xml" FORMAT_URI="info:fedora/fedora-system:format/xml.fedora.audit">
+			<foxml:xmlContent>
+				<audit:auditTrail xmlns:audit="info:fedora/fedora-system:def/audit#">
+					<audit:record ID="AUDREC1">
+						<audit:process type="Fedora API-M"/>
+						<audit:action>ingest</audit:action>
+						<audit:componentID/>
+						<audit:responsibility>fedoraAdmin</audit:responsibility>
+						<audit:date>2010-10-22T18:25:22.576Z</audit:date>
+						<audit:justification>Ingested from local file /usr/local/fedora_support/collections/inu_sparqlCollectionCModels.xml</audit:justification>
+					</audit:record>
+					<audit:record ID="AUDREC2">
+						<audit:process type="Fedora API-M"/>
+						<audit:action>modifyDatastreamByReference</audit:action>
+						<audit:componentID>SPARQL</audit:componentID>
+						<audit:responsibility>fedoraAdmin</audit:responsibility>
+						<audit:date>2010-11-01T20:37:31.460Z</audit:date>
+						<audit:justification/>
+					</audit:record>
+					<audit:record ID="AUDREC3">
+						<audit:process type="Fedora API-M"/>
+						<audit:action>modifyDatastreamByReference</audit:action>
+						<audit:componentID>SPARQL</audit:componentID>
+						<audit:responsibility>fedoraAdmin</audit:responsibility>
+						<audit:date>2010-11-01T20:50:03.566Z</audit:date>
+						<audit:justification/>
+					</audit:record>
+				</audit:auditTrail>
+			</foxml:xmlContent>
+		</foxml:datastreamVersion>
+	</foxml:datastream>
+	<foxml:datastream ID="DC" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+		<foxml:datastreamVersion ID="DC.0" LABEL="Default Dublin Core Record" MIMETYPE="text/xml">
+			<foxml:xmlContent>
+				<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+					<dc:title>Dynamic Portal on Loaded Services and CModels</dc:title>
+					<dc:description>Dynamic Portal on Loaded Services and CModels</dc:description>
+					<dc:type>Collection</dc:type>
+					<dc:identifier>inu:inu-cmodel-collection</dc:identifier>
+				</oai_dc:dc>
+			</foxml:xmlContent>
+		</foxml:datastreamVersion>
+	</foxml:datastream>
+	<foxml:datastream ID="SPARQL" STATE="A" CONTROL_GROUP="E" VERSIONABLE="true">
+		<foxml:datastreamVersion ID="SPARQL.0" LABEL="ITQL Query for Sparql Inventory of the Collection" MIMETYPE="text/xml">
+			<foxml:contentLocation TYPE="URL" REF="http://http://ramman.grainger.uiuc.edu:8080/fedora/risearch?type=tuples&amp;lang=itql&amp;format=Sparql&amp;limit=200&amp;query=select%20%24cmodel%20%24cmodelTitle%20from%20%3C%23ri%3E%20where%20%24object%20%3Cinfo%3Afedora%2Ffedora-system%3Adef%2Fmodel%23hasModel%3E%20%24cmodel%20and%20%24cmodel%20%3Cdc%3Atitle%3E%20%24cmodelTitle%0A"/>
+		</foxml:datastreamVersion>
+		<foxml:datastreamVersion ID="SPARQL.1" LABEL="ITQL Query for Sparql Inventory of the Collection" MIMETYPE="text/xml">
+			<foxml:contentLocation TYPE="URL" REF="http://http://ramman.grainger.uiuc.edu:8080/fedora/risearch?type=tuples&amp;lang=itql&amp;format=Sparql&amp;limit=200&amp;query=select%20%24model%20%24modelTitle%20from%20%3C%23ri%3E%20where%20%24model%20%3Cfedora-model%3AhasModel%3E%20%3Cinfo%3Afedora%2Ffedora-system%3AContentModel-3.0%3E%20and%20%24model%20%3Cdc%3Atitle%3E%20%24modelTitle"/>
+		</foxml:datastreamVersion>
+		<foxml:datastreamVersion ID="SPARQL.2" LABEL="ITQL Query for Sparql Inventory of the Collection" MIMETYPE="text/xml">
+			<foxml:contentLocation TYPE="URL" REF="http://http://ramman.grainger.uiuc.edu:8080/fedora/risearch?type=tuples&amp;lang=itql&amp;format=Sparql&amp;limit=200&amp;query=select%20%24cmodel%20%24cmodelTitle%20from%20%3C%23ri%3E%20where%20%24cmodel%20%3Cfedora-model%3AhasModel%3E%20%3Cinfo%3Afedora%2Ffedora-system%3AContentModel-3.0%3E%20and%20%24cmodel%20%3Cdc%3Atitle%3E%20%24cmodelTitle"/>
+		</foxml:datastreamVersion>
+	</foxml:datastream>
+	<foxml:datastream ID="HTML_XSL" STATE="A" CONTROL_GROUP="E" VERSIONABLE="true">
+		<foxml:datastreamVersion ID="HTML_XSL.0" LABEL="HTML XSL for Collection" MIMETYPE="text/xml">
+			<foxml:contentLocation TYPE="URL" REF="http://http://ramman.grainger.uiuc.edu:8080/xsl/general/servicesPortal.xsl"/>
+		</foxml:datastreamVersion>
+	</foxml:datastream>
+	<foxml:datastream ID="RELS-EXT" STATE="A" CONTROL_GROUP="X" VERSIONABLE="true">
+		<foxml:datastreamVersion ID="RELS-EXT.0" LABEL="Fedora Object-to-Object Relationship Metadata" MIMETYPE="text/xml">
+			<foxml:xmlContent>
+				<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rel="info:fedora/fedora-system:def/relations-external#">
+					<rdf:Description rdf:about="info:fedora/inu:inu-cmodel-collection">
+						<hasModel xmlns="info:fedora/fedora-system:def/model#" rdf:resource="info:fedora/inu:sparqlCollectionCModel"/>
+					</rdf:Description>
+				</rdf:RDF>
+			</foxml:xmlContent>
+		</foxml:datastreamVersion>
+	</foxml:datastream>
 </foxml:digitalObject>
-
