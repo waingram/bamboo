@@ -1,4 +1,4 @@
-require 'om'
+
 
 class Bamboo::Ingester
   attr_accessor :unadorned_path
@@ -10,8 +10,15 @@ class Bamboo::Ingester
   end
   
   def load_tei(tei_filename)
-    @tei_xml        = Nokogiri::XML::Document.parse(File.read(File.join(@unadorned_path, tei_filename)))
-    @pid            = tcpid_to_pid
+    begin
+      raise ArgumentError, "[ERROR] load_tei: #{File.join(@adorned_path, tei_filename)} does not exist" unless File.exists? File.join(@adorned_path, tei_filename)
+      raise InvalidFormat, "[ERROR] load_tei: #{File.join(@adorned_path, tei_filename)} is not XML" unless File.extname(File.join(@adorned_path, tei_filename)) == '.xml'
+      @tei_filename   = tei_filename
+      @tei_xml        = Nokogiri::XML::Document.parse(File.read(File.join(@unadorned_path, @tei_filename)))
+      @pid            = tcpid_to_pid
+    rescue
+      raise
+    end
   end
   
   def image_urls
@@ -29,76 +36,118 @@ class Bamboo::Ingester
   end
     
 
-  def ingest(tei_file)
-    puts "Ingesting #{tei_file}..."
-    create_book(tei_file)
-    #Pages
-    #pages = create_page_images(book, tei)
-    
-    #book.pid
-    
+  def ingest(tei_filename)
+    begin
+      load_tei(tei_filename)
+      book = create_book
+      tei = create_tei_object
+      morph_adorned = create_morph_adorned_object
+      pages = create_page_image_objects
+      @pid
+    rescue Exception => e
+      puts e.message
+      puts e.backtrace
+    end
   end
 
-  def create_book(tei_file)
+  def create_book
     begin
-
-      replacing_object(pid) do
-        tcp_book_asset = Bamboo::TcpBookAsset.new(:pid => pid)
+      replacing_object(@pid) do
+        book = Bamboo::Book.new(:pid => @pid)
         #TEI header ds
-        tei_header_ds                      = tcp_book_asset.datastreams['teiHeader']
-        tei_header_ds.ng_xml               = tei_header_xml
+        tei_header_ds                      = book.datastreams['teiHeader']
+        tei_header_ds.ng_xml               = Nokogiri::XML::Document.new
+        tei_header_ds.ng_xml               << tei_header_xml
         tei_header_ds.attributes[:dsLabel] = "TEI Header"
-        #TEI XML
-        tei_ds = ActiveFedora::Datastream.new(:dsId => "TEI", :dsLabel => "TEI XML", :controlGroup => "M", :blob => File.open(package_file(file)))
-        tcp_book_asset.add_datastream(tei_ds)
-        #Properties ds
-        tcp_book_asset.datastreams['properties'].title_values << title
-        tcp_book_asset.label = title
-
-        tcp_book_asset.save
+        book.label = title
+        book.save
+        #DC
+        dc_ds = book.datastreams['descMetadata']
+        params = {
+          [:title] => tei_header_ds.term_values(:title_proper).first,
+          [:creator] => tei_header_ds.term_values(:creator).first,
+          [:date] => tei_header_ds.term_values(:fileDesc, :publicationStmt, :date).first,
+          [:publisher] => tei_header_ds.term_values(:fileDesc, :publicationStmt, :publisher).first,
+          [:issued] => tei_header_ds.term_values(:fileDesc, :publicationStmt, :date).first,
+          [:identifier] => "http//ramman.grainger.uiuc.edu/fedora/objects/bamboo:#{@pid}",
+          [:source] => "http://www.lib.umich.edu/tcp/ecco",
+          [:uri] => @tei_filename
+        }
         
-        tcp_book_asset
+        dc_ds.update_values(params)
+        dc_ds.save
+        
+        book.save
+        return book
       end
     rescue Exception => e
-      puts "[ERROR] #{e.message}"
+      raise "[ERROR] create_book: #{e.message}"
+      #puts e.backtrace
     end
 
   end
 
-  def create_page_images(book_obj)
-    #doc        = Nokogiri::XML(File.open(tei_xml))
-    tei_xml        = package_file_xml(tei_file)
-    
-    page_nodes.each do |pn|
-      n        = pn['n']
-      facs     = pn['facs']
-      page_pid = "#{book_obj.pid}.#{facs}"
-
-      page = create_page_image(book_obj, page_pid, image_set_id, n, facs)
-      book_obj.add_relationship(:has_part, page)
+  def create_tei_object
+    pid = @pid + ".tei"
+    begin
+      replacing_object(pid) do
+        tei_obj = Bamboo::TeiXml.new(:pid=>pid)
+        #TEI ds
+        tei_path = File.join(@unadorned_path, @tei_filename)
+        tei_ds = ActiveFedora::Datastream.new(:dsLabel => "TEI XML", :controlGroup => "M", :blob =>File.open(tei_path) )
+        tei_obj.add_datastream(tei_ds)
+        #RELS
+        tei_obj.add_relationship(:is_part_of, ActiveFedora::Base.load_instance(@pid))
+        tei_obj.save
+        return tei_obj
+      end
+    rescue Exception => e
+      raise "[ERROR] create_tei_xml: #{e.message}"
+      #puts e.backtrace
     end
-    book_obj.save
   end
 
-  def create_page_image(book, pid, image_set_id, n="", facs="")
-    puts ("Creating page #{facs}")
-    replacing_object(pid) do
-      tcp_image_asset = Bamboo::TcpPageAsset.new(:pid => pid)
-      #properties ds
-      props_ds = tcp_image_asset.datastreams['properties']
-      props_ds.n_values << n
-      props_ds.facs_values << facs
-      #content
-      image_url = gale_url(facs, image_set_id)
-      image_ds  = ActiveFedora::Datastream.new(:dsLabel => "Page image #{facs}", :controlGroup => "E", :dsLocation => image_url)
-      tcp_image_asset.add_datastream(image_ds)
+    def create_morph_adorned_object
+      pid = @pid + ".morphadorned"
+      begin
+        replacing_object(pid) do
+          morph_adorned_obj = Bamboo::MorphAdornedXml.new(:pid=>pid)
+          #TEI ds
+          morph_adorned_path = File.join(@adorned_path, @tei_filename)
+          morph_adorned_ds = ActiveFedora::Datastream.new(:dsLabel => "Morph-Adorned XML", :controlGroup => "M", :blob =>File.open(morph_adorned_path) )
+          morph_adorned_obj.add_datastream(morph_adorned_ds)
+          #RELS
+          morph_adorned_obj.add_relationship(:is_part_of, ActiveFedora::Base.load_instance(@pid))
+          morph_adorned_obj.save
+          return morph_adorned_obj
+        end
+      rescue Exception => e
+        raise "[ERROR] create_morph_adorned_xml: #{e.message}"
+        #puts e.backtrace
+      end
+    end
+   
 
-      #RELS_EXT
-      tcp_image_asset.add_relationship(:is_part_of, book)
-      
-      tcp_image_asset.save
-      tcp_image_asset
-
+  def create_page_image_objects
+    begin
+      pages = Array.new
+      image_urls.each do |i|
+        puts "[INFO] Creating page #{i[:page]}"
+        pid = "#{@pid}#{i[:page]}"
+        replacing_object(pid) do
+          page_obj = Bamboo::PageImage.new(:pid=>pid)
+          img_ds = ActiveFedora::Datastream.new(:dsLabel=>"Page image #{i[:page]}", :controlGroup=>'E', :dsLocation=>i[:url])
+          page_obj.add_datastream(img_ds)
+          #RELS
+          page_obj.add_relationship(:is_part_of, ActiveFedora::Base.load_instance(@pid))
+          page_obj.save
+          pages << page_obj
+        end
+      end
+      pages
+    rescue Exception => e
+      raise "[ERROR] create_page_image_objects: #{e.message}"
+      #puts e.backtrace
     end
   end
 
@@ -118,7 +167,9 @@ class Bamboo::Ingester
 
     coda = "&contentSet=#{content_set}"
 
-    intro + num_str + coda
+    url = intro + num_str + coda
+    page = num_str[-5..-2].to_i
+    {:page=>page, :url=>url}
 
   end
 
@@ -149,10 +200,10 @@ class Bamboo::Ingester
   def replacing_object(pid)
     begin
       object = ActiveFedora::Base.load_instance(pid)
-      puts "Replacing object: #{pid}"
+      puts "[INFO] Replacing object: #{pid}"
       object.delete unless object.nil?
     rescue ActiveFedora::ObjectNotFoundError
-      puts "Creating new object: #{pid}"
+      puts "[INFO] Creating new object: #{pid}"
     end
     yield
   end

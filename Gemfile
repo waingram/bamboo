@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'active-fedora', '2.1.0'
+gem 'active-fedora', '>=2.1.0'
 gem 'nokogiri', '1.4.3.1'
 gem 'om', '>=1.0.1'
 gem 'rake'

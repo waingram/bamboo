@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject PID="bamboo:sdef-addimage" VERSION="1.1" xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+  <foxml:objectProperties>
+    <foxml:property NAME="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" VALUE="FedoraBDefObject"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Addressable Image BDEF"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2008-05-22T17:37:49.542Z"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2008-05-29T16:42:50.700Z"/>
+  </foxml:objectProperties>
+  <foxml:datastream CONTROL_GROUP="X" ID="DC" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2008-05-22T17:37:49.542Z" ID="DC1.0" LABEL="Dublin Core Metadata for Service"
+      MIMETYPE="text/xml" SIZE="239">
+      <foxml:contentDigest DIGEST="none" TYPE="DISABLED"/>
+      <foxml:xmlContent>
+        <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+          <dc:title>Addressable Image BDEF</dc:title>
+          <dc:identifier>bamboo:sdef-addimage</dc:identifier>
+        </oai_dc:dc>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="METHODMAP" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2008-05-22T17:37:49.542Z" ID="METHODMAP1.0" LABEL="Abstract Method Definitions"
+      MIMETYPE="text/xml" SIZE="4252">
+      <foxml:contentDigest DIGEST="none" TYPE="DISABLED"/>
+      <foxml:xmlContent>
+        <fmm:MethodMap name="MethodMap - Addressable Image BDEF" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:Method label="Get thumbnail image." operationName="getThumbnail"/>
+          <fmm:Method label="Get screen-size image." operationName="getScreenSize"/>
+          <fmm:Method label="Get given crop with given width." operationName="getCropWithWidth">
+            <fmm:UserInputParm defaultValue="" label="x position of crop" parmName="x" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="y position of crop" parmName="y" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="width of crop" parmName="width" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="height of crop" parmName="height" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="desired width" parmName="destwidth" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="Get given crop with given height." operationName="getCropWithHeight">
+            <fmm:UserInputParm defaultValue="" label="x position of crop" parmName="x" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="y position of crop" parmName="y" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="width of crop" parmName="width" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="height of crop" parmName="height" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="desired height" parmName="destheight" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="Get given crop with given size." operationName="getCropWithSize">
+            <fmm:UserInputParm defaultValue="" label="x position of crop" parmName="x" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="y position of crop" parmName="y" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="width of crop" parmName="width" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="height of crop" parmName="height" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="desired width" parmName="destwidth" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="desired height" parmName="destheight" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="Get image with given width and height." operationName="getWithSize">
+            <fmm:UserInputParm defaultValue="" label="Desired width" parmName="width" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="Desired height" parmName="height" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="Get image with given width." operationName="getWithWidth">
+            <fmm:UserInputParm defaultValue="" label="Desired width" parmName="width" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="Get image with given height." operationName="getWithHeight">
+            <fmm:UserInputParm defaultValue="" label="Desired height" parmName="height" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="Get image with given longest side." operationName="getWithLongSide">
+            <fmm:UserInputParm defaultValue="" label="Desired longest side" parmName="length" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="Re-process the image for delivery." operationName="reProcess"/>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+</foxml:digitalObject>

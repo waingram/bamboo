@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject PID="bamboo-sDep:addimage-origami" VERSION="1.1" xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+  <foxml:objectProperties>
+    <foxml:property NAME="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" VALUE="FedoraBMechObject"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="Addressable Image BMECH for Origami Image Server"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#createdDate" VALUE="2008-05-06T18:54:44.424Z"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/view#lastModifiedDate" VALUE="2008-06-03T05:21:37.531Z"/>
+  </foxml:objectProperties>
+  <foxml:datastream CONTROL_GROUP="E" ID="DS1" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2008-05-06T18:54:44.424Z" ID="DS1.0" LABEL="Programmer documentation"
+      MIMETYPE="text/html" SIZE="0">
+      <foxml:contentDigest DIGEST="none" TYPE="DISABLED"/>
+      <foxml:contentLocation REF="http://scribe.at.northwestern.edu/fedora/saxon/" TYPE="URL"/>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="DC" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2008-05-06T18:54:44.424Z" ID="DC1.0" LABEL="Dublin Core Metadata"
+      MIMETYPE="text/xml" SIZE="274">
+      <foxml:contentDigest DIGEST="none" TYPE="DISABLED"/>
+      <foxml:xmlContent>
+        <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+          <dc:title>Addressable Image BMECH for Origami Image Server</dc:title>
+          <dc:identifier>bamboo-sDep:addimage-origami</dc:identifier>
+        </oai_dc:dc>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="WSDL" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2008-05-06T18:54:44.424Z" ID="WSDL1.0"
+      LABEL="WSDL definition for Addressable Image in Origami" MIMETYPE="text/xml" SIZE="12267">
+      <foxml:contentDigest DIGEST="none" TYPE="DISABLED"/>
+      <foxml:xmlContent>
+        <wsdl:definitions name="Addressible Image BMECH for Origami Image Server" targetNamespace="bmech"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="bmech"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="bmech">
+              <xsd:simpleType name="widthType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="heightType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="lengthType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="destheightType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="destwidthType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="yType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="xType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="IMGType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getCropWithSizeRequest">
+            <wsdl:part name="x" type="this:xType"/>
+            <wsdl:part name="y" type="this:yType"/>
+            <wsdl:part name="width" type="this:widthType"/>
+            <wsdl:part name="height" type="this:heightType"/>
+            <wsdl:part name="destwidth" type="this:destwidthType"/>
+            <wsdl:part name="destheight" type="this:destheightType"/>
+            <wsdl:part name="IMG" type="this:IMGType"/>
+          </wsdl:message>
+          <wsdl:message name="getCropWithWidthRequest">
+            <wsdl:part name="x" type="this:xType"/>
+            <wsdl:part name="y" type="this:yType"/>
+            <wsdl:part name="width" type="this:widthType"/>
+            <wsdl:part name="height" type="this:heightType"/>
+            <wsdl:part name="destwidth" type="this:destwidthType"/>
+            <wsdl:part name="IMG" type="this:IMGType"/>
+          </wsdl:message>
+          <wsdl:message name="getCropWithHeightRequest">
+            <wsdl:part name="x" type="this:xType"/>
+            <wsdl:part name="y" type="this:yType"/>
+            <wsdl:part name="width" type="this:widthType"/>
+            <wsdl:part name="height" type="this:heightType"/>
+            <wsdl:part name="destheight" type="this:destheightType"/>
+            <wsdl:part name="IMG" type="this:IMGType"/>
+          </wsdl:message>
+          <wsdl:message name="getWithWidthRequest">
+            <wsdl:part name="width" type="this:widthType"/>
+            <wsdl:part name="IMG" type="this:IMGType"/>
+          </wsdl:message>
+          <wsdl:message name="getWithLongSideRequest">
+            <wsdl:part name="length" type="this:lengthType"/>
+            <wsdl:part name="IMG" type="this:IMGType"/>
+          </wsdl:message>
+          <wsdl:message name="getWithSizeRequest">
+            <wsdl:part name="width" type="this:widthType"/>
+            <wsdl:part name="height" type="this:heightType"/>
+            <wsdl:part name="IMG" type="this:IMGType"/>
+          </wsdl:message>
+          <wsdl:message name="getWithHeightRequest">
+            <wsdl:part name="height" type="this:heightType"/>
+            <wsdl:part name="IMG" type="this:IMGType"/>
+          </wsdl:message>
+          <wsdl:message name="reProcessRequest">
+            <wsdl:part name="IMG" type="this:IMGType"/>
+          </wsdl:message>
+          <wsdl:message name="getThumbnailRequest">
+            <wsdl:part name="IMG" type="this:IMGType"/>
+          </wsdl:message>
+          <wsdl:message name="getScreenSizeRequest">
+            <wsdl:part name="IMG" type="this:IMGType"/>
+          </wsdl:message>
+          <wsdl:message name="dissemResponse">
+            <wsdl:part name="dissem" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="SMECH-ORIGAMIPortType">
+            <wsdl:operation name="getThumbnail">
+              <wsdl:input message="this:getThumbnailRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getScreenSize">
+              <wsdl:input message="this:getScreenSizeRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getCropWithWidth">
+              <wsdl:input message="this:getCropWithWidthRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getCropWithHeight">
+              <wsdl:input message="this:getCropWithHeightRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getCropWithSize">
+              <wsdl:input message="this:getCropWithSizeRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getWithWidth">
+              <wsdl:input message="this:getWithWidthRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getWithLongSide">
+              <wsdl:input message="this:getWithLongSideRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getWithSize">
+              <wsdl:input message="this:getWithSizeRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getWithHeight">
+              <wsdl:input message="this:getWithHeightRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="reProcess">
+              <wsdl:input message="this:reProcessRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:service name="SMECH-ORIGAMI">
+            <wsdl:port binding="this:SMECH-ORIGAMI_http" name="SMECH-ORIGAMI_port">
+              <http:address location="http://localhost/cgi-bin/tiler/"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="SMECH-ORIGAMI_http" type="this:SMECH-ORIGAMIPortType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getThumbnail">
+              <http:operation location="getrect.py?out_width=100&amp;pid=(PID)&amp;image=(IMG)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="image/jpeg"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getScreenSize">
+              <http:operation location="getrect.py?out_width=430&amp;pid=(PID)&amp;image=(IMG)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="image/jpeg"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getCropWithSize">
+              <http:operation location="getrect.py?x=(x)&amp;y=(y)&amp;width=(width)&amp;height=(height)&amp;out_width=(destwidth)&amp;out_height=(destheight)&amp;pid=(PID)&amp;image=(IMG)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="image/jpeg"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getCropWithWidth">
+              <http:operation location="getrect.py?x=(x)&amp;y=(y)&amp;width=(width)&amp;height=(height)&amp;out_width=(destwidth)&amp;pid=(PID)&amp;image=(IMG)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="image/jpeg"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getCropWithHeight">
+              <http:operation location="getrect.py?x=(x)&amp;y=(y)&amp;width=(width)&amp;height=(height)&amp;out_height=(destheight)&amp;pid=(PID)&amp;image=(IMG)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="image/jpeg"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getWithWidth">
+              <http:operation location="getrect.py?out_width=(width)&amp;pid=(PID)&amp;image=(IMG)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="image/jpeg"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getWithLongSide">
+              <http:operation location="getrect.py?out_length=(length)&amp;pid=(PID)&amp;image=(IMG)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="image/jpeg"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getWithSize">
+              <http:operation location="getrect.py?out_width=(width)&amp;out_height=(height)&amp;pid=(PID)&amp;image=(IMG)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="image/jpeg"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getWithHeight">
+              <http:operation location="getrect.py?out_height=(height)&amp;pid=(PID)&amp;image=(IMG)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="image/jpeg"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="reProcess">
+              <http:operation location="tile_image_cgi.py?pid=(PID)&amp;image=(IMG)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/plain"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="METHODMAP" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2008-05-06T18:54:44.424Z" ID="METHODMAP1.0"
+      LABEL="Mapping of WSDL to Fedora notion of Method Definitions" MIMETYPE="text/xml" SIZE="9197">
+      <foxml:contentDigest DIGEST="none" TYPE="DISABLED"/>
+      <foxml:xmlContent>
+        <fmm:MethodMap bDefPID="oreo:sdef-addimage" name="MethodMap - Addressible Image BMECH for Origami Image Server" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:Method operationLabel="Get thumbnail image." operationName="getThumbnail"
+            wsdlMsgName="getThumbnailRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:DatastreamInputParm defaultValue="" label="URL to Image File" parmName="IMG" passBy="URL_REF" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="image/jpeg"/>
+          </fmm:Method>
+          <fmm:Method operationLabel="Get screen-size image." operationName="getScreenSize"
+            wsdlMsgName="getScreenSizeRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:DatastreamInputParm defaultValue="" label="URL to Image File" parmName="IMG" passBy="URL_REF" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="image/jpeg"/>
+          </fmm:Method>
+          <fmm:Method operationLabel="Get given crop with given width." operationName="getCropWithWidth"
+            wsdlMsgName="getCropWithWidthRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:UserInputParm defaultValue="" label="x position of crop" parmName="x" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="y position of crop" parmName="y" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="width of crop" parmName="width" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="height of crop" parmName="height" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="desired width" parmName="destwidth" passBy="VALUE" required="true"/>
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:DatastreamInputParm defaultValue="" label="URL to Image File" parmName="IMG" passBy="URL_REF" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="image/jpeg"/>
+          </fmm:Method>
+          <fmm:Method operationLabel="Get given crop with given height." operationName="getCropWithHeight"
+            wsdlMsgName="getCropWithHeightRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:UserInputParm defaultValue="" label="x position of crop" parmName="x" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="y position of crop" parmName="y" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="width of crop" parmName="width" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="height of crop" parmName="height" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="desired height" parmName="destheight" passBy="VALUE" required="true"/>
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:DatastreamInputParm defaultValue="" label="URL to Image File" parmName="IMG" passBy="URL_REF" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="image/jpeg"/>
+          </fmm:Method>
+          <fmm:Method operationLabel="Get given crop with given size." operationName="getCropWithSize"
+            wsdlMsgName="getCropWithSizeRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:UserInputParm defaultValue="" label="x position of crop" parmName="x" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="y position of crop" parmName="y" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="width of crop" parmName="width" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="height of crop" parmName="height" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="desired width" parmName="destwidth" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="desired height" parmName="destheight" passBy="VALUE" required="true"/>
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:DatastreamInputParm defaultValue="" label="URL to Image File" parmName="IMG" passBy="URL_REF" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="image/jpeg"/>
+          </fmm:Method>
+          <fmm:Method operationLabel="Get image with given width." operationName="getWithWidth"
+            wsdlMsgName="getWithWidthRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:UserInputParm defaultValue="" label="Desired width" parmName="width" passBy="VALUE" required="true"/>
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="image/jpeg"/>
+          </fmm:Method>
+          <fmm:Method operationLabel="Get image with given max length." operationName="getWithLongSide"
+            wsdlMsgName="getWithLongSideRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:UserInputParm defaultValue="" label="Desired longest side" parmName="length" passBy="VALUE" required="true"/>
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:DatastreamInputParm defaultValue="" label="URL to Image File" parmName="IMG" passBy="URL_REF" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="image/jpeg"/>
+          </fmm:Method>
+          <fmm:Method operationLabel="Get image with given width and height." operationName="getWithSize"
+            wsdlMsgName="getWithSizeRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:UserInputParm defaultValue="" label="Desired width" parmName="width" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" label="Desired height" parmName="height" passBy="VALUE" required="true"/>
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:DatastreamInputParm defaultValue="" label="URL to Image File" parmName="IMG" passBy="URL_REF" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="image/jpeg"/>
+          </fmm:Method>
+          <fmm:Method operationLabel="Get image with given height." operationName="getWithHeight"
+            wsdlMsgName="getWithHeightRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:UserInputParm defaultValue="" label="Desired height" parmName="height" passBy="VALUE" required="true"/>
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:DatastreamInputParm defaultValue="" label="URL to Image File" parmName="IMG" passBy="URL_REF" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="image/jpeg"/>
+          </fmm:Method>
+          <fmm:Method operationLabel="Re-process the image for delivery." operationName="reProcess"
+            wsdlMsgName="reProcessRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:DatastreamInputParm defaultValue="" label="URL to Image File" parmName="IMG" passBy="URL_REF" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/plain"/>
+          </fmm:Method>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="RELS-EXT" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2008-05-06T18:54:44.424Z" ID="RELS-EXT1.0" LABEL="Relationships to other objects"
+      MIMETYPE="text/xml" SIZE="496">
+      <foxml:contentDigest DIGEST="none" TYPE="DISABLED"/>
+      <foxml:xmlContent>
+        <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+          <rdf:Description rdf:about="info:fedora/bamboo-sDep:addimage-origami">
+            <fedora-model:hasBDef rdf:resource="info:fedora/bamboo-sDef:addimage"/>
+            <fedora-model:isContractor rdf:resource="info:fedora/bamboo-cModel:page"/>
+          </rdf:Description>
+        </rdf:RDF>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="SERVICE-PROFILE" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2008-05-06T18:54:44.424Z" ID="SERVICE-PROFILE1.0"
+      LABEL="Service Profile - Technical description of the service" MIMETYPE="text/xml" SIZE="1077">
+      <foxml:contentDigest DIGEST="none" TYPE="DISABLED"/>
+      <foxml:xmlContent>
+        <fsvp:serviceProfile bDefPID="oreo:sdef-addimage" name="aware-region-ansel" xmlns:fsvp="http://fedora.comm.nsdlib.org/service/profile">
+          <fsvp:serviceDescription>Origami Image Server</fsvp:serviceDescription>
+          <fsvp:serviceImplementation>
+            <fsvp:serviceLiveTestURL>http://ansel.library.northwestern.edu:9080/ImageServer/regionserver</fsvp:serviceLiveTestURL>
+            <fsvp:serviceMessagingProtocol>HTTP GET</fsvp:serviceMessagingProtocol>
+            <fsvp:serviceInputFormats>
+              <fsvp:MIMEType>text/xml</fsvp:MIMEType>
+            </fsvp:serviceInputFormats>
+            <fsvp:serviceOutputFormats>
+              <fsvp:MIMEType>image/jpeg</fsvp:MIMEType>
+            </fsvp:serviceOutputFormats>
+            <fsvp:serviceImplDependencies>
+              <fsvp:software license="Mozilla_Public_License" name="Tomcat" opensource="true" type="Software_Library" version="5.5"/>
+            </fsvp:serviceImplDependencies>
+          </fsvp:serviceImplementation>
+        </fsvp:serviceProfile>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="DSINPUTSPEC" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2008-04-23T19:39:35.088Z"
+      FORMAT_URI="info:fedora/fedora-system:format/xml.mets.techMD.OTHER.UNSPECIFIED" ID="DSINPUTSPEC1.0"
+      LABEL="Datastream Input Specification for Service" MIMETYPE="text/xml" SIZE="537">
+      <foxml:contentDigest DIGEST="none" TYPE="DISABLED"/>
+      <foxml:xmlContent>
+        <fbs:DSInputSpec bDefPID="oreo:sdef-addimage"
+          label="Datastream Input Specification for Addressible Image BMECH for Origami Image Server" xmlns:fbs="http://fedora.comm.nsdlib.org/service/bindspec">
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="IMG">
+            <fbs:DSInputLabel>image Binding</fbs:DSInputLabel>
+            <fbs:DSMIME>image/png</fbs:DSMIME>
+            <fbs:DSInputInstruction/>
+          </fbs:DSInput>
+        </fbs:DSInputSpec>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+</foxml:digitalObject>
