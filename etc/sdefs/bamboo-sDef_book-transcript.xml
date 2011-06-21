@@ -57,8 +57,14 @@
           <fmm:Method label="get xml between ordinal and following &lt;pb> inclusive" operationName="getPageByNumber">
             <fmm:UserInputParm defaultValue="" label="page ordinal" parmName="pagenumber" passBy="VALUE" required="true"/>
           </fmm:Method>
-          <fmm:Method label="get xml after &lt;pb> with id attribute" operationName="getPageById">
-            <fmm:UserInputParm defaultValue="" label="&lt;pb> id" parmName="pageid" passBy="VALUE" required="true"/>
+          <fmm:Method label="get xml after &lt;pb> with facs attribute" operationName="getPageByFacs">
+            <fmm:UserInputParm defaultValue="" label="&lt;pb> facs" parmName="facsId" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="get text between ordinal and following &lt;pb> inclusive" operationName="getPageTextByNumber">
+            <fmm:UserInputParm defaultValue="" label="page ordinal" parmName="pagenumber" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="get text after &lt;pb> with facs attribute" operationName="getPageTextByFacs">
+            <fmm:UserInputParm defaultValue="" label="&lt;pb> facs" parmName="facsId" passBy="VALUE" required="true"/>
           </fmm:Method>
           <fmm:Method label="Reindex the TEI datastream" operationName="refresh"/>
         </fmm:MethodMap>
