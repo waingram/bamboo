@@ -26,8 +26,6 @@ class Bamboo::TeiHeader < ActiveFedora::NokogiriDatastream
         t.availability
       }
     }
-    t.title_proper(:proxy=>[:fileDesc, :titleStmt, :title])
-    t.creator(:proxy=>[:fileDesc, :titleStmt, :author])
 
   end # set_terminology
 
