@@ -2,7 +2,8 @@ require 'active_fedora'
 require 'hydra'
 require 'bamboo'
 
-class Bamboo::MorphAdornedXml < ActiveFedora::Base
+class Bamboo::TeiText < ActiveFedora::Base
+
   has_metadata :name => 'rightsMetadata', :type => Hydra::RightsMetadata
   has_metadata :name => 'contentMetadata', :type => Bamboo::ContentMetadata
   
@@ -11,10 +12,11 @@ class Bamboo::MorphAdornedXml < ActiveFedora::Base
   end
   
   def self.pid_suffix
-    'morph-adorned-tei-text'
+    'tei-text'
   end
   
-  def initialize( attrs={} )
-    super
+  def initialize(attrs = {})
+    super(attrs)
+    add_relationship(:has_model, 'info:fedora/bamboo-cModel:cmis-folder')
   end
 end

@@ -26,10 +26,10 @@
 <fmm:MethodMap xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap" name="N/A">
                <fmm:method operationName="getDC"></fmm:method>
                <fmm:method operationName="getDescMetadata"></fmm:method>
-               <fmm:method operationName="getContentMetadata"></fmm:method>
-               <fmm:method operationName="getTechnicalMetadata"></fmm:method>
-               <fmm:method operationName="getProvenanceMetadata"></fmm:method>
-               <fmm:method operationName="getSourceMetadata"></fmm:method>
+               <!-- <fmm:method operationName="getContentMetadata"></fmm:method>
+                              <fmm:method operationName="getTechnicalMetadata"></fmm:method>
+                              <fmm:method operationName="getProvenanceMetadata"></fmm:method>
+                              <fmm:method operationName="getSourceMetadata"></fmm:method> -->
             </fmm:MethodMap>
 </foxml:xmlContent>
 </foxml:datastreamVersion>

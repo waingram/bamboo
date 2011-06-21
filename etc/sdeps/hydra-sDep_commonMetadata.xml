@@ -65,22 +65,22 @@
                   <fmm:DatastreamInputParm parmName="rightsMetadata" passBy="URL_REF" required="TRUE"></fmm:DatastreamInputParm>
                   <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"></fmm:MethodReturnType>
                </fmm:method>
-               <fmm:method operationName="getContentMetadata" wsdlMsgName="getContentMetadataRequest" wsdlMsgOutput="response">
-                  <fmm:DatastreamInputParm parmName="contentMetadata" passBy="URL_REF" required="TRUE"></fmm:DatastreamInputParm>
-                  <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"></fmm:MethodReturnType>
-               </fmm:method>
-               <fmm:method operationName="getTechnicalMetadata" wsdlMsgName="getTechnicalMetadataRequest" wsdlMsgOutput="response">
-                  <fmm:DatastreamInputParm parmName="technicalMetadata" passBy="URL_REF" required="TRUE"></fmm:DatastreamInputParm>
-                  <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"></fmm:MethodReturnType>
-               </fmm:method>
-               <fmm:method operationName="getProvenanceMetadata" wsdlMsgName="getProvenanceMetadataRequest" wsdlMsgOutput="response">
-                  <fmm:DatastreamInputParm parmName="provenanceMetadata" passBy="URL_REF" required="TRUE"></fmm:DatastreamInputParm>
-                  <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"></fmm:MethodReturnType>
-               </fmm:method>
-               <fmm:method operationName="getSourceMetadata" wsdlMsgName="getSourceMetadataRequest" wsdlMsgOutput="response">
-                  <fmm:DatastreamInputParm parmName="sourceMetadata" passBy="URL_REF" required="TRUE"></fmm:DatastreamInputParm>
-                  <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"></fmm:MethodReturnType>
-               </fmm:method>
+               <!-- <fmm:method operationName="getContentMetadata" wsdlMsgName="getContentMetadataRequest" wsdlMsgOutput="response">
+                                 <fmm:DatastreamInputParm parmName="contentMetadata" passBy="URL_REF" required="TRUE"></fmm:DatastreamInputParm>
+                                 <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"></fmm:MethodReturnType>
+                              </fmm:method>
+                              <fmm:method operationName="getTechnicalMetadata" wsdlMsgName="getTechnicalMetadataRequest" wsdlMsgOutput="response">
+                                 <fmm:DatastreamInputParm parmName="technicalMetadata" passBy="URL_REF" required="TRUE"></fmm:DatastreamInputParm>
+                                 <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"></fmm:MethodReturnType>
+                              </fmm:method>
+                              <fmm:method operationName="getProvenanceMetadata" wsdlMsgName="getProvenanceMetadataRequest" wsdlMsgOutput="response">
+                                 <fmm:DatastreamInputParm parmName="provenanceMetadata" passBy="URL_REF" required="TRUE"></fmm:DatastreamInputParm>
+                                 <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"></fmm:MethodReturnType>
+                              </fmm:method>
+                              <fmm:method operationName="getSourceMetadata" wsdlMsgName="getSourceMetadataRequest" wsdlMsgOutput="response">
+                                 <fmm:DatastreamInputParm parmName="sourceMetadata" passBy="URL_REF" required="TRUE"></fmm:DatastreamInputParm>
+                                 <fmm:MethodReturnType wsdlMsgName="response" wsdlMsgTOMIME="N/A"></fmm:MethodReturnType>
+                              </fmm:method> -->
             </fmm:MethodMap>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
@@ -104,26 +104,26 @@
                   <fbs:DSMIME>N/A</fbs:DSMIME>
                   <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
                </fbs:DSInput>
-               <fbs:DSInput wsdlMsgPartName="contentMetadata" DSMin="1" DSMax="1" DSOrdinality="false">
-                  <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
-                  <fbs:DSMIME>N/A</fbs:DSMIME>
-                  <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
-               </fbs:DSInput>
-               <fbs:DSInput wsdlMsgPartName="technicalMetadata" DSMin="1" DSMax="1" DSOrdinality="false">
-                  <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
-                  <fbs:DSMIME>N/A</fbs:DSMIME>
-                  <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
-               </fbs:DSInput>
-               <fbs:DSInput wsdlMsgPartName="provenanceMetadata" DSMin="1" DSMax="1" DSOrdinality="false">
-                  <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
-                  <fbs:DSMIME>N/A</fbs:DSMIME>
-                  <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
-               </fbs:DSInput>
-               <fbs:DSInput wsdlMsgPartName="sourceMetadata" DSMin="1" DSMax="1" DSOrdinality="false">
-                  <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
-                  <fbs:DSMIME>N/A</fbs:DSMIME>
-                  <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
-               </fbs:DSInput>
+               <!-- <fbs:DSInput wsdlMsgPartName="contentMetadata" DSMin="1" DSMax="1" DSOrdinality="false">
+                                 <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+                                 <fbs:DSMIME>N/A</fbs:DSMIME>
+                                 <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+                              </fbs:DSInput>
+                              <fbs:DSInput wsdlMsgPartName="technicalMetadata" DSMin="1" DSMax="1" DSOrdinality="false">
+                                 <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+                                 <fbs:DSMIME>N/A</fbs:DSMIME>
+                                 <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+                              </fbs:DSInput>
+                              <fbs:DSInput wsdlMsgPartName="provenanceMetadata" DSMin="1" DSMax="1" DSOrdinality="false">
+                                 <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+                                 <fbs:DSMIME>N/A</fbs:DSMIME>
+                                 <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+                              </fbs:DSInput>
+                              <fbs:DSInput wsdlMsgPartName="sourceMetadata" DSMin="1" DSMax="1" DSOrdinality="false">
+                                 <fbs:DSInputLabel>N/A</fbs:DSInputLabel>
+                                 <fbs:DSMIME>N/A</fbs:DSMIME>
+                                 <fbs:DSInputInstruction>N/A</fbs:DSInputInstruction>
+                              </fbs:DSInput> -->
             </fbs:DSInputSpec>
 </foxml:xmlContent>
 </foxml:datastreamVersion>
@@ -157,30 +157,30 @@
                <wsdl:message name="response">
                   <wsdl:part name="response" type="xsd:base64Binary"></wsdl:part>
                </wsdl:message>
-               <wsdl:message name="getContentMetadataRequest">
-                  <wsdl:part name="contentMetadata" type="this:inputType"></wsdl:part>
-               </wsdl:message>
-               <wsdl:message name="response">
-                  <wsdl:part name="response" type="xsd:base64Binary"></wsdl:part>
-               </wsdl:message>
-               <wsdl:message name="getTechnicalMetadataRequest">
-                  <wsdl:part name="technicalMetadata" type="this:inputType"></wsdl:part>
-               </wsdl:message>
-               <wsdl:message name="response">
-                  <wsdl:part name="response" type="xsd:base64Binary"></wsdl:part>
-               </wsdl:message>
-               <wsdl:message name="getProvenanceMetadataRequest">
-                  <wsdl:part name="provenanceMetadata" type="this:inputType"></wsdl:part>
-               </wsdl:message>
-               <wsdl:message name="response">
-                  <wsdl:part name="response" type="xsd:base64Binary"></wsdl:part>
-               </wsdl:message>
-               <wsdl:message name="getSourceMetadataRequest">
-                  <wsdl:part name="sourceMetadata" type="this:inputType"></wsdl:part>
-               </wsdl:message>
-               <wsdl:message name="response">
-                  <wsdl:part name="response" type="xsd:base64Binary"></wsdl:part>
-               </wsdl:message>
+               <!-- <wsdl:message name="getContentMetadataRequest">
+                                 <wsdl:part name="contentMetadata" type="this:inputType"></wsdl:part>
+                              </wsdl:message>
+                              <wsdl:message name="response">
+                                 <wsdl:part name="response" type="xsd:base64Binary"></wsdl:part>
+                              </wsdl:message>
+                              <wsdl:message name="getTechnicalMetadataRequest">
+                                 <wsdl:part name="technicalMetadata" type="this:inputType"></wsdl:part>
+                              </wsdl:message>
+                              <wsdl:message name="response">
+                                 <wsdl:part name="response" type="xsd:base64Binary"></wsdl:part>
+                              </wsdl:message>
+                              <wsdl:message name="getProvenanceMetadataRequest">
+                                 <wsdl:part name="provenanceMetadata" type="this:inputType"></wsdl:part>
+                              </wsdl:message>
+                              <wsdl:message name="response">
+                                 <wsdl:part name="response" type="xsd:base64Binary"></wsdl:part>
+                              </wsdl:message>
+                              <wsdl:message name="getSourceMetadataRequest">
+                                 <wsdl:part name="sourceMetadata" type="this:inputType"></wsdl:part>
+                              </wsdl:message>
+                              <wsdl:message name="response">
+                                 <wsdl:part name="response" type="xsd:base64Binary"></wsdl:part>
+                              </wsdl:message> -->
                <wsdl:portType name="portType">
                   <wsdl:operation name="getDC">
                      <wsdl:input message="this:getDCRequest"></wsdl:input>
@@ -194,22 +194,22 @@
                      <wsdl:input message="this:getRightsMetadataRequest"></wsdl:input>
                      <wsdl:output message="this:response"></wsdl:output>
                   </wsdl:operation>
-                  <wsdl:operation name="getContentMetadata">
-                     <wsdl:input message="this:getContentMetadataRequest"></wsdl:input>
-                     <wsdl:output message="this:response"></wsdl:output>
-                  </wsdl:operation>
-                  <wsdl:operation name="getTechnicalMetadata">
-                     <wsdl:input message="this:getTechnicalMetadataRequest"></wsdl:input>
-                     <wsdl:output message="this:response"></wsdl:output>
-                  </wsdl:operation>
-                  <wsdl:operation name="getProvenanceMetadata">
-                     <wsdl:input message="this:getProvenanceMetadataRequest"></wsdl:input>
-                     <wsdl:output message="this:response"></wsdl:output>
-                  </wsdl:operation>
-                  <wsdl:operation name="getSourceMetadata">
-                     <wsdl:input message="this:getSourceMetadataRequest"></wsdl:input>
-                     <wsdl:output message="this:response"></wsdl:output>
-                  </wsdl:operation>
+                  <!-- <wsdl:operation name="getContentMetadata">
+                                       <wsdl:input message="this:getContentMetadataRequest"></wsdl:input>
+                                       <wsdl:output message="this:response"></wsdl:output>
+                                    </wsdl:operation>
+                                    <wsdl:operation name="getTechnicalMetadata">
+                                       <wsdl:input message="this:getTechnicalMetadataRequest"></wsdl:input>
+                                       <wsdl:output message="this:response"></wsdl:output>
+                                    </wsdl:operation>
+                                    <wsdl:operation name="getProvenanceMetadata">
+                                       <wsdl:input message="this:getProvenanceMetadataRequest"></wsdl:input>
+                                       <wsdl:output message="this:response"></wsdl:output>
+                                    </wsdl:operation>
+                                    <wsdl:operation name="getSourceMetadata">
+                                       <wsdl:input message="this:getSourceMetadataRequest"></wsdl:input>
+                                       <wsdl:output message="this:response"></wsdl:output>
+                                    </wsdl:operation> -->
                </wsdl:portType>
                <wsdl:service name="N/A">
                   <wsdl:port binding="this:binding" name="port">
@@ -245,42 +245,42 @@
                         <mime:content type="N/A"></mime:content>
                      </wsdl:output>
                   </wsdl:operation>
-                  <wsdl:operation name="getContentMetadata">
-                     <http:operation location="(contentMetadata)"></http:operation>
-                     <wsdl:input>
-                        <http:urlReplacement></http:urlReplacement>
-                     </wsdl:input>
-                     <wsdl:output>
-                        <mime:content type="N/A"></mime:content>
-                     </wsdl:output>
-                  </wsdl:operation>
-                  <wsdl:operation name="getTechnicalMetadata">
-                     <http:operation location="(technicalMetadata)"></http:operation>
-                     <wsdl:input>
-                        <http:urlReplacement></http:urlReplacement>
-                     </wsdl:input>
-                     <wsdl:output>
-                        <mime:content type="N/A"></mime:content>
-                     </wsdl:output>
-                  </wsdl:operation>
-                  <wsdl:operation name="getProvenanceMetadata">
-                     <http:operation location="(provenanceMetadata)"></http:operation>
-                     <wsdl:input>
-                        <http:urlReplacement></http:urlReplacement>
-                     </wsdl:input>
-                     <wsdl:output>
-                        <mime:content type="N/A"></mime:content>
-                     </wsdl:output>
-                  </wsdl:operation>
-                  <wsdl:operation name="getSourceMetadata">
-                     <http:operation location="(sourceMetadata)"></http:operation>
-                     <wsdl:input>
-                        <http:urlReplacement></http:urlReplacement>
-                     </wsdl:input>
-                     <wsdl:output>
-                        <mime:content type="N/A"></mime:content>
-                     </wsdl:output>
-                  </wsdl:operation>
+                  <!-- <wsdl:operation name="getContentMetadata">
+                                       <http:operation location="(contentMetadata)"></http:operation>
+                                       <wsdl:input>
+                                          <http:urlReplacement></http:urlReplacement>
+                                       </wsdl:input>
+                                       <wsdl:output>
+                                          <mime:content type="N/A"></mime:content>
+                                       </wsdl:output>
+                                    </wsdl:operation>
+                                    <wsdl:operation name="getTechnicalMetadata">
+                                       <http:operation location="(technicalMetadata)"></http:operation>
+                                       <wsdl:input>
+                                          <http:urlReplacement></http:urlReplacement>
+                                       </wsdl:input>
+                                       <wsdl:output>
+                                          <mime:content type="N/A"></mime:content>
+                                       </wsdl:output>
+                                    </wsdl:operation>
+                                    <wsdl:operation name="getProvenanceMetadata">
+                                       <http:operation location="(provenanceMetadata)"></http:operation>
+                                       <wsdl:input>
+                                          <http:urlReplacement></http:urlReplacement>
+                                       </wsdl:input>
+                                       <wsdl:output>
+                                          <mime:content type="N/A"></mime:content>
+                                       </wsdl:output>
+                                    </wsdl:operation>
+                                    <wsdl:operation name="getSourceMetadata">
+                                       <http:operation location="(sourceMetadata)"></http:operation>
+                                       <wsdl:input>
+                                          <http:urlReplacement></http:urlReplacement>
+                                       </wsdl:input>
+                                       <wsdl:output>
+                                          <mime:content type="N/A"></mime:content>
+                                       </wsdl:output>
+                                    </wsdl:operation> -->
                </wsdl:binding>
             </wsdl:definitions>
 </foxml:xmlContent>

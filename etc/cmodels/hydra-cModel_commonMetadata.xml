@@ -43,7 +43,7 @@
 					<dsTypeModel ID="rightsMetadata">
 						<form MIME="text/xml"/>
 					</dsTypeModel>
-					<dsTypeModel ID="contentMetadata">
+					<!-- <dsTypeModel ID="contentMetadata">
 						<form MIME="text/xml"/>
 					</dsTypeModel>
 					<dsTypeModel ID="technicalMetadata">
@@ -54,7 +54,7 @@
 					</dsTypeModel>
 					<dsTypeModel ID="sourceMetadata">
 						<form MIME="text/xml"/>
-					</dsTypeModel>
+					</dsTypeModel> -->
 				</dsCompositeModel>
 			</foxml:xmlContent>
 		</foxml:datastreamVersion>
