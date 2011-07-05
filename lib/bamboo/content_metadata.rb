@@ -1,4 +1,4 @@
-# defines the expected OM terminology for  content metadata
+# defines the expected OM terminology for content metadata
 
 class Bamboo::ContentMetadata < ActiveFedora::NokogiriDatastream 
    

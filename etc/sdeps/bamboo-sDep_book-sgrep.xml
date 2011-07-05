@@ -28,7 +28,8 @@
            <fedora-model:hasModel
                 rdf:resource="info:fedora/fedora-system:ServiceDeployment-3.0"/>
             <fedora-model:isDeploymentOf rdf:resource="info:fedora/bamboo-sDef:book-transcript"/>
-            <fedora-model:isContractorOf rdf:resource="info:fedora/bamboo-cModel:book-tei"/>
+            <fedora-model:isContractorOf rdf:resource="info:fedora/bamboo-cModel:Bamboo_TeiText"/>
+            <fedora-model:isContractorOf rdf:resource="info:fedora/bamboo-cModel:Bamboo_MorphAdornedText"/>
           </rdf:Description>
         </rdf:RDF>
       </foxml:xmlContent>
@@ -44,6 +45,11 @@
         <fmm:MethodMap name="MethodMap TEI Transcript SDep" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
           <fmm:Method operationName="getTOC" wsdlMsgName="getTOCRequest" wsdlMsgOutput="dissemResponse">
             <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+           <fmm:Method operationName="getTOCByType" wsdlMsgName="getTOCByTypeRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="type" passBy="VALUE" required="yes"/>
             <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
           </fmm:Method>
           <fmm:Method operationName="getHeader" wsdlMsgName="getHeaderRequest" wsdlMsgOutput="dissemResponse">
@@ -64,15 +70,30 @@
             <fmm:UserInputParm defaultValue="" parmName="xmlid" passBy="VALUE" required="yes"/>
             <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
           </fmm:Method>
+          <fmm:Method operationName="getElementsByName" wsdlMsgName="getElementsByNameRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="elementName" passBy="VALUE" required="yes"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
           <fmm:Method operationName="getPageByNumber" wsdlMsgName="getPageByNumberRequest" wsdlMsgOutput="dissemResponse">
             <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
             <fmm:UserInputParm defaultValue="" parmName="pagenumber" passBy="VALUE" required="yes"/>
             <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
           </fmm:Method>
-          <fmm:Method operationName="getPageById" wsdlMsgName="getPageByIdRequest" wsdlMsgOutput="dissemResponse">
+          <fmm:Method operationName="getPageByFacs" wsdlMsgName="getPageByFacsRequest" wsdlMsgOutput="dissemResponse">
             <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
-            <fmm:UserInputParm defaultValue="" parmName="pageid" passBy="VALUE" required="yes"/>
+            <fmm:UserInputParm defaultValue="" parmName="facsId" passBy="VALUE" required="yes"/>
             <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+          <fmm:Method operationName="getPageTextByNumber" wsdlMsgName="getPageTextByNumberRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="pagenumber" passBy="VALUE" required="yes"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/plain"/>
+          </fmm:Method>
+          <fmm:Method operationName="getPageTextByFacs" wsdlMsgName="getPageTextByFacsRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="facsId" passBy="VALUE" required="yes"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/plain"/>
           </fmm:Method>
           <fmm:Method operationName="refresh" wsdlMsgName="refreshRequest" wsdlMsgOutput="dissemResponse">
             <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
@@ -128,7 +149,13 @@
               <xsd:simpleType name="pagenumberType">
                 <xsd:restriction base="xsd:string"/>
               </xsd:simpleType>
-              <xsd:simpleType name="pageidType">
+              <xsd:simpleType name="facsIdType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="typeType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="elementNameType">
                 <xsd:restriction base="xsd:string"/>
               </xsd:simpleType>
               <xsd:simpleType name="DS1Type">
@@ -143,11 +170,23 @@
           <wsdl:message name="getFrontRequest"/>
           <wsdl:message name="getChunkRequest"/>
           <wsdl:message name="getHeadingRequest"/>
+          <wsdl:message name="getTOCByType">
+            <wsdl:part name="elementName" type="this:typeType"/>
+          </wsdl:message>
+          <wsdl:message name="getElementsByName">
+            <wsdl:part name="elementName" type="this:elementNameType"/>
+          </wsdl:message>
           <wsdl:message name="getPageByNumberRequest">
             <wsdl:part name="pagenumber" type="this:pagenumberType"/>
           </wsdl:message>
-          <wsdl:message name="getPageByIdRequest">
-            <wsdl:part name="pageid" type="this:pageidType"/>
+          <wsdl:message name="getPageByFacsRequest">
+            <wsdl:part name="facsId" type="this:facsIdType"/>
+          </wsdl:message>
+          <wsdl:message name="getPageTextByNumberRequest">
+            <wsdl:part name="pagenumber" type="this:pagenumberType"/>
+          </wsdl:message>
+          <wsdl:message name="getPageTextByFacsRequest">
+            <wsdl:part name="facsId" type="this:facsIdType"/>
           </wsdl:message>
           <wsdl:message name="refreshRequest">
             <wsdl:part name="DS1" type="this:DS1Type"/>
@@ -161,6 +200,10 @@
           <wsdl:portType name="TEITransPortType">
             <wsdl:operation name="getTOC">
               <wsdl:input message="this:getTOCRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTOCByType">
+              <wsdl:input message="this:getTOCByTypeRequest"/>
               <wsdl:output message="this:dissemResponse"/>
             </wsdl:operation>
             <wsdl:operation name="getHeader">
@@ -179,12 +222,24 @@
               <wsdl:input message="this:getChunkRequest"/>
               <wsdl:output message="this:dissemResponse"/>
             </wsdl:operation>
-            <wsdl:operation name="getPageByNumber">
+             <wsdl:operation name="getElementsByName">
+              <wsdl:input message="this:getElementsByNameRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+           <wsdl:operation name="getPageByNumber">
               <wsdl:input message="this:getPageByNumberRequest"/>
               <wsdl:output message="this:dissemResponse"/>
             </wsdl:operation>
-            <wsdl:operation name="getPageById">
-              <wsdl:input message="this:getPageByIdRequest"/>
+            <wsdl:operation name="getPageByFacs">
+              <wsdl:input message="this:getPageByFacsRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getPageTextByNumber">
+              <wsdl:input message="this:getPageTextByNumberRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getPageTextByFacs">
+              <wsdl:input message="this:getPageTextByFacsRequest"/>
               <wsdl:output message="this:dissemResponse"/>
             </wsdl:operation>
             <wsdl:operation name="refresh">
@@ -213,7 +268,16 @@
                 <mime:content type="text/xml"/>
               </wsdl:output>
             </wsdl:operation>
-            <wsdl:operation name="getHeader">
+             <wsdl:operation name="getTOCByType">
+              <http:operation location="tocbytype?item_id=(PID)&amp;parm1=(type)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+           <wsdl:operation name="getHeader">
               <http:operation location="bib?item_id=(PID)"/>
               <wsdl:input>
                 <http:urlReplacement/>
@@ -249,6 +313,15 @@
                 <mime:content type="text/xml"/>
               </wsdl:output>
             </wsdl:operation>
+            <wsdl:operation name="getElementsByName">
+              <http:operation location="elementsByName?item_id=(PID)&amp;parm1=(elementName)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
             <wsdl:operation name="getPageByNumber">
               <http:operation location="pagenum?item_id=(PID)&amp;parm1=(pagenumber)"/>
               <wsdl:input>
@@ -258,8 +331,26 @@
                 <mime:content type="text/xml"/>
               </wsdl:output>
             </wsdl:operation>
-            <wsdl:operation name="getPageById">
-              <http:operation location="pageid?item_id=(PID)&amp;parm1=(pageid)"/>
+            <wsdl:operation name="getPageByFacs">
+              <http:operation location="pageByFacs?item_id=(PID)&amp;parm1=(facsId)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPageTextByNumber">
+              <http:operation location="pagenum?item_id=(PID)&amp;parm1=(pagenumber)&amp;style=xsl/strip_tags.xsl"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPageTextByFacs">
+              <http:operation location="pageByFacs?item_id=(PID)&amp;parm1=(facsId)&amp;style=xsl/strip_tags.xsl"/>
               <wsdl:input>
                 <http:urlReplacement/>
               </wsdl:input>
