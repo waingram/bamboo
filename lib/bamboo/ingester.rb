@@ -189,13 +189,19 @@ class Bamboo::Ingester
     intro = "http://quod.lib.umich.edu/e/ecco/"
 
     if facs.start_with? image_set_id
-      page = facs[-5..-2].to _i
+      page = facs[-5..-2]
     else
       page = facs
     end
 
+    #remove the leading zeros
+    page = page.to_i.to_s
+
     url = intro + dlps_id + ".0001.001/" + page
-    {:page=>page, :n=>n, :url=>url}
+
+    puts "URL = " + url
+
+    {:page=>page.to_i, :n=>n, :url=>url}
 
   end
 
