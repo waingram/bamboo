@@ -11,8 +11,8 @@ class Bamboo::Ingester
   
   def load_tei(tei_filename)
     begin
-      raise ArgumentError, "[ERROR] load_tei: #{File.join(@adorned_path, tei_filename)} does not exist" unless File.exists? File.join(@adorned_path, tei_filename)
-      raise InvalidFormat, "[ERROR] load_tei: #{File.join(@adorned_path, tei_filename)} is not XML" unless File.extname(File.join(@adorned_path, tei_filename)) == '.xml'
+      raise ArgumentError, "[ERROR] load_tei: #{File.join(@unadorned_path, tei_filename)} does not exist" unless File.exists? File.join(@unadorned_path, tei_filename)
+      raise InvalidFormat, "[ERROR] load_tei: #{File.join(@unadorned_path, tei_filename)} is not XML" unless File.extname(File.join(@unadorned_path, tei_filename)) == '.xml'
       @tei_filename   = tei_filename
       @tei_xml        = Nokogiri::XML::Document.parse(File.read(File.join(@unadorned_path, @tei_filename)))
       @pid            = tcpid_to_pid
@@ -28,7 +28,8 @@ class Bamboo::Ingester
     pbs.each do |pb|
       n = pb['n']
       facs = pb['facs']
-      image_url = gale_url(facs, image_set_id, n)
+      #image_url = gale_url(facs, n)
+      image_url = michigan_url(facs, n)
 
       urls << image_url
     end
@@ -161,7 +162,7 @@ class Bamboo::Ingester
     end
   end
 
-  def gale_url(facs, image_set_id, n)
+  def gale_url(facs, n)
     intro = "http://callisto.ggsrv.com/imgsrv/Fetch?recordID="
 
     # there is a case (see K00122.00) where the facs is incorrect
@@ -184,6 +185,20 @@ class Bamboo::Ingester
 
   end
 
+  def michigan_url(facs, n)
+    intro = "http://quod.lib.umich.edu/e/ecco/"
+
+    if facs.start_with? image_set_id
+      page = facs[-5..-2].to _i
+    else
+      page = facs
+    end
+
+    url = intro + dlps_id + ".0001.001/" + page
+    {:page=>page, :n=>n, :url=>url}
+
+  end
+
   def tei_header_xml
     orig = @tei_xml.css("TEI > teiHeader")
   end
@@ -198,6 +213,10 @@ class Bamboo::Ingester
 
   def image_set_id
     tei_header_xml.css("teiHeader > fileDesc > publicationStmt > idno[type='ImageSetID']").text
+  end
+
+  def dlps_id
+    tei_header_xml.css("teiHeader > fileDesc > publicationStmt > idno[type='DLPS']").text
   end
 
   def content_set
