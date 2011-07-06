@@ -2,7 +2,9 @@ require 'active_fedora'
 require 'hydra'
 require 'bamboo'
 
-class Bamboo::PageImage < ActiveFedora::Base
+module Bamboo
+
+class PageImage < ActiveFedora::Base
 
   has_metadata :name => 'rightsMetadata', :type => Hydra::RightsMetadata
   has_metadata :name => 'descMetadata', :type => Bamboo::PageMetadata
@@ -19,12 +21,14 @@ class Bamboo::PageImage < ActiveFedora::Base
     'bamboo-cModel'
   end
   
-  def self.pid_suffix
-    'page'
-  end
+#  def self.pid_suffix
+#    'page'
+#  end
   
   def initialize(attrs = {})
     super(attrs)
     add_relationship(:has_model, 'info:fedora/bamboo-cModel:cmis-document')
   end
+end
+
 end

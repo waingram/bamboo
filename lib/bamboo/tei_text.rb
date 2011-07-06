@@ -2,7 +2,9 @@ require 'active_fedora'
 require 'hydra'
 require 'bamboo'
 
-class Bamboo::TeiText < ActiveFedora::Base
+module Bamboo
+
+class TeiText < ActiveFedora::Base
 
   has_metadata :name => 'rightsMetadata', :type => Hydra::RightsMetadata
   has_metadata :name => 'contentMetadata', :type => Bamboo::ContentMetadata
@@ -11,12 +13,14 @@ class Bamboo::TeiText < ActiveFedora::Base
     'bamboo-cModel'
   end
   
-  def self.pid_suffix
-    'tei-text'
-  end
+#  def self.pid_suffix
+#    'tei-text'
+#  end
   
   def initialize(attrs = {})
     super(attrs)
     add_relationship(:has_model, 'info:fedora/bamboo-cModel:cmis-folder')
   end
+end
+
 end

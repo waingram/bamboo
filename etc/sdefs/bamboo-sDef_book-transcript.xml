@@ -47,9 +47,15 @@
         <fmm:MethodMap name="MethodMap - Book Transcript Behavior Definition" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
           <fmm:Method label="get teiHeader" operationName="getHeader"/>
           <fmm:Method label="Get TOC as div structure" operationName="getTOC"/>
+          <fmm:Method label="get TOC by Type" operationName="getTOCByType">
+            <fmm:UserInputParm defaultValue="" label="div type" parmName="type" passBy="VALUE" required="true"/>
+          </fmm:Method>
           <fmm:Method label="get front matter" operationName="getFront"/>
           <fmm:Method label="get xml fragment with id attribute" operationName="getChunk">
             <fmm:UserInputParm defaultValue="" label="xml element id attribute value" parmName="xmlid" passBy="VALUE" required="true"/>
+          </fmm:Method>
+          <fmm:Method label="get xml element by name" operationName="getElementsByName">
+            <fmm:UserInputParm defaultValue="" label="xml element name" parmName="elementName" passBy="VALUE" required="true"/>
           </fmm:Method>
           <fmm:Method label="get head element for &lt;div> given &lt;div> id attribute" operationName="getHeading">
             <fmm:UserInputParm defaultValue="" label="div element id attribute value" parmName="xmlid" passBy="VALUE" required="true"/>

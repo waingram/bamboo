@@ -31,7 +31,7 @@
           <rdf:Description rdf:about="info:fedora/djatoka:jp2SDep">
             <fedora-model:hasModel rdf:resource="info:fedora/fedora-system:ServiceDeployment-3.0"/>
             <fedora-model:isDeploymentOf rdf:resource="info:fedora/djatoka:jp2SDef"/>
-            <fedora-model:isContractorOf rdf:resource="info:fedora/bamboo-cModel:page"/>
+            <fedora-model:isContractorOf rdf:resource="info:fedora/bamboo-cModel:Bamboo_PageImage"/>
           </rdf:Description>
         </rdf:RDF>
       </foxml:xmlContent>

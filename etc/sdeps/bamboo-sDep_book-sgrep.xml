@@ -27,8 +27,9 @@
           <rdf:Description rdf:about="info:fedora/bamboo-sDep:book-sgrep">
            <fedora-model:hasModel
                 rdf:resource="info:fedora/fedora-system:ServiceDeployment-3.0"/>
-            <fedora-model:isDeploymentOf rdf:resource="info:fedora/bamboo:sdef-book-transcript"/>
-            <fedora-model:isContractorOf rdf:resource="info:fedora/afmodel:Monkjr_TcpBookAsset"/>
+            <fedora-model:isDeploymentOf rdf:resource="info:fedora/bamboo-sDef:book-transcript"/>
+            <fedora-model:isContractorOf rdf:resource="info:fedora/bamboo-cModel:Bamboo_TeiText"/>
+            <fedora-model:isContractorOf rdf:resource="info:fedora/bamboo-cModel:Bamboo_MorphAdornedText"/>
           </rdf:Description>
         </rdf:RDF>
       </foxml:xmlContent>
@@ -44,6 +45,11 @@
         <fmm:MethodMap name="MethodMap TEI Transcript SDep" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
           <fmm:Method operationName="getTOC" wsdlMsgName="getTOCRequest" wsdlMsgOutput="dissemResponse">
             <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+           <fmm:Method operationName="getTOCByType" wsdlMsgName="getTOCByTypeRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="type" passBy="VALUE" required="yes"/>
             <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
           </fmm:Method>
           <fmm:Method operationName="getHeader" wsdlMsgName="getHeaderRequest" wsdlMsgOutput="dissemResponse">
@@ -62,6 +68,11 @@
           <fmm:Method operationName="getChunk" wsdlMsgName="getChunkRequest" wsdlMsgOutput="dissemResponse">
             <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
             <fmm:UserInputParm defaultValue="" parmName="xmlid" passBy="VALUE" required="yes"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+          <fmm:Method operationName="getElementsByName" wsdlMsgName="getElementsByNameRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="elementName" passBy="VALUE" required="yes"/>
             <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
           </fmm:Method>
           <fmm:Method operationName="getPageByNumber" wsdlMsgName="getPageByNumberRequest" wsdlMsgOutput="dissemResponse">
@@ -141,6 +152,12 @@
               <xsd:simpleType name="facsIdType">
                 <xsd:restriction base="xsd:string"/>
               </xsd:simpleType>
+              <xsd:simpleType name="typeType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="elementNameType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
               <xsd:simpleType name="DS1Type">
                 <xsd:restriction base="xsd:string"/>
               </xsd:simpleType>
@@ -153,6 +170,12 @@
           <wsdl:message name="getFrontRequest"/>
           <wsdl:message name="getChunkRequest"/>
           <wsdl:message name="getHeadingRequest"/>
+          <wsdl:message name="getTOCByType">
+            <wsdl:part name="elementName" type="this:typeType"/>
+          </wsdl:message>
+          <wsdl:message name="getElementsByName">
+            <wsdl:part name="elementName" type="this:elementNameType"/>
+          </wsdl:message>
           <wsdl:message name="getPageByNumberRequest">
             <wsdl:part name="pagenumber" type="this:pagenumberType"/>
           </wsdl:message>
@@ -179,6 +202,10 @@
               <wsdl:input message="this:getTOCRequest"/>
               <wsdl:output message="this:dissemResponse"/>
             </wsdl:operation>
+            <wsdl:operation name="getTOCByType">
+              <wsdl:input message="this:getTOCByTypeRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
             <wsdl:operation name="getHeader">
               <wsdl:input message="this:getHeaderRequest"/>
               <wsdl:output message="this:dissemResponse"/>
@@ -195,7 +222,11 @@
               <wsdl:input message="this:getChunkRequest"/>
               <wsdl:output message="this:dissemResponse"/>
             </wsdl:operation>
-            <wsdl:operation name="getPageByNumber">
+             <wsdl:operation name="getElementsByName">
+              <wsdl:input message="this:getElementsByNameRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+           <wsdl:operation name="getPageByNumber">
               <wsdl:input message="this:getPageByNumberRequest"/>
               <wsdl:output message="this:dissemResponse"/>
             </wsdl:operation>
@@ -237,7 +268,16 @@
                 <mime:content type="text/xml"/>
               </wsdl:output>
             </wsdl:operation>
-            <wsdl:operation name="getHeader">
+             <wsdl:operation name="getTOCByType">
+              <http:operation location="tocbytype?item_id=(PID)&amp;parm1=(type)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+           <wsdl:operation name="getHeader">
               <http:operation location="bib?item_id=(PID)"/>
               <wsdl:input>
                 <http:urlReplacement/>
@@ -266,6 +306,15 @@
             </wsdl:operation>
             <wsdl:operation name="getChunk">
               <http:operation location="chunk?item_id=(PID)&amp;parm1=(xmlid)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getElementsByName">
+              <http:operation location="elementsByName?item_id=(PID)&amp;parm1=(elementName)"/>
               <wsdl:input>
                 <http:urlReplacement/>
               </wsdl:input>

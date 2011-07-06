@@ -1,5 +1,7 @@
 # Bamboo libraries
 
+$: << 'lib'
+
 module Bamboo; end
 require 'bamboo/ingester'
 require 'bamboo/tei_header'

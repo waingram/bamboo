@@ -28,4 +28,16 @@
 			</foxml:xmlContent>
 		</foxml:datastreamVersion>
 	</foxml:datastream>
+	<foxml:datastream CONTROL_GROUP="X" ID="DS-COMPOSITE-MODEL" STATE="A" VERSIONABLE="true">
+		<foxml:datastreamVersion ID="DS-COMPOSITE-MODEL1.0" LABEL="Definition of Book Content Model" MIMETYPE="text/xml">
+			<foxml:contentDigest DIGEST="none" TYPE="DISABLED"/>
+			<foxml:xmlContent>
+				<dsCompositeModel>
+					<dsTypeModel ID="descMetadata" ORDERED="false">
+						<form MIME="text/xml"/>
+					</dsTypeModel>
+				</dsCompositeModel>
+			</foxml:xmlContent>
+		</foxml:datastreamVersion>
+	</foxml:datastream>
 </foxml:digitalObject>

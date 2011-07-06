@@ -2,7 +2,9 @@ require 'active_fedora'
 require 'hydra'
 require 'bamboo'
 
-class Bamboo::Book < ActiveFedora::Base
+module Bamboo
+
+class Book < ActiveFedora::Base
   include Hydra::ModelMethods
   
   has_relationship "parts", :is_part_of, :inbound => true
@@ -29,12 +31,14 @@ class Bamboo::Book < ActiveFedora::Base
     'bamboo-cModel'
   end
   
-  def self.pid_suffix
-    'book'
-  end
+#  def self.pid_suffix
+#    'book'
+#  end
   
   def initialize(attrs = {})
     super(attrs)
     add_relationship(:has_model, 'info:fedora/bamboo-cModel:cmis-folder')
   end
+end
+
 end
