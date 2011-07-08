@@ -197,7 +197,7 @@ class Bamboo::Ingester
     #remove the leading zeros
     page = page.to_i.to_s
     
-    url = intro + dlps_id + ".0001.001/" + page
+    url = intro + dlps_id + "/" + page
 
     {:page=>page.to_i, :n=>n, :url=>url}
 
