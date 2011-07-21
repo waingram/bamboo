@@ -101,7 +101,7 @@ class Bamboo::Ingester
         # }
         # content_metadata_ds.update_values(params)
         #RELS
-        tei_obj.add_relationship(:is_part_of, ActiveFedora::Base.load_instance(@pid))
+        tei_obj.add_relationship(:is_derivation_of, ActiveFedora::Base.load_instance(@pid))
         tei_obj.save
         return tei_obj
       end
@@ -121,7 +121,7 @@ class Bamboo::Ingester
           morph_adorned_ds = ActiveFedora::Datastream.new(:dsLabel => "Morph-Adorned XML", :controlGroup => "M", :blob =>File.open(morph_adorned_path) )
           morph_adorned_obj.add_datastream(morph_adorned_ds)
           #RELS
-          morph_adorned_obj.add_relationship(:is_part_of, ActiveFedora::Base.load_instance(@pid))
+          morph_adorned_obj.add_relationship(:is_derivation_of, ActiveFedora::Base.load_instance(@pid))
           morph_adorned_obj.save
           return morph_adorned_obj
         end
@@ -140,7 +140,7 @@ class Bamboo::Ingester
         pid = "#{@pid}.#{i[:page]}"
         replacing_object(pid) do
           page_obj = Bamboo::PageImage.new(:pid=>pid)
-          img_ds = ActiveFedora::Datastream.new(:dsLabel=>"Page image #{i[:page]}", :controlGroup=>'E', :dsLocation=>i[:url])
+          img_ds = ActiveFedora::Datastream.new(:dsLabel=>"Page image #{i[:page]}", :controlGroup=>'R', :dsLocation=>i[:url])
           page_obj.add_datastream(img_ds)   
           page_obj.save  
           #PROPS
@@ -189,13 +189,17 @@ class Bamboo::Ingester
     intro = "http://quod.lib.umich.edu/e/ecco/"
 
     if facs.start_with? image_set_id
-      page = facs[-5..-2].to _i
+      page = facs[-5..-2]
     else
       page = facs
     end
 
-    url = intro + dlps_id + ".0001.001/" + page
-    {:page=>page, :n=>n, :url=>url}
+    #remove the leading zeros
+    page = page.to_i.to_s
+    
+    url = intro + dlps_id + "/" + page
+
+    {:page=>page.to_i, :n=>n, :url=>url}
 
   end
 

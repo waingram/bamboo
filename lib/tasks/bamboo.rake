@@ -16,7 +16,7 @@ task :ingest do
   # If Fedora Repository connection is not already initialized, initialize it using ActiveFedora defaults
   ActiveFedora.init unless Thread.current[:repo]
 
-  ingester = Bamboo::Ingester.new(adorned_dir, unadorned_dir)
+  ingester = Bamboo::Ingester.new(unadorned_dir, adorned_dir)
   Dir.entries(unadorned_dir).each do |f|
     next if File.directory?(f)
     ingester.ingest(f)
