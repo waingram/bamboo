@@ -14,7 +14,10 @@ class Bamboo::Ingester
       raise ArgumentError, "[ERROR] load_tei: #{File.join(@unadorned_path, tei_filename)} does not exist" unless File.exists? File.join(@unadorned_path, tei_filename)
       raise InvalidFormat, "[ERROR] load_tei: #{File.join(@unadorned_path, tei_filename)} is not XML" unless File.extname(File.join(@unadorned_path, tei_filename)) == '.xml'
       @tei_filename   = tei_filename
-      @tei_xml        = Nokogiri::XML::Document.parse(File.read(File.join(@unadorned_path, @tei_filename)))
+      @tei_doc        = Nokogiri::XML::Document.parse(File.read(File.join(@unadorned_path, @tei_filename)))
+      @tei_header_doc = Nokogiri::XML::Document.new
+      tei_dup = @tei_doc.dup
+      @tei_header_doc.add_child(tei_dup.css("TEI > teiHeader"))
       @pid            = tcpid_to_pid
     rescue
       raise
@@ -22,14 +25,14 @@ class Bamboo::Ingester
   end
   
   def image_urls
-    pbs   = @tei_xml.css("pb")
+    pbs   = @tei_doc.css("pb")
     urls = Array.new
     
     pbs.each do |pb|
       n = pb['n']
       facs = pb['facs']
-      #image_url = gale_url(facs, n)
-      image_url = michigan_url(facs, n)
+      image_url = gale_url(facs, n)
+      #image_url = michigan_url(facs, n)
 
       urls << image_url
     end
@@ -57,13 +60,15 @@ class Bamboo::Ingester
         book = Bamboo::Book.new(:pid => @pid)
         #TEI header ds
         tei_header_ds                      = book.datastreams['descMetadata']
-        tei_header_ds.ng_xml               = Nokogiri::XML::Document.new
-        tei_header_ds.ng_xml               << tei_header_xml.to_xml
+        # tei_header_ds.ng_xml               = Nokogiri::XML::Document.new
+        # tei_header_ds.ng_xml               << tei_header_xml.to_xml
+        tei_header_ds.ng_xml               = @tei_header_doc
         tei_header_ds.attributes[:dsLabel] = "TEI Header"
         book.label = title
         book.save
         #PROPS
         props = book.datastreams['properties']
+        puts tei_header_ds.term_values
         props.title_values << tei_header_ds.term_values(:fileDesc, :titleStmt, :title).first
         props.creator_values << tei_header_ds.term_values(:fileDesc, :titleStmt, :author).first
         props.date_values << tei_header_ds.term_values(:fileDesc, :publicationStmt, :date).first
@@ -79,8 +84,8 @@ class Bamboo::Ingester
         return book
       end
     rescue Exception => e
+      puts e.backtrace
       raise "[ERROR] create_book: #{e.message}"
-      #puts e.backtrace
     end
 
   end
@@ -106,8 +111,8 @@ class Bamboo::Ingester
         return tei_obj
       end
     rescue Exception => e
-      raise "[ERROR] create_tei_xml: #{e.message}"
       #puts e.backtrace
+      raise "[ERROR] create_tei_xml: #{e.message}"
     end
   end
 
@@ -126,8 +131,8 @@ class Bamboo::Ingester
           return morph_adorned_obj
         end
       rescue Exception => e
-        raise "[ERROR] create_morph_adorned_xml: #{e.message}"
         #puts e.backtrace
+        raise "[ERROR] create_morph_adorned_xml: #{e.message}"
       end
     end
    
@@ -140,7 +145,7 @@ class Bamboo::Ingester
         pid = "#{@pid}.#{i[:page]}"
         replacing_object(pid) do
           page_obj = Bamboo::PageImage.new(:pid=>pid)
-          img_ds = ActiveFedora::Datastream.new(:dsLabel=>"Page image #{i[:page]}", :controlGroup=>'R', :dsLocation=>i[:url])
+          img_ds = ActiveFedora::Datastream.new(:dsLabel=>"Page image #{i[:page]}", :mimeType=>'image/tiff', :controlGroup=>'E', :dsLocation=>i[:url])
           page_obj.add_datastream(img_ds)   
           page_obj.save  
           #PROPS
@@ -203,28 +208,24 @@ class Bamboo::Ingester
 
   end
 
-  def tei_header_xml
-    orig = @tei_xml.css("TEI > teiHeader")
-  end
-
   def title
-    tei_header_xml.css("teiHeader > fileDesc > titleStmt > title").text
+    @tei_header_doc.css("fileDesc > titleStmt > title").text
   end
 
   def tcpid
-    tei_header_xml.css("teiHeader > fileDesc > publicationStmt > idno[type='TCP']").text
+    @tei_header_doc.css("fileDesc > publicationStmt > idno[type='TCP']").text
   end
 
   def image_set_id
-    tei_header_xml.css("teiHeader > fileDesc > publicationStmt > idno[type='ImageSetID']").text
+    @tei_header_doc.css("fileDesc > publicationStmt > idno[type='ImageSetID']").text
   end
 
   def dlps_id
-    tei_header_xml.css("teiHeader > fileDesc > publicationStmt > idno[type='DLPS']").text
+    @tei_header_doc.css("fileDesc > publicationStmt > idno[type='DLPS']").text
   end
 
   def content_set
-    tei_header_xml.css("teiHeader > fileDesc > publicationStmt > idno[type='ContentSet']").text
+    @tei_header_doc.css("fileDesc > publicationStmt > idno[type='ContentSet']").text
   end
 
   def tcpid_to_pid

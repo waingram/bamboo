@@ -28,5 +28,33 @@ class Bamboo::TeiHeader < ActiveFedora::NokogiriDatastream
     }
 
   end # set_terminology
+  
+  def self.xml_template
+    builder = Nokogiri::XML::Builder.new do |xml|
+      xml.teiHeader('xmlns' => "http://www.tei-c.org/ns/1.0") {
+        xml.fileDesc {
+          xml.titleStmt {
+            xml.title
+            xml.author
+          }
+          xml.extent
+          xml.publicationStmt {
+            xml.publisher
+            xml.pubPlace
+            xml.date
+            xml.idno(:type => "DPLS")
+            xml.idno(:type => "ESTC")
+            xml.idno(:type => "DocNo")
+            xml.idno(:type => "TCP")
+            xml.idno(:type => "GaleDocNo")
+            xml.idno(:type => "ContentSet")
+            xml.idno(:type => "ImageSetID")
+            xml.availability
+          }
+        }
+      } 
+    end
+    return builder.doc
+  end 
 
 end # class
