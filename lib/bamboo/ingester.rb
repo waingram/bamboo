@@ -1,14 +1,12 @@
-
-
 class Bamboo::Ingester
   attr_accessor :unadorned_path
   attr_accessor :adorned_path
 
   def initialize(unadorned_path, adorned_path)
     @unadorned_path = unadorned_path
-    @adorned_path = adorned_path
+    @adorned_path   = adorned_path
   end
-  
+
   def load_tei(tei_filename)
     begin
       raise ArgumentError, "[ERROR] load_tei: #{File.join(@unadorned_path, tei_filename)} does not exist" unless File.exists? File.join(@unadorned_path, tei_filename)
@@ -16,21 +14,21 @@ class Bamboo::Ingester
       @tei_filename   = tei_filename
       @tei_doc        = Nokogiri::XML::Document.parse(File.read(File.join(@unadorned_path, @tei_filename)))
       @tei_header_doc = Nokogiri::XML::Document.new
-      tei_dup = @tei_doc.dup
+      tei_dup         = @tei_doc.dup
       @tei_header_doc.add_child(tei_dup.css("TEI > teiHeader"))
-      @pid            = tcpid_to_pid
+      @pid = tcpid_to_pid
     rescue
       raise
     end
   end
-  
+
   def image_urls
-    pbs   = @tei_doc.css("pb")
+    pbs  = @tei_doc.css("pb")
     urls = Array.new
-    
+
     pbs.each do |pb|
-      n = pb['n']
-      facs = pb['facs']
+      n         = pb['n']
+      facs      = pb['facs']
       image_url = gale_url(facs, n)
       #image_url = michigan_url(facs, n)
 
@@ -38,15 +36,15 @@ class Bamboo::Ingester
     end
     urls
   end
-    
+
 
   def ingest(tei_filename)
     begin
       load_tei(tei_filename)
-      book = create_book
-      tei = create_tei_object
+      book          = create_book
+      tei           = create_tei_object
       morph_adorned = create_morph_adorned_object
-      pages = create_page_image_objects
+      pages         = create_page_image_objects
       @pid
     rescue Exception => e
       puts e.message
@@ -59,12 +57,12 @@ class Bamboo::Ingester
       replacing_object(@pid) do
         book = Bamboo::Book.new(:pid => @pid)
         #TEI header ds
-        tei_header_ds                      = book.datastreams['descMetadata']
+        tei_header_ds = book.datastreams['descMetadata']
         # tei_header_ds.ng_xml               = Nokogiri::XML::Document.new
         # tei_header_ds.ng_xml               << tei_header_xml.to_xml
         tei_header_ds.ng_xml               = @tei_header_doc
         tei_header_ds.attributes[:dsLabel] = "TEI Header"
-        book.label = title
+        book.label                         = title
         book.save
         #PROPS
         props = book.datastreams['properties']
@@ -79,7 +77,7 @@ class Bamboo::Ingester
         props.uri_values << @tei_filename
         props.save
         #RELS
-        
+
         book.save
         return book
       end
@@ -97,7 +95,7 @@ class Bamboo::Ingester
         tei_obj = Bamboo::TeiText.new(:pid=>pid)
         #TEI ds
         tei_path = File.join(@unadorned_path, @tei_filename)
-        tei_ds = ActiveFedora::Datastream.new(:dsLabel => "TEI XML", :controlGroup => "M", :blob =>File.open(tei_path) )
+        tei_ds   = ActiveFedora::Datastream.new(:dsLabel => "TEI XML", :controlGroup => "M", :blob =>File.open(tei_path))
         tei_obj.add_datastream(tei_ds)
         #contentMetadata
         # content_metadata_ds = tei_obj.datastreams['contentMetadata']
@@ -116,26 +114,26 @@ class Bamboo::Ingester
     end
   end
 
-    def create_morph_adorned_object
-      pid = @pid + ".morphadorned"
-      begin
-        replacing_object(pid) do
-          morph_adorned_obj = Bamboo::MorphAdornedText.new(:pid=>pid)
-          #TEI ds
-          morph_adorned_path = File.join(@adorned_path, @tei_filename)
-          morph_adorned_ds = ActiveFedora::Datastream.new(:dsLabel => "Morph-Adorned XML", :controlGroup => "M", :blob =>File.open(morph_adorned_path) )
-          morph_adorned_obj.add_datastream(morph_adorned_ds)
-          #RELS
-          morph_adorned_obj.add_relationship(:is_derivation_of, ActiveFedora::Base.load_instance(@pid))
-          morph_adorned_obj.save
-          return morph_adorned_obj
-        end
-      rescue Exception => e
-        #puts e.backtrace
-        raise "[ERROR] create_morph_adorned_xml: #{e.message}"
+  def create_morph_adorned_object
+    pid = @pid + ".morphadorned"
+    begin
+      replacing_object(pid) do
+        morph_adorned_obj = Bamboo::MorphAdornedText.new(:pid=>pid)
+        #TEI ds
+        morph_adorned_path = File.join(@adorned_path, @tei_filename)
+        morph_adorned_ds   = ActiveFedora::Datastream.new(:dsLabel => "Morph-Adorned XML", :controlGroup => "M", :blob =>File.open(morph_adorned_path))
+        morph_adorned_obj.add_datastream(morph_adorned_ds)
+        #RELS
+        morph_adorned_obj.add_relationship(:is_derivation_of, ActiveFedora::Base.load_instance(@pid))
+        morph_adorned_obj.save
+        return morph_adorned_obj
       end
+    rescue Exception => e
+      #puts e.backtrace
+      raise "[ERROR] create_morph_adorned_xml: #{e.message}"
     end
-   
+  end
+
 
   def create_page_image_objects
     begin
@@ -145,9 +143,9 @@ class Bamboo::Ingester
         pid = "#{@pid}.#{i[:page]}"
         replacing_object(pid) do
           page_obj = Bamboo::PageImage.new(:pid=>pid)
-          img_ds = ActiveFedora::Datastream.new(:dsLabel=>"Page image #{i[:page]}", :mimeType=>'image/tiff', :controlGroup=>'E', :dsLocation=>i[:url])
-          page_obj.add_datastream(img_ds)   
-          page_obj.save  
+          img_ds   = ActiveFedora::Datastream.new(:dsLabel=>"Page image #{i[:page]}", :mimeType=>'image/tiff', :controlGroup=>'E', :dsLocation=>i[:url])
+          page_obj.add_datastream(img_ds)
+          page_obj.save
           #PROPS
           props = page_obj.datastreams['properties']
           props.seq_values << "#{i[:page]}"
@@ -178,14 +176,14 @@ class Bamboo::Ingester
     else
       # otherwise page number needs to be set to four digits, padded with zeros
       page_num = "%04d" % facs
-      num_str = image_set_id + page_num + "0"
+      num_str  = image_set_id + page_num + "0"
     end
 
     coda = "&contentSet=#{content_set}"
-    
-    url = intro + num_str + coda
+
+    url  = intro + num_str + coda
     page = num_str[-5..-2].to_i
-    
+
     {:page=>page, :n=>n, :url=>url}
 
   end
@@ -201,7 +199,7 @@ class Bamboo::Ingester
 
     #remove the leading zeros
     page = page.to_i.to_s
-    
+
     url = intro + dlps_id + "/" + page
 
     {:page=>page.to_i, :n=>n, :url=>url}
