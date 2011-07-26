@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foxml:digitalObject PID="bamboo-sDep:book-transcript-tei" VERSION="1.1" xmlns:foxml="info:fedora/fedora-system:def/foxml#"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="info:fedora/fedora-system:def/foxml# http://www.fedora.info/definitions/1/0/foxml1-1.xsd">
+  <foxml:objectProperties>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#state" VALUE="Active"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#label" VALUE="TEI SDEP using sgrep"/>
+    <foxml:property NAME="info:fedora/fedora-system:def/model#ownerId" VALUE="fedoraAdmin"/>
+  </foxml:objectProperties>
+  <foxml:datastream CONTROL_GROUP="E" ID="DS1" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2010-07-02T16:56:34.749Z" ID="DS1.0" LABEL="Programmer documentation" MIMETYPE="text/html">
+      <foxml:contentLocation REF="http://local.fedora.server/saxon/" TYPE="URL"/>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="WSDL" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2010-07-02T16:56:34.750Z" ID="WSDL1.0"
+      LABEL="WSDL definition for Addressable Image in Aware" MIMETYPE="text/xml" SIZE="11134">
+      <foxml:xmlContent>
+        <wsdl:definitions name="Core Bheavior" targetNamespace="bmech"
+          xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+          xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap"
+          xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/soap/encoding" xmlns:this="bmech"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+            <xsd:schema targetNamespace="bmech">
+              <xsd:simpleType name="PIDType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="DS1Type">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="parm1Type">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="xmlidType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="pagenumberType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="facsIdType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="typeType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="elementNameType">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+              <xsd:simpleType name="DS1Type">
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:schema>
+          </wsdl:types>
+          <wsdl:message name="getHeaderRequest">
+            <wsdl:part name="PID" type="this:PIDType"/>
+          </wsdl:message>
+          <wsdl:message name="getTOCRequest">
+            <wsdl:part name="PID" type="this:PIDType"/>
+          </wsdl:message>
+          <wsdl:message name="getFrontRequest">
+            <wsdl:part name="PID" type="this:PIDType"/>
+          </wsdl:message>
+          <wsdl:message name="getChunkRequest">
+            <wsdl:part name="PID" type="this:PIDType"/>
+            <wsdl:part name="xmlid" type="this:xmlidType"/>
+          </wsdl:message>
+          <wsdl:message name="getHeadingRequest">
+            <wsdl:part name="PID" type="this:PIDType"/>
+            <wsdl:part name="xmlid" type="this:xmlidType"/>
+          </wsdl:message>
+          <wsdl:message name="getTOCByTypeRequest">
+            <wsdl:part name="PID" type="this:PIDType"/>
+            <wsdl:part name="type" type="this:typeType"/>
+          </wsdl:message>
+          <wsdl:message name="getElementsByNameRequest">
+            <wsdl:part name="PID" type="this:PIDType"/>
+            <wsdl:part name="elementName" type="this:elementNameType"/>
+          </wsdl:message>
+          <wsdl:message name="getPageByNumberRequest">
+            <wsdl:part name="PID" type="this:PIDType"/>
+            <wsdl:part name="pagenumber" type="this:pagenumberType"/>
+          </wsdl:message>
+          <wsdl:message name="getPageByFacsRequest">
+            <wsdl:part name="PID" type="this:PIDType"/>
+            <wsdl:part name="facsId" type="this:facsIdType"/>
+          </wsdl:message>
+          <wsdl:message name="getPageTextByNumberRequest">
+            <wsdl:part name="PID" type="this:PIDType"/>
+            <wsdl:part name="pagenumber" type="this:pagenumberType"/>
+          </wsdl:message>
+          <wsdl:message name="getPageTextByFacsRequest">
+            <wsdl:part name="PID" type="this:PIDType"/>
+            <wsdl:part name="facsId" type="this:facsIdType"/>
+          </wsdl:message>
+          <wsdl:message name="reindexRequest">
+            <wsdl:part name="PID" type="this:PIDType"/>
+            <wsdl:part name="DS1" type="this:DS1Type"/>
+          </wsdl:message>
+          <wsdl:message name="dissemResponse">
+            <wsdl:part name="dissem" type="xsd:base64Binary"/>
+          </wsdl:message>
+          <wsdl:portType name="transcript-teiPortType">
+            <wsdl:operation name="getTOC">
+              <wsdl:input message="this:getTOCRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getTOCByType">
+              <wsdl:input message="this:getTOCByTypeRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getHeader">
+              <wsdl:input message="this:getHeaderRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getFront">
+              <wsdl:input message="this:getFrontRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getHeading">
+              <wsdl:input message="this:getHeadingRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getChunk">
+              <wsdl:input message="this:getChunkRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getElementsByName">
+              <wsdl:input message="this:getElementsByNameRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getPageByNumber">
+              <wsdl:input message="this:getPageByNumberRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getPageByFacs">
+              <wsdl:input message="this:getPageByFacsRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getPageTextByNumber">
+              <wsdl:input message="this:getPageTextByNumberRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="getPageTextByFacs">
+              <wsdl:input message="this:getPageTextByFacsRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+            <wsdl:operation name="reindex">
+              <wsdl:input message="this:reindexRequest"/>
+              <wsdl:output message="this:dissemResponse"/>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:service name="transcript-tei">
+            <wsdl:port binding="this:transcript-tei_http" name="transcript-tei_port">
+              <http:address location="LOCAL"/>
+            </wsdl:port>
+          </wsdl:service>
+          <wsdl:binding name="transcript-tei_http" type="this:transcript-teiPortType">
+            <http:binding verb="GET"/>
+            <wsdl:operation name="getTOC">
+              <http:operation location="http://local.fedora.server/sgrep/toc?item_id=(PID)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getTOCByType">
+              <http:operation location="http://local.fedora.server/sgrep/tocbytype?item_id=(PID)&amp;parm1=(type)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getHeader">
+              <http:operation location="http://local.fedora.server/sgrep/bib?item_id=(PID)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getFront">
+              <http:operation location="http://local.fedora.server/sgrep/front?item_id=(PID)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getHeading">
+              <http:operation location="http://local.fedora.server/sgrep/head?item_id=(PID)&amp;parm1=(xmlid)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getChunk">
+              <http:operation location="http://local.fedora.server/sgrep/chunk?item_id=(PID)&amp;parm1=(xmlid)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getElementsByName">
+              <http:operation location="http://local.fedora.server/sgrep/elementsByName?item_id=(PID)&amp;parm1=(elementName)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPageByNumber">
+              <http:operation location="http://local.fedora.server/sgrep/pagenum?item_id=(PID)&amp;parm1=(pagenumber)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPageByFacs">
+              <http:operation location="http://local.fedora.server/sgrep/pageByFacs?item_id=(PID)&amp;parm1=(facsId)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPageTextByNumber">
+              <http:operation location="http://local.fedora.server/sgrep/pagenum?item_id=(PID)&amp;parm1=(pagenumber)&amp;style=http://local.fedora.server/sgrep/xsl/strip_tags.xsl"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/plain"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPageTextByFacs">
+              <http:operation location="http://local.fedora.server/sgrep/pageByFacs?item_id=(PID)&amp;parm1=(facsId)&amp;style=http://local.fedora.server/sgrep/xsl/strip_tags.xsl"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/plain"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="reindex">
+              <http:operation location="http://local.fedora.server/sgrep/index?source=http://local.fedora.server/fedora/objects/(PID)/datastreams/DS1/content&amp;item_id=(PID)"/>
+              <wsdl:input>
+                <http:urlReplacement/>
+              </wsdl:input>
+              <wsdl:output>
+                <mime:content type="text/xml"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+        </wsdl:definitions>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="RELS-EXT" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2010-07-02T16:56:34.751Z" ID="RELS-EXT1.0" LABEL="Relationships to other objects"
+      MIMETYPE="text/xml" SIZE="708">
+      <foxml:xmlContent>
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+          <rdf:Description rdf:about="info:fedora/bamboo-sDep:book-transcript-tei">
+            <hasModel rdf:resource="info:fedora/fedora-system:ServiceDeployment-3.0" xmlns="info:fedora/fedora-system:def/model#"/>
+            <isDeploymentOf rdf:resource="info:fedora/bamboo-sDef:book-transcript" xmlns="info:fedora/fedora-system:def/model#"/>
+            <isContractorOf rdf:resource="info:fedora/bamboo-cModel:Bamboo_TeiText" xmlns="info:fedora/fedora-system:def/model#"/>
+            <isContractorOf rdf:resource="info:fedora/bamboo-cModel:Bamboo_MorphAdornedText" xmlns="info:fedora/fedora-system:def/model#"/>
+          </rdf:Description>
+        </rdf:RDF>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="SERVICE-PROFILE" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2010-07-02T16:56:34.751Z" ID="SERVICE-PROFILE1.0"
+      LABEL="Service Profile - Technical description of the service" MIMETYPE="text/xml" SIZE="1389">
+      <foxml:xmlContent>
+        <fsvp:serviceProfile bDefPID="bamboo-sDef:book-transcript" name="transcript-tei" xmlns:fsvp="http://fedora.comm.nsdlib.org/service/profile">
+          <fsvp:serviceDescription>Core Behavior for Hires Image</fsvp:serviceDescription>
+          <fsvp:serviceImplementation>
+            <fsvp:serviceLiveTestURL>http://local.fedora.server/saxon/SaxonServlet</fsvp:serviceLiveTestURL>
+            <fsvp:serviceMessagingProtocol>HTTP GET</fsvp:serviceMessagingProtocol>
+            <fsvp:serviceInputFormats>
+              <fsvp:MIMEType>text/xml</fsvp:MIMEType>
+            </fsvp:serviceInputFormats>
+            <fsvp:serviceOutputFormats>
+              <fsvp:MIMEType>text/xml</fsvp:MIMEType>
+              <fsvp:MIMEType>text/html</fsvp:MIMEType>
+              <fsvp:MIMEType>image/jpeg</fsvp:MIMEType>
+            </fsvp:serviceOutputFormats>
+            <fsvp:serviceImplDependencies>
+              <fsvp:software license="Mozilla_Public_License" name="Tomcat" opensource="true" type="Software_Library" version="5.5"/>
+              <fsvp:software license="MPL" name="SaxonServlet" opensource="true" type="Servlet" version="9.0.0.6"/>
+              <fsvp:software license="GPL" name="AwareServlet" opensource="true" type="Servlet" version="1.0"/>
+            </fsvp:serviceImplDependencies>
+          </fsvp:serviceImplementation>
+        </fsvp:serviceProfile>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="DC" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2010-07-02T16:56:34.751Z" ID="DC1.0" LABEL="Dublin Core Metadata"
+      MIMETYPE="text/xml" SIZE="393">
+      <foxml:xmlContent>
+        <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/"
+          xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>TEI SDEP using sgrep</dc:title>
+          <dc:identifier>bamboo-sDep:book-transcript-tei</dc:identifier>
+        </oai_dc:dc>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="DSINPUTSPEC" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2011-07-02T19:39:01.208Z"
+      FORMAT_URI="info:fedora/fedora-system:format/xml.mets.techMD.OTHER.UNSPECIFIED" ID="DSINPUTSPEC1.0"
+      LABEL="Datastream Input Specification for Service" MIMETYPE="text/xml" SIZE="411">
+      <foxml:xmlContent>
+        <fbs:DSInputSpec bDefPID="bamboo-sDef:book-transcript" label="Datastream Input Specification for Core Bheavior" xmlns:fbs="http://fedora.comm.nsdlib.org/service/bindspec">
+          <fbs:DSInput DSMax="1" DSMin="1" DSOrdinality="false" wsdlMsgPartName="DS1">
+            <fbs:DSInputLabel>TEI</fbs:DSInputLabel>
+            <fbs:DSMIME>text/xml</fbs:DSMIME>
+            <fbs:DSInputInstruction/>
+          </fbs:DSInput>
+        </fbs:DSInputSpec>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+  <foxml:datastream CONTROL_GROUP="X" ID="METHODMAP" STATE="A" VERSIONABLE="true">
+    <foxml:datastreamVersion CREATED="2010-07-02T16:56:34.751Z" ID="METHODMAP1.0"
+      LABEL="Mapping of WSDL to Fedora notion of Method Definitions" MIMETYPE="text/xml" SIZE="5737">
+      <foxml:xmlContent>
+        <fmm:MethodMap bDefPID="bamboo-sDef:book-transcript" name="MethodMap - Core Bheavior" xmlns:fmm="http://fedora.comm.nsdlib.org/service/methodmap">
+          <fmm:Method operationName="getTOC" wsdlMsgName="getTOCRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+          <fmm:Method operationName="getTOCByType" wsdlMsgName="getTOCByTypeRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="type" passBy="VALUE" required="yes"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+          <fmm:Method operationName="getHeader" wsdlMsgName="getHeaderRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+          <fmm:Method operationName="getFront" wsdlMsgName="getFrontRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+          <fmm:Method operationName="getHeading" wsdlMsgName="getHeadingRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="xmlid" passBy="VALUE" required="yes"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+          <fmm:Method operationName="getChunk" wsdlMsgName="getChunkRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="xmlid" passBy="VALUE" required="yes"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+          <fmm:Method operationName="getElementsByName" wsdlMsgName="getElementsByNameRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="elementName" passBy="VALUE" required="yes"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+          <fmm:Method operationName="getPageByNumber" wsdlMsgName="getPageByNumberRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="pagenumber" passBy="VALUE" required="yes"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+          <fmm:Method operationName="getPageByFacs" wsdlMsgName="getPageByFacsRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="facsId" passBy="VALUE" required="yes"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+          <fmm:Method operationName="getPageTextByNumber" wsdlMsgName="getPageTextByNumberRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="pagenumber" passBy="VALUE" required="yes"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/plain"/>
+          </fmm:Method>
+          <fmm:Method operationName="getPageTextByFacs" wsdlMsgName="getPageTextByFacsRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="The PID of the data object" parmName="PID" passBy="VALUE" required="true"/>
+            <fmm:UserInputParm defaultValue="" parmName="facsId" passBy="VALUE" required="yes"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/plain"/>
+          </fmm:Method>
+          <fmm:Method operationLabel="Reindex the TEI datastream." operationName="reindex" wsdlMsgName="reindexRequest" wsdlMsgOutput="dissemResponse">
+            <fmm:DefaultInputParm defaultValue="$PID" label="PID" parmName="PID" passBy="VALUE" required="false"/>
+            <fmm:DatastreamInputParm defaultValue="" label="TEI" parmName="DS1" passBy="URL_REF" required="true"/>
+            <fmm:MethodReturnType wsdlMsgName="dissemResponse" wsdlMsgTOMIME="text/xml"/>
+          </fmm:Method>
+        </fmm:MethodMap>
+      </foxml:xmlContent>
+    </foxml:datastreamVersion>
+  </foxml:datastream>
+</foxml:digitalObject>
