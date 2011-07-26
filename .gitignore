@@ -1,3 +1,5 @@
+config/fedora.yml
+
 log/*
 coverage.data
 coverage/*
