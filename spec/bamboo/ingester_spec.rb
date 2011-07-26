@@ -9,6 +9,7 @@ module Bamboo
     context "making Fedora objects" do
 
       before(:all) do
+        ENV['environment'] = 'test'
         ActiveFedora.init unless Thread.current[:repo]
 
         @unadorned_path = File.join PROJECT_ROOT, "spec", "fixtures", "ecco-unadorned"
@@ -22,24 +23,24 @@ module Bamboo
       end
 
       after(:all) do
-        # begin
-        #   @book.delete
-        # rescue
-        # end
-        # begin
-        #   @tei_obj.delete
-        # rescue
-        # end
-        # begin
-        #   @morph_adorned_obj.delete
-        # rescue
-        # end
-        # @page_images.each do |i|
-        #   begin
-        #     i.delete
-        #   rescue
-        #   end
-        # end unless @page_images.nil?
+        begin
+          @book.delete
+        rescue
+        end
+        begin
+          @tei_obj.delete
+        rescue
+        end
+        begin
+          @morph_adorned_obj.delete
+        rescue
+        end
+        @page_images.each do |i|
+          begin
+            i.delete
+          rescue
+          end
+        end unless @page_images.nil?
       end
 
       it "should gather valid gale image URLs" do
