@@ -66,15 +66,25 @@ class Bamboo::Ingester
         book.save
         #PROPS
         props = book.datastreams['properties']
-        puts tei_header_ds.term_values
-        props.title_values << tei_header_ds.term_values(:fileDesc, :titleStmt, :title).first
-        props.creator_values << tei_header_ds.term_values(:fileDesc, :titleStmt, :author).first
-        props.date_values << tei_header_ds.term_values(:fileDesc, :publicationStmt, :date).first
-        props.publisher_values << tei_header_ds.term_values(:fileDesc, :publicationStmt, :publisher).first
-        props.issued_values << tei_header_ds.term_values(:fileDesc, :publicationStmt, :date).first
-        props.identifier_values << "http//ramman.grainger.uiuc.edu/fedora/objects/#{@pid}"
-        props.source_values << "http://www.lib.umich.edu/tcp/ecco"
-        props.uri_values << @tei_filename
+        params = {
+          [:title] => tei_header_ds.term_values(:fileDesc, :titleStmt, :title).first,
+          [:creator] => tei_header_ds.term_values(:fileDesc, :titleStmt, :author).first,
+          [:date] => tei_header_ds.term_values(:fileDesc, :publicationStmt, :date).first,
+          [:publisher] => tei_header_ds.term_values(:fileDesc, :publicationStmt, :publisher).first,
+          [:issued] => tei_header_ds.term_values(:fileDesc, :publicationStmt, :date).first,
+          [:identifier] => "http//ramman.grainger.uiuc.edu/fedora/objects/#{@pid}",
+          [:source] => "http://www.lib.umich.edu/tcp/ecco",
+          [:uri] => @tei_filename
+        }
+        props.update_values(params)
+        # props.title_values << tei_header_ds.term_values(:fileDesc, :titleStmt, :title).first
+        # props.creator_values << tei_header_ds.term_values(:fileDesc, :titleStmt, :author).first
+        # props.date_values << tei_header_ds.term_values(:fileDesc, :publicationStmt, :date).first
+        # props.publisher_values << tei_header_ds.term_values(:fileDesc, :publicationStmt, :publisher).first
+        # props.issued_values << tei_header_ds.term_values(:fileDesc, :publicationStmt, :date).first
+        # props.identifier_values << "http//ramman.grainger.uiuc.edu/fedora/objects/#{@pid}"
+        # props.source_values << "http://www.lib.umich.edu/tcp/ecco"
+        # props.uri_values << @tei_filename
         props.save
         #RELS
 
@@ -148,9 +158,12 @@ class Bamboo::Ingester
           page_obj.save
           #PROPS
           props = page_obj.datastreams['properties']
-          props.seq_values << "#{i[:page]}"
-          props.page_values << "#{i[:n]}"
-          props.div_values << ""
+          params = {
+            [:seq] => "#{i[:page]}",
+            [:page] => "#{i[:n]}",
+            [:div] => ""
+          }
+          props.update_values(params)
           props.save
           #RELS
           page_obj.add_relationship(:is_part_of, ActiveFedora::Base.load_instance(@pid))
@@ -234,7 +247,7 @@ class Bamboo::Ingester
     begin
       object = ActiveFedora::Base.load_instance(pid)
       puts "[INFO] Replacing object: #{pid}"
-      puts object
+      # puts object
       object.delete unless object.nil?
     rescue ActiveFedora::ObjectNotFoundError
       puts "[INFO] Creating new object: #{pid}"
